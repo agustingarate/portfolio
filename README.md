@@ -89,6 +89,21 @@ También se pueden crear desde el panel: **Workers & Pages → agustingarate →
 
 Para desarrollo local, copiar `.env.example` a `.env` y completar los valores. `.env` está ignorado por Git.
 
+## CI/CD con GitHub Actions
+
+El workflow `.github/workflows/ci-cd.yml` ejecuta `pnpm format:check`, `pnpm lint` y `pnpm build` en pull requests y pushes a `development` o `main`.
+
+Al hacer merge o push a `main`, solo si esas validaciones pasan, publica automáticamente el Worker de producción. La rama `development` no publica producción: es el entorno de integración previo al merge.
+
+Antes del primer deploy automático, crear estos **Repository secrets** en GitHub: **Settings → Secrets and variables → Actions**.
+
+| Secret                  | Valor                                                                     |
+| ----------------------- | ------------------------------------------------------------------------- |
+| `CLOUDFLARE_API_TOKEN`  | API Token de Cloudflare con permiso de edición de Workers para la cuenta. |
+| `CLOUDFLARE_ACCOUNT_ID` | ID de la cuenta de Cloudflare propietaria del Worker.                     |
+
+No copies `RESEND_API_KEY` ni `TURNSTILE_SECRET_KEY` a GitHub: ya están guardados como secretos del Worker y Wrangler los preserva al desplegar. Para exigir aprobación manual antes de producción, configurar reviewers en el Environment `production` de GitHub.
+
 ## Formulario de contacto
 
 El formulario envía una solicitud a `/api/contact`. El Worker:
