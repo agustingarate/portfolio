@@ -38,13 +38,12 @@
   place-items: center;
   border-radius: 50%;
   background: var(--surface-low);
-  color: var(--on-surface-variant);
+  color: var(--on-surface);
   box-shadow: 0 4px 12px rgba(27, 28, 21, 0.05);
   transition: 300ms;
 }
 .technology:hover {
   background: var(--surface-high);
-  color: var(--primary);
   transform: scale(1.08);
 }
 .technology span {

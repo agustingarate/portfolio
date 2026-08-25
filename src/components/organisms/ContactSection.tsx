@@ -118,7 +118,7 @@ export function ContactSection({
               id="message"
               name="message"
               rows={4}
-              placeholder="Cuéntame un poco más sobre el contexto…"
+              placeholder="Contame un poco más sobre el contexto…"
             />
             <label className={styles.honeypot} htmlFor="website">
               Sitio web

@@ -15,17 +15,35 @@ export function SiteNavigation({
   const ids = useMemo(() => items.map((item) => item.href.slice(1)), [items]);
   const active = useActiveSection(ids);
   const [compact, setCompact] = useState(false);
+  const [immersive, setImmersive] = useState(false);
   useEffect(() => {
     const update = () => setCompact(window.scrollY > 50);
     update();
     window.addEventListener('scroll', update, { passive: true });
     return () => window.removeEventListener('scroll', update);
   }, []);
+  useEffect(() => {
+    const frame = requestAnimationFrame(() => {
+      setImmersive(document.body.dataset.ganttImmersive === 'true');
+    });
+    const update = (event: Event) => {
+      setImmersive(Boolean((event as CustomEvent<boolean>).detail));
+    };
+    window.addEventListener('gantt-immersive-change', update);
+    return () => {
+      cancelAnimationFrame(frame);
+      window.removeEventListener('gantt-immersive-change', update);
+    };
+  }, []);
   const [first, ...rest] = name.split(' ');
   const last = rest.join(' ');
   return (
     <>
-      <header className={styles.header}>
+      <header
+        className={`${styles.header} ${immersive ? styles.immersive : ''}`}
+        aria-hidden={immersive}
+        inert={immersive}
+      >
         <div className={styles.inner}>
           <a
             href="#inicio"
