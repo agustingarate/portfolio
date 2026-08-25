@@ -7,34 +7,34 @@ URL pública: <https://agustingarate.agarateprof.workers.dev>
 ## Requisitos
 
 - Node.js 20 o superior.
-- `npm`.
+- `pnpm` 11.20.0 (Corepack puede instalarlo automáticamente).
 - Una cuenta de Cloudflare autenticada con Wrangler para previsualizar o desplegar.
 
 Instalación inicial:
 
 ```bash
-npm install
-npx wrangler login
+pnpm install
+pnpm exec wrangler login
 ```
 
 ## Comandos
 
-| Comando              | Uso                                                                               |
-| -------------------- | --------------------------------------------------------------------------------- |
-| `npm run dev`        | Inicia Next.js en desarrollo, con recarga rápida.                                 |
-| `npm run lint`       | Ejecuta ESLint sobre el código fuente.                                            |
-| `npm run build`      | Genera el build de producción de Next.js.                                         |
-| `npm start`          | Sirve el último build de Next.js localmente. Ejecutar después de `npm run build`. |
-| `npm run preview`    | Construye con OpenNext y prueba el sitio en el runtime local de Cloudflare.       |
-| `npm run deploy`     | Construye y publica el Worker configurado.                                        |
-| `npm run cf-typegen` | Regenera `cloudflare-env.d.ts` al cambiar las variables de `wrangler.jsonc`.      |
+| Comando           | Uso                                                                            |
+| ----------------- | ------------------------------------------------------------------------------ |
+| `pnpm dev`        | Inicia Next.js en desarrollo, con recarga rápida.                              |
+| `pnpm lint`       | Ejecuta ESLint sobre el código fuente.                                         |
+| `pnpm build`      | Genera el build de producción de Next.js.                                      |
+| `pnpm start`      | Sirve el último build de Next.js localmente. Ejecutar después de `pnpm build`. |
+| `pnpm preview`    | Construye con OpenNext y prueba el sitio en el runtime local de Cloudflare.    |
+| `pnpm deploy`     | Construye y publica el Worker configurado.                                     |
+| `pnpm cf-typegen` | Regenera `cloudflare-env.d.ts` al cambiar las variables de `wrangler.jsonc`.   |
 
 Flujo recomendado antes de publicar:
 
 ```bash
-npm run lint
-npm run build
-npm run deploy
+pnpm lint
+pnpm build
+pnpm deploy
 ```
 
 ## Estructura
@@ -81,8 +81,8 @@ Variables actuales:
 Los secrets nunca deben estar en el repositorio. Para cargarlos desde terminal:
 
 ```bash
-npx wrangler secret put RESEND_API_KEY
-npx wrangler secret put TURNSTILE_SECRET_KEY
+pnpm exec wrangler secret put RESEND_API_KEY
+pnpm exec wrangler secret put TURNSTILE_SECRET_KEY
 ```
 
 También se pueden crear desde el panel: **Workers & Pages → agustingarate → Settings → Variables and Secrets → Add → Secret**.
