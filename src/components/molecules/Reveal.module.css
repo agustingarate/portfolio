@@ -1,2 +1,12 @@
-.reveal { opacity: 0; transform: translateY(40px) scale(.985); transition: opacity 500ms var(--ease-emphasized), transform 500ms var(--ease-emphasized); }
-.visible { opacity: 1; transform: translateY(0) scale(1); transition-delay: var(--reveal-delay); }
+.reveal {
+  opacity: 0;
+  transform: translateY(40px) scale(0.985);
+  transition:
+    opacity 500ms var(--ease-emphasized),
+    transform 500ms var(--ease-emphasized);
+}
+.visible {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+  transition-delay: var(--reveal-delay);
+}

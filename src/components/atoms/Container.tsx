@@ -1,5 +1,11 @@
-import styles from "./Container.module.css";
+import styles from './Container.module.css';
 
-export function Container({ children, className = "" }: { children: React.ReactNode; className?: string }) {
+export function Container({
+  children,
+  className = '',
+}: {
+  children: React.ReactNode;
+  className?: string;
+}) {
   return <div className={`${styles.container} ${className}`}>{children}</div>;
 }

@@ -1,2 +1,19 @@
-.glow { --pointer-x: 50vw; --pointer-y: 50vh; position: fixed; inset: 0; z-index: 60; pointer-events: none; mix-blend-mode: soft-light; background: radial-gradient(circle 800px at var(--pointer-x) var(--pointer-y), rgba(76,50,255,.15), transparent 70%); }
-@media (pointer: coarse), (prefers-reduced-motion: reduce) { .glow { display: none; } }
+.glow {
+  --pointer-x: 50vw;
+  --pointer-y: 50vh;
+  position: fixed;
+  inset: 0;
+  z-index: 60;
+  pointer-events: none;
+  mix-blend-mode: soft-light;
+  background: radial-gradient(
+    circle 800px at var(--pointer-x) var(--pointer-y),
+    rgba(76, 50, 255, 0.15),
+    transparent 70%
+  );
+}
+@media (pointer: coarse), (prefers-reduced-motion: reduce) {
+  .glow {
+    display: none;
+  }
+}

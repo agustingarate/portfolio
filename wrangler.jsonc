@@ -5,13 +5,13 @@
   "compatibility_date": "2026-08-24",
   "compatibility_flags": ["nodejs_compat"],
   "vars": {
-    "CONTACT_EMAIL": "agarateprof@gmail.com"
+    "CONTACT_EMAIL": "agarateprof@gmail.com",
   },
   "assets": {
     "directory": ".open-next/assets",
-    "binding": "ASSETS"
+    "binding": "ASSETS",
   },
   "observability": {
-    "enabled": true
-  }
+    "enabled": true,
+  },
 }

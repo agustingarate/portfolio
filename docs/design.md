@@ -115,6 +115,7 @@ spacing:
 The design system is crafted for a software developer portfolio that prioritizes product thinking and mobile expertise. The brand personality is **sophisticated, approachable, and intellectually curious**. It balances the precision of engineering with the warmth of a high-end editorial publication.
 
 The chosen design style is **Modern Editorial with Soft Organicism**. It moves away from the rigid "dashboard" aesthetic of typical developer tools in favor of:
+
 - **Spaciousness:** Large white-space areas that let the code and case studies breathe.
 - **Fluidity:** Soft transitions and sinuous layouts that mimic natural movement.
 - **Warmth:** A foundation of off-whites and creams that feel more "paper-like" and premium than clinical pure white.
@@ -130,7 +131,7 @@ The palette is built on a **warm-neutral foundation** to establish a "studio" fe
 
 ## Typography
 
-The typography strategy focuses on **high-end legibility and characterful hierarchy**. 
+The typography strategy focuses on **high-end legibility and characterful hierarchy**.
 
 - **Headlines:** Hanken Grotesk provides a modern, sharp edge that suggests engineering precision. Headlines should have slightly tighter tracking for a professional, editorial look.
 - **Body:** Inter is used for its exceptional readability in technical contexts. We increase the line-height (1.6x) and add a tiny amount of tracking to ensure the "warm" feeling is maintained in long-form text.

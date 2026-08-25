@@ -40,5 +40,8 @@
 }
 
 @media (max-width: 767px) {
-  :root { --page-gutter: 20px; --header-height: 0px; }
+  :root {
+    --page-gutter: 20px;
+    --header-height: 0px;
+  }
 }

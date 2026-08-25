@@ -1,16 +1,110 @@
-.section { margin: 128px 0 64px; scroll-margin-top: 128px; }
-.grid { display: grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap: 24px; }
-.grid > div:nth-last-child(-n+2) { grid-column: span 1; }
-.marquee { position: relative; width: 100%; margin-bottom: 128px; overflow: hidden; padding: 52px 0; }
-.track { display: flex; width: max-content; gap: 32px; padding-left: 32px; animation: marquee-scroll 20s linear infinite; will-change: transform; }
-.track:hover, .track:focus-within { animation-play-state: paused; }
-.technology { position: relative; display: grid; width: 80px; height: 80px; flex: none; place-items: center; border-radius: 50%; background: var(--surface-low); color: var(--on-surface-variant); box-shadow: 0 4px 12px rgba(27,28,21,.05); transition: 300ms; }
-.technology:hover { background: var(--surface-high); color: var(--primary); transform: scale(1.08); }
-.technology span { position: absolute; bottom: calc(100% + 10px); left: 50%; padding: 6px 10px; border: 1px solid rgba(199,196,218,.35); border-radius: 8px; background: var(--surface-low); color: var(--on-surface); font: 600 11px/14px var(--font-geist), sans-serif; white-space: nowrap; opacity: 0; pointer-events: none; transform: translate(-50%,5px); transition: 300ms; }
-.technology:hover span { opacity: 1; transform: translate(-50%,0); }
-.fadeLeft, .fadeRight { position: absolute; top: 0; bottom: 0; z-index: 2; width: 128px; pointer-events: none; }
-.fadeLeft { left: 0; background: linear-gradient(90deg,var(--background),transparent); }
-.fadeRight { right: 0; background: linear-gradient(-90deg,var(--background),transparent); }
-@keyframes marquee-scroll { to { transform: translate3d(calc(-50% - 16px), 0, 0); } }
-@media (max-width: 900px) { .grid { grid-template-columns: repeat(2,minmax(0,1fr)); } }
-@media (max-width: 600px) { .section { margin-top: 112px; } .grid { grid-template-columns: 1fr; } .fadeLeft,.fadeRight { width: 48px; } }
+.section {
+  margin: 128px 0 64px;
+  scroll-margin-top: 128px;
+}
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 24px;
+}
+.grid > div:nth-last-child(-n + 2) {
+  grid-column: span 1;
+}
+.marquee {
+  position: relative;
+  width: 100%;
+  margin-bottom: 128px;
+  overflow: hidden;
+  padding: 52px 0;
+}
+.track {
+  display: flex;
+  width: max-content;
+  gap: 32px;
+  padding-left: 32px;
+  animation: marquee-scroll 20s linear infinite;
+  will-change: transform;
+}
+.track:hover,
+.track:focus-within {
+  animation-play-state: paused;
+}
+.technology {
+  position: relative;
+  display: grid;
+  width: 80px;
+  height: 80px;
+  flex: none;
+  place-items: center;
+  border-radius: 50%;
+  background: var(--surface-low);
+  color: var(--on-surface-variant);
+  box-shadow: 0 4px 12px rgba(27, 28, 21, 0.05);
+  transition: 300ms;
+}
+.technology:hover {
+  background: var(--surface-high);
+  color: var(--primary);
+  transform: scale(1.08);
+}
+.technology span {
+  position: absolute;
+  bottom: calc(100% + 10px);
+  left: 50%;
+  padding: 6px 10px;
+  border: 1px solid rgba(199, 196, 218, 0.35);
+  border-radius: 8px;
+  background: var(--surface-low);
+  color: var(--on-surface);
+  font:
+    600 11px/14px var(--font-geist),
+    sans-serif;
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
+  transform: translate(-50%, 5px);
+  transition: 300ms;
+}
+.technology:hover span {
+  opacity: 1;
+  transform: translate(-50%, 0);
+}
+.fadeLeft,
+.fadeRight {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  z-index: 2;
+  width: 128px;
+  pointer-events: none;
+}
+.fadeLeft {
+  left: 0;
+  background: linear-gradient(90deg, var(--background), transparent);
+}
+.fadeRight {
+  right: 0;
+  background: linear-gradient(-90deg, var(--background), transparent);
+}
+@keyframes marquee-scroll {
+  to {
+    transform: translate3d(calc(-50% - 16px), 0, 0);
+  }
+}
+@media (max-width: 900px) {
+  .grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+@media (max-width: 600px) {
+  .section {
+    margin-top: 112px;
+  }
+  .grid {
+    grid-template-columns: 1fr;
+  }
+  .fadeLeft,
+  .fadeRight {
+    width: 48px;
+  }
+}

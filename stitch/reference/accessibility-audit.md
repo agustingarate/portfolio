@@ -1,4 +1,4 @@
-I've completed the accessibility audit for your portfolio screen (Portfolio - Interactive Gantt Bubble Scale on Scroll). 
+I've completed the accessibility audit for your portfolio screen (Portfolio - Interactive Gantt Bubble Scale on Scroll).
 
 While the design is visually striking and follows a clear semantic heading structure, the audit identified a few critical areas for improvement to meet WCAG 2.1 Level AA standards:
 
