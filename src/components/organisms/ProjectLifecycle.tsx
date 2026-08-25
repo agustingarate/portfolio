@@ -25,10 +25,24 @@ export function ProjectLifecycle({
     if (!node) return;
     let start = 0;
     let distance = 1;
+    let pinnedHeight = window.innerHeight;
     let frame = 0;
+    let immersive = false;
+    const setImmersive = (next: boolean) => {
+      if (next === immersive) return;
+      immersive = next;
+      if (next) {
+        document.body.dataset.ganttImmersive = 'true';
+      } else {
+        delete document.body.dataset.ganttImmersive;
+      }
+      window.dispatchEvent(
+        new CustomEvent('gantt-immersive-change', { detail: next }),
+      );
+    };
     const measure = () => {
       start = node.getBoundingClientRect().top + window.scrollY;
-      const pinnedHeight =
+      pinnedHeight =
         node.firstElementChild?.getBoundingClientRect().height ??
         window.innerHeight;
       distance = Math.max(1, node.offsetHeight - pinnedHeight);
@@ -41,6 +55,12 @@ export function ProjectLifecycle({
       );
       if (todayRef.current)
         todayRef.current.style.left = `${(next * 100).toFixed(3)}%`;
+      const bounds = node.getBoundingClientRect();
+      setImmersive(
+        window.innerWidth >= 768 &&
+          bounds.top <= 116 &&
+          bounds.bottom >= pinnedHeight + 24,
+      );
       const nextActive = phases.reduce(
         (current, phase) =>
           phase.startWeek <= next * TOTAL_WEEKS ? phase : current,
@@ -64,6 +84,7 @@ export function ProjectLifecycle({
     window.addEventListener('resize', handleResize);
     window.addEventListener('orientationchange', handleResize);
     return () => {
+      setImmersive(false);
       cancelAnimationFrame(frame);
       window.removeEventListener('scroll', requestUpdate);
       window.removeEventListener('resize', handleResize);

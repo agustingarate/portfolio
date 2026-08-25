@@ -4,9 +4,8 @@
 }
 .sticky {
   position: sticky;
-  top: 116px;
-  height: 680px;
-  overflow: hidden;
+  top: 24px;
+  height: max-content;
 }
 .sticky h3 {
   margin: 0 0 32px;
@@ -21,7 +20,7 @@
   background: var(--surface-low);
 }
 .chart {
-  min-width: 900px;
+  min-width: 0;
 }
 .weekHeader {
   display: grid;
@@ -151,7 +150,7 @@
   padding: 22px 28px;
   border-top: 1px solid
     color-mix(in srgb, var(--outline-variant) 55%, transparent);
-  border-radius: 0 0 var(--radius-lg) var(--radius-lg);
+  border-radius: 0 0 var(--radius-xl) var(--radius-xl);
   background: var(--surface-low);
 }
 .description strong {
@@ -166,6 +165,33 @@
   color: var(--on-surface);
   font-size: 16px;
   line-height: 1.55;
+}
+@media (min-width: 768px) and (max-height: 760px) {
+  .sticky h3 {
+    margin-bottom: 20px;
+    font-size: 21px;
+    line-height: 28px;
+  }
+  .weekHeader {
+    padding: 16px 0 10px;
+  }
+  .rows {
+    padding: 20px 0 8px;
+  }
+  .rows::before,
+  .progressArea {
+    inset-block: 20px 8px;
+  }
+  .row {
+    min-height: 40px;
+  }
+  .hint {
+    padding-block: 8px;
+  }
+  .description {
+    min-height: 96px;
+    padding-block: 16px;
+  }
 }
 @media (max-width: 767px) {
   .wrapper {
