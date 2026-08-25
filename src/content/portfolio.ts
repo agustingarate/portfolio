@@ -21,6 +21,7 @@ export const portfolioContent = {
     title: 'Agustin Garate — Software Developer',
     description:
       'Portfolio de desarrollo de productos digitales, experiencias móviles e inteligencia artificial.',
+    siteUrl: 'https://agustingarate.com',
   },
   navigation: [
     { label: 'Inicio', href: '#inicio', icon: 'home' },
@@ -30,10 +31,10 @@ export const portfolioContent = {
     { label: 'Contacto', href: '#contacto', icon: 'mail' },
   ] satisfies readonly NavigationItem[],
   hero: {
+    headline: 'Hola, soy Agus — Ingeniero de software',
     phrases: [
       'Hola! Soy Agus',
-      'Construyo productos digitales modernos y escalables pensados para las personas ',
-      // 'Transformo problemas complejos en soluciones técnicas sólidas.',
+      'Construyo productos digitales modernos y escalables pensados para las personas.',
       'Desarrollo experiencias móviles, web y ecosistemas impulsados por IA.',
     ],
     description:
