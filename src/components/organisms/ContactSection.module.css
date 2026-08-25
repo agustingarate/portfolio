@@ -17,4 +17,6 @@
 .grid input:not([type="radio"]), .grid textarea { width: 100%; border: 1px solid transparent; border-radius: var(--radius-md); background: var(--surface); color: var(--on-surface); padding: 16px 24px; resize: none; }
 .grid input:not([type="radio"]):focus, .grid textarea:focus { border-color: var(--primary); outline: 2px solid color-mix(in srgb,var(--primary) 25%,transparent); }
 .status { min-height: 20px; margin: 0; color: var(--on-surface-variant); font-size: 13px; text-align: center; }
+.honeypot { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; }
+.turnstile { min-height: 65px; }
 @media (max-width: 800px) { .grid { grid-template-columns: 1fr; } .container { padding-block: 40px; } .description { font-size: 17px; } }

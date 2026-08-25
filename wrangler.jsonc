@@ -1,9 +1,12 @@
 {
   "$schema": "node_modules/wrangler/config-schema.json",
-  "name": "portfolio",
+  "name": "agustingarate",
   "main": ".open-next/worker.js",
   "compatibility_date": "2026-08-24",
   "compatibility_flags": ["nodejs_compat"],
+  "vars": {
+    "CONTACT_EMAIL": "agarateprof@gmail.com"
+  },
   "assets": {
     "directory": ".open-next/assets",
     "binding": "ASSETS"

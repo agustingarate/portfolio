@@ -86,6 +86,7 @@ export const portfolioContent = {
     title: "Empecemos un proyecto",
     description: "Cuéntame sobre tu idea o desafío. Siempre estoy abierto a discutir nuevos proyectos y oportunidades.",
     email: "agarateprof@gmail.com",
+    turnstileSiteKey: "0x4AAAAAAEavAZEwMjd8a5sv",
     projectTypes: [
       { label: "Mobile App", value: "mobile" }, { label: "Web App", value: "web" },
       { label: "Automatización", value: "automation" }, { label: "Otro", value: "other" },
