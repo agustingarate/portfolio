@@ -9,6 +9,8 @@ import type {
   Technology,
 } from './portfolio.types';
 
+const helloEmail = 'hola@agustingarate.com';
+
 export const portfolioContent = {
   identity: {
     name: 'Agustin Garate',
@@ -278,7 +280,7 @@ export const portfolioContent = {
     title: 'Contactame',
     description:
       'Contame sobre tu idea o desafío. Siempre estoy abierto a discutir nuevos proyectos y oportunidades.',
-    email: 'hola@gmail.com',
+    email: helloEmail,
     turnstileSiteKey: '0x4AAAAAAEavAZEwMjd8a5sv',
     projectTypes: [
       { label: 'Mobile App', value: 'mobile' },
@@ -288,10 +290,14 @@ export const portfolioContent = {
     ] satisfies readonly ProjectType[],
   },
   socials: [
-    { label: 'LinkedIn', href: 'https://www.linkedin.com/in/agustin-garate/', icon: 'linkedin' },
+    {
+      label: 'LinkedIn',
+      href: 'https://www.linkedin.com/in/agustin-garate/',
+      icon: 'linkedin',
+    },
     { label: 'GitHub', href: '#', icon: 'github' },
     { label: 'Descargar CV', href: '#', icon: 'download' },
-    { label: 'Email', href: 'mailto:hola@agustingarate.com', icon: 'mail' },
+    { label: helloEmail, href: `mailto:${helloEmail}`, icon: 'mail' },
   ] satisfies readonly SocialLink[],
   footer: {
     copyright: `Diseñado y desarrollado por mi - Todos los derechos reservados.`,

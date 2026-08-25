@@ -16,15 +16,7 @@ export function SiteFooter({
         <a href="#inicio" className={styles.name}>
           {name}
         </a>
-        <div className={styles.links}>
-          {socials
-            .filter((s) => s.label !== 'Descargar CV')
-            .map((social) => (
-              <a href={social.href} key={social.label}>
-                {social.label}
-              </a>
-            ))}
-        </div>
+
         <p>
           © {new Date().getFullYear()} {copyright}
         </p>
