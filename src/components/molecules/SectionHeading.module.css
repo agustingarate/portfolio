@@ -1,0 +1,4 @@
+.heading { max-width: 768px; margin-bottom: 48px; }
+.heading h2 { margin: 0 0 24px; color: var(--on-surface); font: 500 clamp(32px, 3.75vw, 48px)/1.17 var(--font-hanken), sans-serif; letter-spacing: -.01em; }
+.heading p { margin: 0; color: var(--on-surface-variant); font-size: 20px; line-height: 1.6; letter-spacing: .01em; }
+@media (max-width: 767px) { .heading { margin-bottom: 32px; } .heading p { font-size: 16px; line-height: 1.625; } }

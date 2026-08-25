@@ -1,0 +1,44 @@
+:root {
+  --background: #fbfaee;
+  --on-background: #1b1c15;
+  --surface: #fbfaee;
+  --surface-lowest: #ffffff;
+  --surface-low: #f5f4e8;
+  --surface-container: #efeee3;
+  --surface-high: #e9e9dd;
+  --surface-highest: #e4e3d7;
+  --surface-dim: #dbdbcf;
+  --on-surface: #1b1c15;
+  --on-surface-variant: #464557;
+  --outline: #777589;
+  --outline-variant: #c7c4da;
+  --primary: #3300e0;
+  --primary-container: #4c32ff;
+  --on-primary: #ffffff;
+  --on-primary-container: #d7d3ff;
+  --primary-fixed: #e3dfff;
+  --primary-fixed-dim: #c4c0ff;
+  --tertiary: #832400;
+  --accent-blue: #d0e8ff;
+  --accent-green: #dff6f0;
+  --accent-coral: #ffd8d8;
+  --accent-lilac: #e3dfff;
+  --error: #ba1a1a;
+
+  --space-unit: 8px;
+  --container-max: 1280px;
+  --page-gutter: 64px;
+  --header-height: 96px;
+  --radius-sm: 8px;
+  --radius-md: 16px;
+  --radius-lg: 24px;
+  --radius-xl: 32px;
+  --radius-pill: 9999px;
+  --ease-standard: cubic-bezier(0.2, 0, 0, 1);
+  --ease-emphasized: cubic-bezier(0.22, 1, 0.36, 1);
+  --shadow-soft: 0 16px 50px rgba(27, 28, 21, 0.06);
+}
+
+@media (max-width: 767px) {
+  :root { --page-gutter: 20px; --header-height: 0px; }
+}

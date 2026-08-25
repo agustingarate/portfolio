@@ -1,0 +1,8 @@
+.footer { padding: 48px 0; border-top: 1px solid rgba(199,196,218,.1); background: var(--surface-low); }
+.inner { display: flex; align-items: center; justify-content: space-between; gap: 32px; }
+.name { font: 500 32px/40px var(--font-hanken),sans-serif; }
+.links { display: flex; flex-wrap: wrap; justify-content: center; gap: 24px; }
+.links a,.inner p { color: var(--on-surface-variant); }
+.links a:hover { color: var(--primary); }
+.inner p { margin: 0; text-align: right; }
+@media (max-width: 800px) { .inner { flex-direction: column; } .inner p { text-align: center; } }

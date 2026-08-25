@@ -1,0 +1,9 @@
+.card { padding: 32px; border-radius: var(--radius-xl); background: var(--surface-low); transition: background 300ms, transform 300ms; }
+.card:hover { background: var(--surface-container); transform: translateY(-3px); }
+.featured { grid-column: span 2; }
+.title { display: flex; align-items: center; gap: 16px; margin-bottom: 16px; color: var(--on-surface); }
+.title h3 { margin: 0; font: 600 24px/32px var(--font-hanken), sans-serif; }
+.card:hover .title { color: var(--primary); }
+.card p { margin: 0; color: var(--on-surface-variant); }
+.detail { max-width: 720px; margin-top: 16px !important; font-size: 13px; font-style: italic; opacity: .8; }
+@media (max-width: 767px) { .featured { grid-column: auto; } .card { padding: 24px; } }
