@@ -46,6 +46,35 @@ const paths: Record<IconName, React.ReactNode> = {
       <path d="M3 9h18M8 9v11" />
     </>
   ),
+  figma: (
+    <>
+      <path d="M8.5 2H12v7H8.5a3.5 3.5 0 1 1 0-7Z" />
+      <path d="M12 2h3.5a3.5 3.5 0 1 1 0 7H12V2Z" />
+      <path d="M8.5 9H12v7H8.5a3.5 3.5 0 1 1 0-7Z" />
+      <circle cx="15.5" cy="12.5" r="3.5" />
+      <path d="M8.5 16H12v3.5A3.5 3.5 0 1 1 8.5 16Z" />
+    </>
+  ),
+  flutter: (
+    <>
+      <path
+        d="M14.5 2H21L8.15 14.85 4.9 11.6 14.5 2Z"
+        fill="currentColor"
+        stroke="none"
+      />
+      <path
+        d="m11.35 15.15 3.25-3.25H21l-6.4 6.4-3.25-3.15Z"
+        fill="currentColor"
+        stroke="none"
+      />
+      <path
+        d="m8.15 18.35 3.2-3.2 6.5 6.45h-6.5l-3.2-3.25Z"
+        fill="currentColor"
+        stroke="none"
+        opacity=".68"
+      />
+    </>
+  ),
   github: (
     <>
       <path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3.3-.4 6.8-1.6 6.8-7A5.5 5.5 0 0 0 19.3 4 5.1 5.1 0 0 0 19.1.5S17.9.1 15 2a13.4 13.4 0 0 0-7 0C5.1.1 3.9.5 3.9.5A5.1 5.1 0 0 0 3.7 4a5.5 5.5 0 0 0-1.5 3.8c0 5.4 3.5 6.6 6.8 7A4.8 4.8 0 0 0 8 18v4" />
@@ -82,6 +111,57 @@ const paths: Record<IconName, React.ReactNode> = {
       <path d="M11 18h2" />
     </>
   ),
+  nodejs: (
+    <>
+      <path d="m12 2 8.5 5v10L12 22l-8.5-5V7L12 2Z" />
+      <path d="M8 16V8l8 8V8" />
+    </>
+  ),
+  python: (
+    <>
+      <path d="M12 3H8.5A3.5 3.5 0 0 0 5 6.5V10h7a2 2 0 0 1 2 2v1" />
+      <path d="M12 21h3.5a3.5 3.5 0 0 0 3.5-3.5V14h-7a2 2 0 0 1-2-2v-1" />
+      <circle cx="9" cy="6.5" r=".75" fill="currentColor" stroke="none" />
+      <circle cx="15" cy="17.5" r=".75" fill="currentColor" stroke="none" />
+    </>
+  ),
+  react: (
+    <>
+      <ellipse cx="12" cy="12" rx="10" ry="4" />
+      <ellipse cx="12" cy="12" rx="10" ry="4" transform="rotate(60 12 12)" />
+      <ellipse cx="12" cy="12" rx="10" ry="4" transform="rotate(120 12 12)" />
+      <circle cx="12" cy="12" r="1.5" fill="currentColor" stroke="none" />
+    </>
+  ),
+  'react-native': (
+    <>
+      <rect x="6.5" y="1.5" width="11" height="21" rx="2.5" />
+      <g fill="currentColor" stroke="none">
+        <ellipse cx="12" cy="12" rx="4.15" ry="1.15" />
+        <ellipse
+          cx="12"
+          cy="12"
+          rx="4.15"
+          ry="1.15"
+          transform="rotate(60 12 12)"
+        />
+        <ellipse
+          cx="12"
+          cy="12"
+          rx="4.15"
+          ry="1.15"
+          transform="rotate(120 12 12)"
+        />
+      </g>
+    </>
+  ),
+  expo: (
+    <>
+      <circle cx="12" cy="12" r="9.5" />
+      <path d="M6.5 16.5 10.7 8c.6-1.2 2-1.2 2.6 0l4.2 8.5" />
+      <path d="m9 13 3-5 3 5" />
+    </>
+  ),
   person: (
     <>
       <circle cx="10" cy="8" r="4" />
@@ -103,6 +183,18 @@ const paths: Record<IconName, React.ReactNode> = {
   sparkles: (
     <>
       <path d="m12 3-1.2 3.8L7 8l3.8 1.2L12 13l1.2-3.8L17 8l-3.8-1.2L12 3ZM5 14l-.8 2.2L2 17l2.2.8L5 20l.8-2.2L8 17l-2.2-.8L5 14ZM19 13l-.6 1.4L17 15l1.4.6L19 17l.6-1.4L21 15l-1.4-.6L19 13Z" />
+    </>
+  ),
+  swift: (
+    <>
+      <path d="M4 4c4.5 5 8.5 7.3 12 8-2.4-1.7-4.5-4-6-7 4 3.4 7.5 5.3 10 6.2" />
+      <path d="M20 11.2c1.3 2.7.5 6.2-1.6 7.6-2.2 1.5-4.8-.3-6.8-.3-2.3 0-3.9 1.3-7.6-.5 3.8.3 6.3-1.2 8-2.5-3.4-.3-6.5-2.1-8.5-4.6 3.6 2.3 7.3 3.5 10.4 3.3" />
+    </>
+  ),
+  tailwind: (
+    <>
+      <path d="M3 10c2.4-3.2 4.8-4.8 7.2-4.8 3.6 0 4.1 2.7 5.9 3.2 1.2.3 2.3-.5 3.4-2.4-2.4 3.2-4.8 4.8-7.2 4.8-3.6 0-4.1-2.7-5.9-3.2C5.2 7.3 4.1 8.1 3 10Z" />
+      <path d="M3 18c2.4-3.2 4.8-4.8 7.2-4.8 3.6 0 4.1 2.7 5.9 3.2 1.2.3 2.3-.5 3.4-2.4-2.4 3.2-4.8 4.8-7.2 4.8-3.6 0-4.1-2.7-5.9-3.2-1.2-.3-2.3.5-3.4 2.4Z" />
     </>
   ),
   web: (

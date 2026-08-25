@@ -5,6 +5,15 @@
   height: 96px;
   background: color-mix(in srgb, var(--surface) 70%, transparent);
   backdrop-filter: blur(20px);
+  transition:
+    transform 500ms var(--ease-emphasized),
+    opacity 300ms var(--ease-standard);
+  will-change: transform;
+}
+.header.immersive {
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(calc(-100% - 16px));
 }
 .inner {
   display: flex;
@@ -111,5 +120,10 @@
     background: var(--primary-container);
     color: var(--on-primary-container);
     transform: scale(0.95);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .header {
+    transition-duration: 1ms;
   }
 }
