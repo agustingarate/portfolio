@@ -70,7 +70,7 @@ export function SiteNavigation({
             ))}
           </nav>
           <a className={styles.cta} href="#contacto">
-            Hablemos
+            Ir al contacto
           </a>
         </div>
       </header>

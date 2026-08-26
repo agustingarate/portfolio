@@ -5,12 +5,14 @@ import { OrganicShader } from './OrganicShader';
 import styles from './HeroSection.module.css';
 
 type HeroProps = {
+  headline?: string;
   phrases: readonly string[];
   description: string;
   primaryAction: { label: string; href: string };
   secondaryAction: { label: string; href: string };
 };
 export function HeroSection({
+  headline = 'Hola, soy Agus — Ingeniero de software',
   phrases,
   description,
   primaryAction,
@@ -23,9 +25,10 @@ export function HeroSection({
       <div className={styles.overlay} />
       <div className={styles.content}>
         <h1>
-          <span>{text}</span>
-          <span className={styles.cursor} aria-hidden="true">
-            |
+          <span className={styles.srOnly}>{headline}</span>
+          <span aria-hidden="true">
+            {text}
+            <span className={styles.cursor}>|</span>
           </span>
         </h1>
         <p>{description}</p>

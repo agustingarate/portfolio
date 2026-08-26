@@ -1,5 +1,6 @@
 import type { SocialLink } from '@/content/portfolio.types';
 import { Container } from '@/components/atoms/Container';
+import { ShareButton } from '@/components/molecules/ShareButton';
 import styles from './SiteFooter.module.css';
 export function SiteFooter({
   name,
@@ -16,7 +17,7 @@ export function SiteFooter({
         <a href="#inicio" className={styles.name}>
           {name}
         </a>
-
+        <ShareButton />
         <p>
           © {new Date().getFullYear()} {copyright}
         </p>
