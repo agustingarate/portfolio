@@ -65,8 +65,12 @@ export function ContactSection({
             <p className={styles.description}>{description}</p>
             <div className={styles.socials}>
               {socials.map((social) => (
-                <a key={social.label} href={social.href}>
-                  <Icon name={social.icon} />
+                <a
+                  key={social.label}
+                  href={social.href}
+                  data-contact-icon={social.icon}
+                >
+                  <Icon name={social.icon} size={20} />
                   {social.label}
                 </a>
               ))}

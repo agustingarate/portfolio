@@ -1,4 +1,5 @@
 import type {
+  Education,
   Experience,
   LifecyclePhase,
   NavigationItem,
@@ -38,41 +39,73 @@ export const portfolioContent = {
       'Desarrollo experiencias móviles, web y ecosistemas impulsados por IA.',
     ],
     description:
-      'Especializado en experiencias multiplataforma y ecosistemas impulsados por IA, puenteando la brecha entre la ingeniería robusta y el diseño intuitivo. Mi enfoque es crear soluciones que se sientan naturales y funcionen a escala.',
+      'Especializado en productos de software multiplataforma y ecosistemas impulsados por IA, puenteando la brecha entre la ingeniería robusta y el diseño intuitivo. Mi enfoque es crear soluciones que se sientan naturales y funcionen a escala.',
     primaryAction: { label: 'Conóceme', href: '#sobre-mi' },
     secondaryAction: { label: 'Hablemos', href: '#contacto' },
   },
   about: {
-    title: 'Trayectoria & Enfoque',
+    title: 'Sobre mí',
+    location: 'Rosario, Argentina',
     description:
-      'Con más de 3 años de experiencia diseñando e implementando productos de software, me centro en entender el corazón y valor del negocio para transformar ideas o problemas complejos en soluciones simples y eficientes.',
+      'Tengo más de 3 años de experiencia diseñando e implementando software y productos digitales, especialmente en entornos móviles. Me centro en entender el valor del negocio para transformar ideas o problemas complejos en soluciones simples, eficientes y modernas.',
   },
   experience: {
     title: 'Experiencia Profesional',
     items: [
       {
         period: '2023 >',
-        role: 'Ingeniero de Software Mobile',
-        company: '@ Ecloud Agency',
+        role: 'Ingeniero de Software Móvil',
+        company: 'Ecloud Agency',
+        companyUrl: 'https://www.ecloud.agency/',
         summary:
-          'Leading mobile product team, focusing on fluid architectures and high-fidelity interaction design.',
+          'Desarrollo de aplicaciones móviles de alta fidelidad para iOS y Android, en conjunto con equipos de diseño y producto, priorizando calidad, rendimiento y mantenibilidad.',
         highlights: [
-          'Liderazgo técnico de equipos móviles',
-          'Arquitecturas escalables y diseño de interacciones de alta fidelidad',
+          'Desarrollo y evolución de productos móviles multiplataforma',
+          'Diseño e implementación de arquitecturas escalables y testables',
+          'Implementación de interfaces de alta fidelidad con foco en rendimiento y experiencia de usuario',
+          'Integración de APIs, servicios externos y flujos impulsados por IA',
+          'Proyectos en industrias como salud, gobierno y deportes',
         ],
-        technologies: ['React Native', 'Flutter', 'Typescript', 'Dart', 'IA'],
+        technologies: [
+          'React Native',
+          'Flutter',
+          'TypeScript',
+          'Expo',
+          'Dart',
+          'iOS',
+          'Android',
+          'IA',
+          'Firebase',
+          'REST API',
+          'tRPC',
+          'CI/CD',
+          'Metodologías ágiles',
+          'Figma',
+          'ClickUp',
+          'Notion',
+          'Pixel-Perfect',
+          'Motion Design',
+          'MVVM',
+          'Clean Architecture',
+          'Spec-driven development',
+          'Feature-sliced design',
+          'Feature-first development',
+        ],
       },
       {
         period: '2022',
-        role: 'Desarrollador Mobile',
-        company: '@ Globant',
+        role: 'Desarrollador Móvil',
+        company: 'Globant',
+        companyUrl: 'https://globant.com',
         summary:
-          'Creation of hybrid design systems and development of shared components for web and mobile.',
+          'Desarrollo de aplicaciones multiplataforma y sistemas de diseño para el cliente Disney.',
         highlights: [
-          'Creación de sistemas de diseño híbridos',
-          'Desarrollo de componentes compartidos web y mobile',
+          'Desarrollo de funcionalidades móviles dentro de equipos ágiles',
+          'Creación y mantenimiento de componentes reutilizables y sistemas de diseño',
+          'Integración con APIs y servicios externos',
+          'Colaboración con equipos multidisciplinarios y multinacionales',
         ],
-        technologies: ['Flutter', 'Metodologias ágiles'],
+        technologies: ['Flutter', 'iOS', 'Android', 'Metodologías ágiles'],
       },
       // {
       //   period: '2017 - 2019',
@@ -88,6 +121,31 @@ export const portfolioContent = {
       // },
     ] satisfies readonly Experience[],
   },
+  education: {
+    title: 'Mis estudios',
+    degree: 'Ingeniero en Sistemas',
+    institution: 'Universidad Tecnológica Nacional — Rosario',
+    institutionLogo: 'utn',
+    description:
+      'Formación integral en ciencias de la computación, arquitectura de software y gestión de proyectos tecnológicos. Enfoque en la resolución de problemas complejos mediante el diseño de sistemas escalables y eficientes.',
+    topics: [
+      'Arquitectura de software',
+      'Algoritmos',
+      'Bases de datos',
+      'Ingeniería de requisitos',
+      'Ingeniería y desarrollo de software',
+      'Seguridad de la información',
+      'Análisis y diseño de sistemas',
+    ],
+    milestones: [
+      { year: '2018', label: 'Primer año' },
+      { year: '2019', label: 'Segundo año' },
+      { year: '2020', label: 'Tercer año' },
+      { year: '2021', label: 'Cuarto año' },
+      { year: '2022', label: 'Quinto año' },
+      { year: '2023', label: 'Sexto año' },
+    ],
+  } satisfies Education,
   services: {
     title: 'Servicios',
     description:
@@ -106,7 +164,7 @@ export const portfolioContent = {
         icon: 'web',
       },
       {
-        title: 'Sistemas internos y Backoffice',
+        title: 'Sistemas internos y back office',
         description:
           'Diseño e implementación de herramientas internas a medida para optimizar operaciones de negocio.',
         icon: 'backend',
@@ -118,9 +176,9 @@ export const portfolioContent = {
         icon: 'automation',
       },
       {
-        title: 'Desarrollos de MVP',
+        title: 'Desarrollo de MVP',
         description:
-          'Lanzamiento ágil de Productos Mínimos Viables (MVPs) para validar ideas en el mercado rápidamente con una base técnica sólida.',
+          'Lanzamiento ágil de productos mínimos viables (MVPs) para validar ideas en el mercado rápidamente con una base técnica sólida.',
         detail:
           '¿Qué es un MVP? Es una versión simple, temprana y totalmente funcional de tu idea que nos permite lanzarla rápido al mercado para probar si funciona, ahorrando tiempo y costos antes de construir el producto final completo.',
         icon: 'rocket',
@@ -129,8 +187,8 @@ export const portfolioContent = {
     ] satisfies readonly Service[],
   },
   lifecycle: {
-    title: 'Ciclo de Vida del Proyecto',
-    hint: 'Desplaza para ver el progreso del proyecto',
+    title: 'Etapas de un proyecto',
+    hint: 'Desplazá para ver el progreso del proyecto',
     weeks: [
       'Semana 1',
       'Semana 3',
@@ -218,7 +276,7 @@ export const portfolioContent = {
     title: 'Tecnologías y herramientas',
     categories: [
       {
-        title: 'Mobile',
+        title: 'Móvil',
         icon: 'mobile',
         technologies: ['Flutter', 'React Native', 'Expo'],
         tone: 'blue',
@@ -284,8 +342,8 @@ export const portfolioContent = {
     email: helloEmail,
     turnstileSiteKey: '0x4AAAAAAEavAZEwMjd8a5sv',
     projectTypes: [
-      { label: 'Mobile App', value: 'mobile' },
-      { label: 'Web App', value: 'web' },
+      { label: 'Aplicación móvil', value: 'mobile' },
+      { label: 'Aplicación web', value: 'web' },
       { label: 'Automatización', value: 'automation' },
       { label: 'Otro', value: 'other' },
     ] satisfies readonly ProjectType[],
@@ -296,11 +354,16 @@ export const portfolioContent = {
       href: 'https://www.linkedin.com/in/agustin-garate/',
       icon: 'linkedin',
     },
+    {
+      label: '@garate__',
+      href: 'https://x.com/garate__',
+      icon: 'twitter',
+    },
     { label: 'GitHub', href: '#', icon: 'github' },
     { label: 'Descargar CV', href: '#', icon: 'download' },
     { label: helloEmail, href: `mailto:${helloEmail}`, icon: 'mail' },
   ] satisfies readonly SocialLink[],
   footer: {
-    copyright: `Diseñado y desarrollado por mi - Todos los derechos reservados.`,
+    copyright: `Diseñado y desarrollado por mí. Todos los derechos reservados.`,
   },
 } as const;
