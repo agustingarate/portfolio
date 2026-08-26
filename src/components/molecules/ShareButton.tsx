@@ -23,7 +23,8 @@ export function ShareButton() {
         await navigator.share({ title: document.title, text: shareText, url });
         return;
       } catch (error) {
-        if (error instanceof DOMException && error.name === 'AbortError') return;
+        if (error instanceof DOMException && error.name === 'AbortError')
+          return;
       }
     }
     setIsOpen((open) => !open);

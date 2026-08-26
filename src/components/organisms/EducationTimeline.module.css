@@ -1,0 +1,263 @@
+.wrapper {
+  height: 1800px;
+  margin-bottom: 128px;
+  scroll-margin-top: 128px;
+}
+
+.sticky {
+  position: sticky;
+  top: 96px;
+}
+
+@media (min-width: 768px) {
+  :global(body[data-scroll-immersive='education']) .sticky {
+    top: 50%;
+    transform: translateY(-50%);
+  }
+}
+
+.sticky h2 {
+  margin: 0 0 48px;
+  color: var(--on-surface);
+  font:
+    500 clamp(32px, 3.75vw, 48px) / 1.17 var(--font-hanken),
+    sans-serif;
+  letter-spacing: -0.01em;
+}
+
+.card {
+  position: relative;
+  padding: 32px;
+  overflow: hidden;
+  border: 1px solid color-mix(in srgb, var(--outline-variant) 25%, transparent);
+  border-radius: var(--radius-xl);
+  background: var(--surface-container);
+}
+
+.yearLabel {
+  display: flex;
+  min-height: 40px;
+  align-items: center;
+  justify-content: flex-end;
+  overflow: hidden;
+  color: var(--on-surface-variant);
+  font:
+    600 24px/32px var(--font-hanken),
+    sans-serif;
+}
+
+.yearLabel span {
+  animation: education-label-in 300ms var(--ease-emphasized);
+}
+
+.track {
+  --track-padding: 40px;
+  position: relative;
+  height: 152px;
+  margin: 8px 0 24px;
+}
+
+.rail {
+  position: absolute;
+  top: 70px;
+  right: var(--track-padding);
+  left: var(--track-padding);
+  height: 4px;
+  border-radius: var(--radius-pill);
+  background: color-mix(in srgb, var(--outline-variant) 36%, transparent);
+}
+
+.railProgress {
+  width: 100%;
+  height: 100%;
+  border-radius: inherit;
+  background: var(--primary-container);
+  transform: scaleX(0);
+  transform-origin: left center;
+  will-change: transform;
+}
+
+.cap {
+  position: absolute;
+  bottom: 22px;
+  display: grid;
+  width: 52px;
+  height: 52px;
+  color: var(--on-surface);
+  filter: drop-shadow(0 7px 10px rgba(27, 28, 21, 0.12));
+  place-items: center;
+  transform: translateX(-50%);
+  will-change: left;
+}
+
+.cap > span {
+  line-height: 1;
+  font-size: 38px;
+}
+
+.nodes {
+  position: absolute;
+  inset: 58px var(--track-padding) auto;
+  display: flex;
+  justify-content: space-between;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+.nodes li {
+  display: flex;
+  width: 24px;
+  flex-direction: column;
+  align-items: center;
+  color: var(--on-surface-variant);
+  font:
+    600 11px/16px var(--font-geist),
+    sans-serif;
+  letter-spacing: 0.06em;
+}
+
+.dot {
+  width: 24px;
+  height: 24px;
+  flex: 0 0 auto;
+  border: 6px solid var(--surface-container);
+  border-radius: 50%;
+  margin-bottom: 10px;
+  background: var(--outline-variant);
+  transition: 300ms var(--ease-emphasized);
+}
+
+.complete .dot,
+.active .dot {
+  background: var(--primary-container);
+}
+
+.active .dot {
+  border-width: 4px;
+  box-shadow: 0 0 0 4px var(--primary-fixed-dim);
+  transform: scale(1.25);
+}
+
+.details {
+  display: flex;
+  min-height: 244px;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 28px 32px;
+  border: 1px solid color-mix(in srgb, var(--outline-variant) 45%, transparent);
+  border-radius: var(--radius-lg);
+  background: var(--surface);
+}
+
+.details h3 {
+  margin: 0 0 8px;
+  color: var(--primary);
+  font:
+    600 24px/32px var(--font-hanken),
+    sans-serif;
+}
+
+.institution {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 12px;
+  color: var(--on-surface-variant);
+}
+
+.institution svg {
+  flex: 0 0 auto;
+}
+
+.institution strong {
+  font-size: 15px;
+}
+
+.details p {
+  max-width: 760px;
+  margin: 0 0 20px;
+  color: var(--on-surface-variant);
+  font-size: 15px;
+  line-height: 1.65;
+}
+
+.topics {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+@keyframes education-label-in {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+}
+
+@media (max-width: 767px) {
+  .wrapper {
+    height: 1520px;
+    margin-bottom: 112px;
+  }
+
+  .sticky {
+    top: 24px;
+  }
+
+  .sticky h2 {
+    margin-bottom: 32px;
+  }
+
+  .card {
+    padding: 20px;
+  }
+
+  .yearLabel {
+    justify-content: flex-start;
+    font-size: 21px;
+  }
+
+  .track {
+    --track-padding: 12px;
+    height: 140px;
+  }
+
+  .nodes li {
+    font-size: 9px;
+    letter-spacing: 0;
+  }
+
+  .dot {
+    width: 18px;
+    height: 18px;
+    border-width: 5px;
+  }
+
+  .cap {
+    bottom: 20px;
+    width: 42px;
+    height: 42px;
+  }
+
+  .details {
+    min-height: 0;
+    padding: 24px 20px;
+  }
+
+  .details h3 {
+    font-size: 21px;
+    line-height: 28px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .wrapper {
+    height: auto;
+  }
+
+  .sticky {
+    position: static;
+  }
+}

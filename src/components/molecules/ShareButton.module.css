@@ -23,7 +23,9 @@
   border-radius: var(--radius-sm);
   color: var(--on-surface);
   background: transparent;
-  font: 500 14px/20px var(--font-geist), sans-serif;
+  font:
+    500 14px/20px var(--font-geist),
+    sans-serif;
   text-align: left;
 }
 

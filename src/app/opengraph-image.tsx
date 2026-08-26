@@ -43,15 +43,38 @@ export default function OpenGraphImage() {
       >
         {portfolioContent.identity.role}
       </div>
-      <div style={{ display: 'flex', flexDirection: 'column', maxWidth: '850px' }}>
-        <div style={{ display: 'flex', fontSize: 82, fontWeight: 800, lineHeight: 1 }}>
+      <div
+        style={{ display: 'flex', flexDirection: 'column', maxWidth: '850px' }}
+      >
+        <div
+          style={{
+            display: 'flex',
+            fontSize: 82,
+            fontWeight: 800,
+            lineHeight: 1,
+          }}
+        >
           {portfolioContent.identity.name}
         </div>
-        <div style={{ display: 'flex', fontSize: 37, lineHeight: 1.25, marginTop: 28 }}>
+        <div
+          style={{
+            display: 'flex',
+            fontSize: 37,
+            lineHeight: 1.25,
+            marginTop: 28,
+          }}
+        >
           Productos digitales modernos, escalables y centrados en las personas.
         </div>
       </div>
-      <div style={{ color: '#4a5c34', display: 'flex', fontSize: 28, fontWeight: 600 }}>
+      <div
+        style={{
+          color: '#4a5c34',
+          display: 'flex',
+          fontSize: 28,
+          fontWeight: 600,
+        }}
+      >
         Mobile · Web · IA · Automatización
       </div>
     </div>,

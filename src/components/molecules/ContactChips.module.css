@@ -1,0 +1,137 @@
+.list {
+  position: relative;
+  z-index: 3;
+  display: flex;
+  width: min(100%, var(--container-max));
+  justify-content: flex-end;
+  gap: 16px;
+  padding-inline: var(--page-gutter);
+  margin: -80px auto 112px;
+}
+
+.chip {
+  position: relative;
+  display: inline-flex;
+  max-width: 100%;
+  align-items: center;
+  border: 1px solid color-mix(in srgb, var(--outline-variant) 55%, transparent);
+  border-radius: var(--radius-pill);
+  background: var(--surface-low);
+  color: var(--on-surface-variant);
+  transition:
+    background-color 200ms var(--ease-standard),
+    border-color 200ms var(--ease-standard);
+}
+
+.chip:hover,
+.chip:focus-within {
+  border-color: color-mix(in srgb, var(--primary) 24%, var(--outline-variant));
+  background: var(--surface-high);
+}
+
+.chip a {
+  display: inline-flex;
+  min-width: 0;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 8px 10px 20px;
+  font-size: 15px;
+  line-height: 24px;
+}
+
+.chip a span {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.chip a svg {
+  flex: 0 0 auto;
+}
+
+.chip a[data-contact-icon='mail'] svg {
+  transform: scale(1.08);
+}
+
+.chip a[data-contact-icon='linkedin'] svg {
+  transform: scale(1.07);
+}
+
+.chip a[data-contact-icon='twitter'] svg {
+  transform: scale(0.84);
+}
+
+.chip button {
+  display: grid;
+  flex: 0 0 auto;
+  width: 36px;
+  height: 36px;
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  margin-right: 5px;
+  background: transparent;
+  color: var(--primary);
+  cursor: pointer;
+  place-items: center;
+}
+
+.chip button:hover {
+  background: color-mix(in srgb, var(--primary) 9%, transparent);
+}
+
+.copied {
+  border-color: color-mix(in srgb, var(--primary) 42%, var(--outline-variant));
+}
+
+.copied button {
+  background: var(--primary);
+  color: var(--on-primary);
+}
+
+.failed {
+  border-color: color-mix(in srgb, var(--error) 48%, var(--outline-variant));
+}
+
+.feedback {
+  position: absolute;
+  top: calc(100% + 8px);
+  right: 0;
+  padding: 4px 8px;
+  border-radius: var(--radius-sm);
+  background: var(--primary);
+  color: var(--on-primary);
+  font:
+    600 11px/14px var(--font-geist),
+    sans-serif;
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(-4px);
+  transition:
+    opacity 180ms var(--ease-standard),
+    transform 180ms var(--ease-standard);
+}
+
+.copied .feedback {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.failed .feedback {
+  background: var(--error);
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (max-width: 767px) {
+  .list {
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    margin-top: -64px;
+    margin-bottom: 96px;
+  }
+
+  .chip a {
+    padding-left: 16px;
+  }
+}
