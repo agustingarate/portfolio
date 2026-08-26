@@ -46,29 +46,45 @@ Este documento detalla la lógica de movimiento, estados interactivos y comporta
   - Easing: `ease-out`.
 - **Stagger (Escalonado):** Retraso de 0.1s entre cada card/item consecutivo dentro de la misma sección.
 
-## 6. Ciclo de Vida del Proyecto: Interactive Gantt (Core Logic)
+## 6. Educación: Celebratory Timeline Scroll Lock
 
-Esta es la sección más compleja técnicamente, requiriendo un "Scroll Lock" personalizado.
+Esta sección utiliza una mecánica de bloqueo de scroll similar al Gantt de servicios para enfatizar el progreso académico.
+
+### A. Mecánica de Bloqueo
+
+- **Trigger:** Cuando el contenedor de Educación se centra en el viewport.
+- **Acción:** `body { overflow: hidden }` mientras se recorre la línea de tiempo.
+- **Progreso:** El scroll controla el eje X del icono del birrete (graduated hat).
+
+### B. Lógica de Interacción
+
+- **Indicadores de Año:** Círculos que cambian de estado (vacío -> lleno con check/glow) a medida que el birrete los cruza.
+- **Transiciones de Contenido:** El texto descriptivo (título, universidad, ubicación) cambia dinámicamente con un efecto de fade y slide cuando el selector entra en un nuevo hito.
+- **Efecto Final:** Al llegar al "Sexto año", se dispara una animación de confeti/serpentinas y se libera el scroll general.
+
+## 7. Ciclo de Vida del Proyecto: Interactive Gantt (Core Logic)
+
+Mecánica de "Scroll Lock" para el gráfico de barras.
 
 ### A. Mecánica de Bloqueo de Scroll
 
 - **Trigger:** Cuando el contenedor `#project-lifecycle` llega al centro del viewport.
-- **Acción:** El scroll de la página se bloquea (`body { overflow: hidden }` o similar manejado vía JS).
-- **Progreso:** El scroll del usuario ahora controla el eje X del "Selector de Día" (línea roja vertical).
+- **Acción:** Bloqueo de scroll de página manejado vía JS.
+- **Progreso:** El scroll controla el eje X del "Selector de Día" (línea roja vertical).
 
 ### B. Interacciones del Gantt
 
-- **Escalado de Burbujas:** A medida que la línea roja cruza una fase (Discovery, Kick-off, etc.), la burbuja correspondiente debe escalar suavemente (1.0 -> 1.25) y recuperar su tamaño al salir.
-- **Aparición de Descripciones:** La descripción detallada de la fase actual debe aparecer lateralmente con un fade-in coordinado con el paso del selector.
-- **Habilitación de Salida:** Una vez el selector llega al final de la última fase ("Despliegue"), el scroll de la página se rehabilita automáticamente.
+- **Escalado de Burbujas:** A medida que la línea roja cruza una fase, la burbuja correspondiente escala (1.0 -> 1.25).
+- **Aparición de Descripciones:** La descripción de la fase actual aparece con un fade-in coordinado.
+- **Habilitación de Salida:** Tras la última fase ("Despliegue"), el scroll se rehabilita.
 
-## 7. Stack Tecnológico: Animated Carousel
+## 8. Stack Tecnológico: Animated Carousel
 
 - **Movimiento:** Scroll horizontal infinito (Marquee).
-- **Pausa:** El carrusel se detiene al hacer `hover`.
-- **Tooltips:** Al posar el cursor sobre un icono:
-  - Aparece un tooltip flotante con el nombre de la tecnología.
-  - El icono recibe un ligero escalado y foco visual.
+- **Pausa:** Detención en `hover`.
+- **Interacción:**
+  - Al hacer hover: El icono hace foco y aparece un tooltip con el nombre de la tecnología.
+  - El icono recibe un ligero escalado.
 
 ---
 

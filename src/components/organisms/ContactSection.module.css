@@ -39,6 +39,18 @@
 .socials a:hover {
   color: var(--primary);
 }
+.socials a svg {
+  flex: 0 0 auto;
+}
+.socials a[data-contact-icon='mail'] svg {
+  transform: scale(1.08);
+}
+.socials a[data-contact-icon='linkedin'] svg {
+  transform: scale(1.07);
+}
+.socials a[data-contact-icon='twitter'] svg {
+  transform: scale(0.84);
+}
 .grid form {
   display: flex;
   flex-direction: column;

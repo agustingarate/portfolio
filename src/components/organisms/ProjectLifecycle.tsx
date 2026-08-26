@@ -2,6 +2,7 @@
 import { useEffect, useMemo, useRef, useState } from 'react';
 import type { LifecyclePhase } from '@/content/portfolio.types';
 import { Container } from '@/components/atoms/Container';
+import { setImmersiveScroll } from '@/lib/immersive-scroll';
 import styles from './ProjectLifecycle.module.css';
 
 const TOTAL_WEEKS = 8;
@@ -31,14 +32,7 @@ export function ProjectLifecycle({
     const setImmersive = (next: boolean) => {
       if (next === immersive) return;
       immersive = next;
-      if (next) {
-        document.body.dataset.ganttImmersive = 'true';
-      } else {
-        delete document.body.dataset.ganttImmersive;
-      }
-      window.dispatchEvent(
-        new CustomEvent('gantt-immersive-change', { detail: next }),
-      );
+      setImmersiveScroll('project-lifecycle', next);
     };
     const measure = () => {
       start = node.getBoundingClientRect().top + window.scrollY;

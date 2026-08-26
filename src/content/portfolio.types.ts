@@ -2,9 +2,12 @@ export type IconName =
   | 'arrow-right'
   | 'automation'
   | 'backend'
+  | 'check'
   | 'cloud'
   | 'code'
+  | 'copy'
   | 'download'
+  | 'external-link'
   | 'frontend'
   | 'figma'
   | 'flutter'
@@ -12,6 +15,7 @@ export type IconName =
   | 'home'
   | 'layers'
   | 'linkedin'
+  | 'location'
   | 'mail'
   | 'mobile'
   | 'nodejs'
@@ -22,9 +26,12 @@ export type IconName =
   | 'person'
   | 'rocket'
   | 'services'
+  | 'school'
   | 'sparkles'
   | 'swift'
   | 'tailwind'
+  | 'twitter'
+  | 'utn'
   | 'web'
   | 'work';
 
@@ -37,9 +44,23 @@ export type Experience = {
   period: string;
   role: string;
   company: string;
+  companyUrl: string;
   summary: string;
   highlights: readonly string[];
   technologies: readonly string[];
+};
+export type EducationMilestone = {
+  year: string;
+  label: string;
+};
+export type Education = {
+  title: string;
+  degree: string;
+  institution: string;
+  institutionLogo: IconName;
+  description: string;
+  topics: readonly string[];
+  milestones: readonly EducationMilestone[];
 };
 export type Service = {
   title: string;
