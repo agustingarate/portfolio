@@ -9,6 +9,10 @@ import { usePrefersReducedMotion } from '@/hooks/use-prefers-reduced-motion';
 import { setImmersiveScroll } from '@/lib/immersive-scroll';
 import styles from './EducationTimeline.module.css';
 
+// Reserve the final part of the sticky section so the graduation state can be
+// seen before the section releases back to the document scroll.
+const PROGRESS_SCROLL_PORTION = 0.75;
+
 export function EducationTimeline({
   title,
   degree,
@@ -51,13 +55,17 @@ export function EducationTimeline({
     };
     const update = () => {
       frame = 0;
-      const nextProgress = Math.min(
+      const scrollProgress = Math.min(
         1,
         Math.max(0, (window.scrollY - start) / distance),
       );
+      const nextProgress = Math.min(
+        1,
+        scrollProgress / PROGRESS_SCROLL_PORTION,
+      );
       const nextIndex = Math.min(
         milestones.length - 1,
-        Math.floor(nextProgress * (milestones.length - 1) + 0.0001),
+        Math.floor(nextProgress * milestones.length),
       );
 
       if (progressBarRef.current)
@@ -85,6 +93,7 @@ export function EducationTimeline({
         immersive = nextImmersive;
         setImmersiveScroll('education', immersive);
       }
+
     };
     const requestUpdate = () => {
       if (!frame) frame = requestAnimationFrame(update);
@@ -134,7 +143,7 @@ export function EducationTimeline({
                   {displayActiveIndex === milestones.length - 1 ? (
                     <span aria-hidden="true">🎉</span>
                   ) : (
-                    <Icon name="school" size={42} />
+                    <Icon name="school" size={54} />
                   )}
                 </div>
               </div>

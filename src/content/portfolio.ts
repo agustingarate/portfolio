@@ -123,7 +123,7 @@ export const portfolioContent = {
   },
   education: {
     title: 'Mis estudios',
-    degree: 'Ingeniero en Sistemas',
+    degree: 'Ingeniería en Sistemas',
     institution: 'Universidad Tecnológica Nacional — Rosario',
     institutionLogo: 'utn',
     description:
@@ -360,8 +360,8 @@ export const portfolioContent = {
       icon: 'twitter',
     },
     { label: 'GitHub', href: '#', icon: 'github' },
-    { label: 'Descargar CV', href: '#', icon: 'download' },
     { label: helloEmail, href: `mailto:${helloEmail}`, icon: 'mail' },
+    { label: 'Descargar CV', href: '#', icon: 'download' },
   ] satisfies readonly SocialLink[],
   footer: {
     copyright: `Diseñado y desarrollado por mí. Todos los derechos reservados.`,

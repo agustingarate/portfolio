@@ -18,6 +18,7 @@ export function ProjectLifecycle({
   phases: readonly LifecyclePhase[];
 }) {
   const wrapperRef = useRef<HTMLDivElement>(null);
+  const viewportRef = useRef<HTMLDivElement>(null);
   const todayRef = useRef<HTMLSpanElement>(null);
   const activeIdRef = useRef(phases[0]?.id);
   const [activeId, setActiveId] = useState(phases[0]?.id);
@@ -49,6 +50,11 @@ export function ProjectLifecycle({
       );
       if (todayRef.current)
         todayRef.current.style.left = `${(next * 100).toFixed(3)}%`;
+      const viewport = viewportRef.current;
+      if (viewport && window.innerWidth < 768) {
+        const maxScroll = viewport.scrollWidth - viewport.clientWidth;
+        viewport.scrollLeft = next * Math.max(0, maxScroll);
+      }
       const bounds = node.getBoundingClientRect();
       setImmersive(
         window.innerWidth >= 768 &&
@@ -94,47 +100,49 @@ export function ProjectLifecycle({
       <div className={styles.sticky}>
         <Container>
           <h3>{title}</h3>
-          <div className={styles.viewport}>
-            <div className={styles.chart}>
-              <div className={styles.weekHeader}>
-                <span />
-                <div>
-                  {weeks.map((label) => (
-                    <span key={label}>{label}</span>
-                  ))}
+          <div className={styles.panel}>
+            <div ref={viewportRef} className={styles.viewport}>
+              <div className={styles.chart}>
+                <div className={styles.weekHeader}>
+                  <span />
+                  <div>
+                    {weeks.map((label) => (
+                      <span key={label}>{label}</span>
+                    ))}
+                  </div>
                 </div>
-              </div>
-              <div className={styles.rows}>
-                <div className={styles.progressArea} aria-hidden="true">
-                  <span ref={todayRef} className={styles.today}>
-                    <i>Hoy</i>
-                  </span>
-                </div>
-                {phases.map((phase) => {
-                  const isActive = phase.id === active.id;
-                  return (
-                    <div className={styles.row} key={phase.id}>
-                      <span className={styles.label}>{phase.title}</span>
-                      <div className={styles.track}>
-                        <span
-                          className={`${styles.bar} ${styles[phase.tone]} ${isActive ? styles.active : ''}`}
-                          style={{
-                            left: `${(phase.startWeek / TOTAL_WEEKS) * 100}%`,
-                            width: `${(phase.duration / TOTAL_WEEKS) * 100}%`,
-                          }}
-                        >
-                          {phase.title}
-                        </span>
+                <div className={styles.rows}>
+                  <div className={styles.progressArea} aria-hidden="true">
+                    <span ref={todayRef} className={styles.today}>
+                      <i>Hoy</i>
+                    </span>
+                  </div>
+                  {phases.map((phase) => {
+                    const isActive = phase.id === active.id;
+                    return (
+                      <div className={styles.row} key={phase.id}>
+                        <span className={styles.label}>{phase.title}</span>
+                        <div className={styles.track}>
+                          <span
+                            className={`${styles.bar} ${styles[phase.tone]} ${isActive ? styles.active : ''}`}
+                            style={{
+                              left: `${(phase.startWeek / TOTAL_WEEKS) * 100}%`,
+                              width: `${(phase.duration / TOTAL_WEEKS) * 100}%`,
+                            }}
+                          >
+                            {phase.title}
+                          </span>
+                        </div>
                       </div>
-                    </div>
-                  );
-                })}
+                    );
+                  })}
+                </div>
               </div>
-              <p className={styles.hint}>{hint}</p>
-              <div className={styles.description} aria-live="polite">
-                <strong>{active.title}</strong>
-                <span>{active.description}</span>
-              </div>
+            </div>
+            <p className={styles.hint}>{hint}</p>
+            <div className={styles.description} aria-live="polite">
+              <strong>{active.title}</strong>
+              <span>{active.description}</span>
             </div>
           </div>
         </Container>
