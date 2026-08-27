@@ -11,8 +11,7 @@
 
 @media (min-width: 768px) {
   :global(body[data-scroll-immersive='education']) .sticky {
-    top: 50%;
-    transform: translateY(-50%);
+    top: 24px;
   }
 }
 
@@ -29,9 +28,8 @@
   position: relative;
   padding: 32px;
   overflow: hidden;
-  border: 1px solid color-mix(in srgb, var(--outline-variant) 25%, transparent);
   border-radius: var(--radius-xl);
-  background: var(--surface-container);
+  background: var(--surface-low);
 }
 
 .yearLabel {
@@ -79,10 +77,10 @@
 
 .cap {
   position: absolute;
-  bottom: 22px;
+  bottom: 28px;
   display: grid;
-  width: 52px;
-  height: 52px;
+  width: 68px;
+  height: 68px;
   color: var(--on-surface);
   filter: drop-shadow(0 7px 10px rgba(27, 28, 21, 0.12));
   place-items: center;
@@ -121,7 +119,7 @@
   width: 24px;
   height: 24px;
   flex: 0 0 auto;
-  border: 6px solid var(--surface-container);
+  border: 6px solid var(--surface-low);
   border-radius: 50%;
   margin-bottom: 10px;
   background: var(--outline-variant);
@@ -146,7 +144,6 @@
   align-items: flex-start;
   justify-content: center;
   padding: 28px 32px;
-  border: 1px solid color-mix(in srgb, var(--outline-variant) 45%, transparent);
   border-radius: var(--radius-lg);
   background: var(--surface);
 }
@@ -236,9 +233,14 @@
   }
 
   .cap {
-    bottom: 20px;
-    width: 42px;
-    height: 42px;
+    bottom: 26px;
+    width: 56px;
+    height: 56px;
+  }
+
+  .cap svg {
+    width: 46px;
+    height: 46px;
   }
 
   .details {
