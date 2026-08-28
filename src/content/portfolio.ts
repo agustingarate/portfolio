@@ -354,14 +354,14 @@ export const portfolioContent = {
       href: 'https://www.linkedin.com/in/agustin-garate/',
       icon: 'linkedin',
     },
-    {
-      label: '@garate__',
-      href: 'https://x.com/garate__',
-      icon: 'twitter',
-    },
-    { label: 'GitHub', href: '#', icon: 'github' },
+    // {
+    //   label: '@garate__',
+    //   href: 'https://x.com/garate__',
+    //   icon: 'twitter',
+    // },
+    // { label: 'GitHub', href: '#', icon: 'github' },
     { label: helloEmail, href: `mailto:${helloEmail}`, icon: 'mail' },
-    { label: 'Descargar CV', href: '#', icon: 'download' },
+    // { label: 'Descargar CV', href: '#', icon: 'download' },
   ] satisfies readonly SocialLink[],
   footer: {
     copyright: `Diseñado y desarrollado por mí. Todos los derechos reservados.`,

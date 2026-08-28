@@ -62,7 +62,7 @@ const structuredData = {
 
 export default function HomePage() {
   const linkedIn = content.socials.find((social) => social.icon === 'linkedin');
-  const twitter = content.socials.find((social) => social.icon === 'twitter');
+  // const twitter = content.socials.find((social) => social.icon === 'twitter');
 
   return (
     <>
@@ -88,13 +88,13 @@ export default function HomePage() {
               icon: 'linkedin',
               external: true,
             },
-            {
-              label: twitter?.label ?? '@garate__',
-              value: twitter?.label ?? '@garate__',
-              href: twitter?.href ?? '#contacto',
-              icon: 'twitter',
-              external: true,
-            },
+            // {
+            //   label: twitter?.label ?? '@garate__',
+            //   value: twitter?.label ?? '@garate__',
+            //   href: twitter?.href ?? '#contacto',
+            //   icon: 'twitter',
+            //   external: true,
+            // },
           ]}
         />
         <AboutSection {...content.about} />

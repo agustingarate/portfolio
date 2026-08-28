@@ -8,9 +8,9 @@ import { Icon } from '@/components/atoms/Icon';
 import { usePrefersReducedMotion } from '@/hooks/use-prefers-reduced-motion';
 import { setImmersiveScroll } from '@/lib/immersive-scroll';
 import styles from './EducationTimeline.module.css';
+import { Reveal } from '../molecules/Reveal';
 
-// Reserve the final part of the sticky section so the graduation state can be
-// seen before the section releases back to the document scroll.
+
 const PROGRESS_SCROLL_PORTION = 0.75;
 
 export function EducationTimeline({
@@ -123,6 +123,7 @@ export function EducationTimeline({
   const active = milestones[displayActiveIndex] ?? milestones[0];
 
   return (
+    <Reveal delay={100}>
     <section
       id="educacion"
       ref={wrapperRef}
@@ -180,5 +181,6 @@ export function EducationTimeline({
         </Container>
       </div>
     </section>
+    </Reveal>
   );
 }
