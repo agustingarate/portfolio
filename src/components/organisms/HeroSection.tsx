@@ -2,6 +2,7 @@
 import { Button } from '@/components/atoms/Button';
 import { useTypewriter } from '@/hooks/use-typewriter';
 import { OrganicShader } from './OrganicShader';
+import { LiquidMap } from './LiquidMap';
 import styles from './HeroSection.module.css';
 
 type HeroProps = {
@@ -23,6 +24,7 @@ export function HeroSection({
     <section id="inicio" className={styles.hero}>
       <OrganicShader />
       <div className={styles.overlay} />
+      <LiquidMap />
       <div className={styles.content}>
         <h1>
           <span className={styles.srOnly}>{headline}</span>
