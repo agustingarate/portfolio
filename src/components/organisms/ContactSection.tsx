@@ -6,6 +6,7 @@ import { Button } from '@/components/atoms/Button';
 import { Container } from '@/components/atoms/Container';
 import { Icon } from '@/components/atoms/Icon';
 import styles from './ContactSection.module.css';
+import { ServiceSculpture } from '@/components/molecules/ServiceSculpture';
 export function ContactSection({
   title,
   description,
@@ -60,7 +61,10 @@ export function ContactSection({
       />
       <Container className={styles.container}>
         <div className={styles.grid}>
-          <div>
+          <div className={styles.intro}>
+            <span className={styles.index} aria-hidden="true">
+              06 /
+            </span>
             <h2>{title}</h2>
             <p className={styles.description}>{description}</p>
             <div className={styles.socials}>
@@ -74,6 +78,9 @@ export function ContactSection({
                   {social.label}
                 </a>
               ))}
+            </div>
+            <div className={styles.sculpture}>
+              <ServiceSculpture />
             </div>
           </div>
           <form onSubmit={submit}>
@@ -93,7 +100,7 @@ export function ContactSection({
                 ))}
               </div>
             </fieldset>
-            <label className="sr-only" htmlFor="name">
+            <label className={styles.fieldLabel} htmlFor="name">
               Nombre
             </label>
             <input
@@ -103,7 +110,7 @@ export function ContactSection({
               placeholder="Tu Nombre"
               autoComplete="name"
             />
-            <label className="sr-only" htmlFor="email">
+            <label className={styles.fieldLabel} htmlFor="email">
               Email
             </label>
             <input
@@ -114,7 +121,7 @@ export function ContactSection({
               placeholder="Tu Email"
               autoComplete="email"
             />
-            <label className="sr-only" htmlFor="message">
+            <label className={styles.fieldLabel} htmlFor="message">
               Mensaje
             </label>
             <textarea

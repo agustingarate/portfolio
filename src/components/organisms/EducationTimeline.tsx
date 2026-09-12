@@ -8,7 +8,6 @@ import { Icon } from '@/components/atoms/Icon';
 import { usePrefersReducedMotion } from '@/hooks/use-prefers-reduced-motion';
 import { setImmersiveScroll } from '@/lib/immersive-scroll';
 import styles from './EducationTimeline.module.css';
-import { CloudShader } from './CloudShader';
 
 const PROGRESS_SCROLL_PORTION = 0.75;
 const curveY = (progress: number) =>
@@ -147,10 +146,11 @@ export function EducationTimeline({
       aria-labelledby="education-title"
     >
       <div ref={stickyRef} className={styles.sticky}>
-        <div className={styles.sky} aria-hidden="true">
-          <CloudShader />
-        </div>
+        <div className={styles.sky} aria-hidden="true"></div>
         <Container>
+          <span className={styles.index} aria-hidden="true">
+            03 /
+          </span>
           <h2 id="education-title">{title}</h2>
           <div className={styles.yearLabel} aria-live="polite">
             <span key={active?.label}>{active?.label}</span>

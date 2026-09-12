@@ -1,52 +1,64 @@
 .card {
-  min-height: 190px;
-  padding: 28px;
-  border-radius: var(--radius-xl);
-  background: var(--surface-low);
-  transition:
-    transform 300ms var(--ease-emphasized),
-    background 300ms var(--ease-standard);
+  height: 100%;
+  min-height: 280px;
+  padding: 30px;
+  background: transparent;
+  transition: background 400ms;
 }
 .card:hover {
-  background: var(--surface-container);
-  transform: translateY(-4px);
+  background: #eeeae0;
 }
 .icon {
   display: grid;
-  width: 44px;
-  height: 44px;
+  width: 64px;
+  height: 64px;
   place-items: center;
-  margin-bottom: 18px;
-  border-radius: 50%;
-  color: var(--on-surface);
-  transition: transform 300ms var(--ease-emphasized);
+  margin-bottom: 32px;
+  color: var(--primary);
+  transition: transform 500ms var(--ease-emphasized);
+}
+.icon svg {
+  width: 48px;
+  height: 48px;
+  stroke-width: 1.1;
 }
 .card:hover .icon {
-  transform: scale(1.08) rotate(-4deg);
-}
-.iconBlue {
-  background: var(--accent-blue);
-}
-.iconGreen {
-  background: var(--accent-green);
-}
-.iconCoral {
-  background: var(--accent-coral);
-}
-.iconLilac {
-  background: var(--accent-lilac);
-}
-.iconCream {
-  background: var(--surface-lowest);
+  transform: translateY(-5px) rotate(-7deg);
 }
 .card h3 {
-  margin: 0 0 16px;
+  margin: 0 0 22px;
   font:
-    600 24px/32px var(--font-hanken),
+    500 28px/1.15 var(--font-hanken),
     sans-serif;
+  letter-spacing: -0.035em;
 }
 .chips {
   display: flex;
   flex-wrap: wrap;
   gap: 8px;
+}
+.chips > * {
+  min-height: 0;
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  background: none;
+  font-size: 12px;
+  font-weight: 400;
+  letter-spacing: 0;
+  color: var(--on-surface-variant);
+}
+.chips > *:not(:last-child)::after {
+  content: ' /';
+  margin-left: 8px;
+  color: #9b94a5;
+}
+@media (max-width: 767px) {
+  .card {
+    min-height: 0;
+    padding: 28px 20px;
+  }
+  .icon {
+    margin-bottom: 20px;
+  }
 }

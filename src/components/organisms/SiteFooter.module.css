@@ -39,3 +39,27 @@
     text-align: center;
   }
 }
+
+.footer {
+  padding-block: 32px;
+  background: #2900ac;
+  color: #fbfaee;
+  border-top: 1px solid #ffffff25;
+}
+.name {
+  font-size: 24px;
+  letter-spacing: -0.04em;
+}
+.inner p {
+  color: #ded7f6;
+  font-size: 11px;
+  max-width: 310px;
+}
+@media (max-width: 800px) {
+  .footer {
+    padding-bottom: 110px;
+  }
+  .inner {
+    gap: 20px;
+  }
+}

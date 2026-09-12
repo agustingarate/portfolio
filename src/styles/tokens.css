@@ -26,7 +26,9 @@
   --error: #ba1a1a;
 
   --space-unit: 8px;
-  --container-max: 1280px;
+  --container-max: 1440px;
+  --editorial-line: #24203126;
+  --font-mono: ui-monospace, SFMono-Regular, Menlo, monospace;
   --page-gutter: 64px;
   --header-height: 96px;
   --radius-sm: 8px;

@@ -10,3 +10,10 @@
   transform: translateY(0) scale(1);
   transition-delay: var(--reveal-delay);
 }
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal {
+    opacity: 1;
+    transform: none;
+  }
+}
