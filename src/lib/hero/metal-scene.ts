@@ -1,8 +1,8 @@
 import * as THREE from 'three';
 import { argentina } from './map-shape';
 
-const SEGMENTS = 160;
-const SIDES = 12;
+const SEGMENTS = 240;
+const SIDES = 24;
 const ease = (p: number) => p * p * p * (p * (p * 6 - 15) + 10);
 function progressAt(time: number) {
   const phase = time % 10;
@@ -48,28 +48,53 @@ function tube(points: THREE.Vector3[], radius: number) {
 function addMorph(source: THREE.TubeGeometry, target: THREE.TubeGeometry) {
   const positions = target.attributes.position.clone();
   const normals = target.attributes.normal.clone();
-  const a = new THREE.Vector3();
-  const b = new THREE.Vector3();
+  const sourceNormal = new THREE.Vector3();
+  const normal = new THREE.Vector3();
+  const axisU = new THREE.Vector3();
+  const axisV = new THREE.Vector3();
+  const center = new THREE.Vector3();
+  const radius = target.parameters.radius;
   for (let ring = 0; ring <= SEGMENTS; ring++) {
     const start = ring * (SIDES + 1);
-    a.fromBufferAttribute(source.attributes.normal, start);
-    let best = -Infinity;
-    let offset = 0;
-    for (let side = 0; side < SIDES; side++) {
-      b.fromBufferAttribute(target.attributes.normal, start + side);
-      const match = a.dot(b);
-      if (match > best) {
-        best = match;
-        offset = side;
-      }
-    }
+    sourceNormal.fromBufferAttribute(source.attributes.normal, start);
+    axisU.fromBufferAttribute(target.attributes.normal, start);
+    axisV.fromBufferAttribute(target.attributes.normal, start + SIDES / 4);
+    center
+      .fromBufferAttribute(target.attributes.position, start)
+      .addScaledVector(axisU, -radius);
+    // Continuous angular alignment avoids snapping to a discrete polygon side.
+    const offset = Math.atan2(sourceNormal.dot(axisV), sourceNormal.dot(axisU));
     for (let side = 0; side <= SIDES; side++) {
-      const origin = start + ((side + offset) % SIDES);
-      b.fromBufferAttribute(target.attributes.position, origin);
-      positions.setXYZ(start + side, b.x, b.y, b.z);
-      b.fromBufferAttribute(target.attributes.normal, origin);
-      normals.setXYZ(start + side, b.x, b.y, b.z);
+      const angle = offset + (side / SIDES) * Math.PI * 2;
+      normal
+        .copy(axisU)
+        .multiplyScalar(Math.cos(angle))
+        .addScaledVector(axisV, Math.sin(angle))
+        .normalize();
+      positions.setXYZ(
+        start + side,
+        center.x + normal.x * radius,
+        center.y + normal.y * radius,
+        center.z + normal.z * radius,
+      );
+      normals.setXYZ(start + side, normal.x, normal.y, normal.z);
     }
+  }
+  // Share the exact closing section: no hairline opening at the loop seam.
+  for (let side = 0; side <= SIDES; side++) {
+    const end = SEGMENTS * (SIDES + 1) + side;
+    positions.setXYZ(
+      end,
+      positions.getX(side),
+      positions.getY(side),
+      positions.getZ(side),
+    );
+    normals.setXYZ(
+      end,
+      normals.getX(side),
+      normals.getY(side),
+      normals.getZ(side),
+    );
   }
   source.morphAttributes.position = [positions];
   source.morphAttributes.normal = [normals];
@@ -100,10 +125,21 @@ function studioEnvironment(renderer: THREE.WebGLRenderer) {
     studio.add(mesh);
     cards.push(material);
   };
-  panel('#b4dfff', 7, [-3, 2, 3], 2.5, 4);
-  panel('#f0b9da', 6, [3, 0.5, 2], 2, 3.5);
-  panel('#b9f1dc', 5, [-1, -3, 1], 3, 1.5);
-  panel('#b4a1fa', 5, [1, 2, -3], 2, 3);
+  panel('#9ed7ff', 7.5, [-3, 2, 3], 2.5, 4);
+  panel('#f49dce', 7, [3, 0.5, 2], 2, 3.5);
+  panel('#9beacb', 6, [-1, -3, 1], 3, 1.5);
+  panel('#a78cf8', 6, [1, 2, -3], 2, 3);
+  // Each broad softbox contains two smaller, saturated lights. The close hues
+  // remain part of the same reflection while producing richer bands as the
+  // environment rotates across the metal.
+  panel('#36a7ff', 10, [-2.88, 2.14, 2.88], 0.52, 1.35);
+  panel('#77dcff', 8.5, [-2.78, 1.58, 2.78], 0.42, 0.78);
+  panel('#ff3f9d', 10, [2.88, 0.78, 1.92], 0.48, 1.08);
+  panel('#ff8dcc', 8.5, [2.78, -0.05, 1.84], 0.42, 0.82);
+  panel('#2ed69e', 8.5, [-1.2, -2.88, 1.05], 0.92, 0.34);
+  panel('#86ffd0', 7.5, [-0.35, -2.8, 0.82], 0.64, 0.28);
+  panel('#7f4dff', 9, [0.78, 1.92, -2.88], 0.5, 0.92);
+  panel('#bd70ff', 8, [1.35, 1.72, -2.78], 0.4, 0.72);
   panel('#ffffff', 11, [-1, 3, 1], 1.6, 0.5);
   panel('#fff0e7', 9, [3, -1, -1], 0.6, 2);
   const generator = new THREE.PMREMGenerator(renderer);
@@ -143,6 +179,7 @@ const compositeFragment = `
     color = mix(vec3(0.75, 0.83, 0.9), color, base.a);
     gl_FragColor = vec4(color, alpha);
     #include <colorspace_fragment>
+    gl_FragColor.rgb *= alpha;
   }
 `;
 
@@ -191,7 +228,7 @@ export function createMetalScene(canvas: HTMLCanvasElement, reduced: boolean) {
   });
   const target = new THREE.WebGLRenderTarget(1, 1, {
     type: THREE.HalfFloatType,
-    samples: 4,
+    samples: Math.min(4, renderer.capabilities.maxSamples),
   });
   const compositeMaterial = new THREE.ShaderMaterial({
     uniforms: {
@@ -222,6 +259,7 @@ export function createMetalScene(canvas: HTMLCanvasElement, reduced: boolean) {
       if (index > 0) {
         mesh.material.opacity = 1 - ease(Math.min(1, progress / 0.84));
         mesh.visible = mesh.material.opacity > 0.01;
+        mesh.material.depthWrite = mesh.material.opacity > 0.98;
       }
     }
     group.rotation.set(
@@ -265,7 +303,7 @@ export function createMetalScene(canvas: HTMLCanvasElement, reduced: boolean) {
   const resize = () => {
     if (disposed || lost) return;
     const { width, height } = canvas.getBoundingClientRect();
-    const ratio = Math.min(window.devicePixelRatio || 1, 1.5);
+    const ratio = Math.min(Math.max(window.devicePixelRatio || 1, 2), 2.5);
     renderer.setPixelRatio(ratio);
     renderer.setSize(width, height, false);
     target.setSize(

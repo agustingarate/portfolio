@@ -109,3 +109,10 @@ function resample(source: Point[], count = POINT_COUNT, closed = true) {
 }
 
 export const argentina = resample(argentinaSource);
+
+// Keep the server-rendered SVG fallback byte-for-byte identical to the browser
+// version. Rounding avoids tiny floating-point differences between runtimes
+// leaking into the `d` attribute during hydration.
+export const argentinaPath = `M${argentina
+  .map((point) => `${(point.x * 100).toFixed(4)},${(point.y * 100).toFixed(4)}`)
+  .join(' L')} Z`;

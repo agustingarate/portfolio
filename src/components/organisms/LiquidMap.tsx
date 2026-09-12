@@ -2,7 +2,7 @@
 
 import { useEffect, useRef, useState } from 'react';
 import { usePrefersReducedMotion } from '@/hooks/use-prefers-reduced-motion';
-import { argentina } from '@/lib/hero/map-shape';
+import { argentinaPath } from '@/lib/hero/map-shape';
 import styles from './LiquidMap.module.css';
 
 export function LiquidMap() {
@@ -48,7 +48,7 @@ export function LiquidMap() {
           aria-hidden="true"
         >
           <path
-            d={`M${argentina.map((point) => `${point.x * 100},${point.y * 100}`).join(' L')} Z`}
+            d={argentinaPath}
             stroke="#111827"
             strokeWidth="3"
             strokeLinejoin="round"
