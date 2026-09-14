@@ -170,24 +170,28 @@ export const portfolioContentEn = {
         title: 'Mobile applications',
         description:
           'Cross-platform iOS and Android app development, optimized for performance and a fluid experience.',
+        signals: ['IOS', 'ANDROID'],
       },
       {
         ...spanishContent.services.items[1],
         title: 'Websites',
         description:
           'Interactive web platforms and landing pages designed to attract and convert new users or customers.',
+        signals: ['WEB', 'INTERFACE'],
       },
       {
         ...spanishContent.services.items[2],
         title: 'Internal systems and back offices',
         description:
           'Custom internal tools that streamline operations and integrate naturally with your systems and business data.',
+        signals: ['SYSTEMS', 'OPERATIONS'],
       },
       {
         ...spanishContent.services.items[3],
         title: 'Automation',
         description:
           'System integrations and process automation through AI and programmed workflows.',
+        signals: ['INPUT', 'ACTION'],
       },
       {
         ...spanishContent.services.items[4],
@@ -196,6 +200,7 @@ export const portfolioContentEn = {
           'Rapid launches of minimum viable products (MVPs) to validate ideas in the market with a solid technical foundation.',
         detail:
           'What is an MVP? It is a simple, early, fully functional version of your idea. It lets us launch quickly, test the market, and save time and cost before building the complete product.',
+        signals: ['IDEA', 'MVP'],
       },
     ],
   },

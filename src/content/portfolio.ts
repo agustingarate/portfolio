@@ -202,24 +202,28 @@ export const portfolioContent = {
         title: 'Aplicaciones móviles',
         description:
           'Desarrollo de aplicaciones móviles multiplataforma para iOS y Android optimizadas para rendimiento y fluidez.',
+        signals: ['IOS', 'ANDROID'],
         icon: 'mobile',
       },
       {
         title: 'Páginas web',
         description:
           'Creación de plataformas web interactivas y landing pages enfocadas en la captación y conversión de nuevos usuarios o clientes.',
+        signals: ['WEB', 'INTERFAZ'],
         icon: 'web',
       },
       {
         title: 'Sistemas internos y back office',
         description:
           'Diseño e implementación de herramientas internas a medida para optimizar tus operaciones, facilmente integrables con tus sistemas y la información de tu negocio.',
+        signals: ['SISTEMAS', 'OPERACIONES'],
         icon: 'backend',
       },
       {
         title: 'Automatizaciones',
         description:
           'Integraciones de sistemas y automatización de procesos mediante IA y flujos programados.',
+        signals: ['ENTRADA', 'ACCIÓN'],
         icon: 'automation',
       },
       {
@@ -228,6 +232,7 @@ export const portfolioContent = {
           'Lanzamiento ágil de productos mínimos viables (MVPs) para validar ideas en el mercado rápidamente con una base técnica sólida.',
         detail:
           '¿Qué es un MVP? Es una versión simple, temprana y totalmente funcional de tu idea que nos permite lanzarla rápido al mercado para probar si funciona, ahorrando tiempo y costos antes de construir el producto final completo.',
+        signals: ['IDEA', 'MVP'],
         icon: 'rocket',
         featured: true,
       },
