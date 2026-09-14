@@ -6,10 +6,18 @@ export function SiteFooter({
   name,
   socials,
   copyright,
+  shareLabels,
 }: {
   name: string;
   socials: readonly SocialLink[];
   copyright: string;
+  shareLabels: {
+    button: string;
+    text: string;
+    copyLink: string;
+    linkCopied: string;
+    unableToCopy: string;
+  };
 }) {
   return (
     <footer className={styles.footer}>
@@ -17,7 +25,7 @@ export function SiteFooter({
         <a href="#inicio" className={styles.name}>
           {name}
         </a>
-        <ShareButton />
+        <ShareButton labels={shareLabels} />
         <p>
           © {new Date().getFullYear()} {copyright}
         </p>

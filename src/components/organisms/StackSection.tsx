@@ -9,10 +9,12 @@ export function StackSection({
   title,
   categories,
   marquee,
+  ariaLabel,
 }: {
   title: string;
   categories: readonly StackCategory[];
   marquee: readonly Technology[];
+  ariaLabel: string;
 }) {
   const repeated = [...marquee, ...marquee];
   return (
@@ -31,7 +33,7 @@ export function StackSection({
           </div>
         </Container>
       </section>
-      <section className={styles.marquee} aria-label="Tecnologías destacadas">
+      <section className={styles.marquee} aria-label={ariaLabel}>
         <div className={styles.fadeLeft} />
         <div className={styles.fadeRight} />
         <div className={styles.track}>

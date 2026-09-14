@@ -12,6 +12,7 @@ type HeroProps = {
   description: string;
   primaryAction: { label: string; href: string };
   secondaryAction: { label: string; href: string };
+  labels: { eyebrow: string; pauseMotion: string; resumeMotion: string };
 };
 export function HeroSection({
   headline = 'Hola, soy Agus — Ingeniero de software',
@@ -19,6 +20,7 @@ export function HeroSection({
   description,
   primaryAction,
   secondaryAction,
+  labels,
 }: HeroProps) {
   const [paused, setPaused] = useState(false);
   const statements = useMemo(() => phrases.slice(1), [phrases]);
@@ -36,7 +38,7 @@ export function HeroSection({
       <div className={styles.content}>
         <div className={styles.eyebrow}>
           <span />
-          Ingeniero de software
+          {labels.eyebrow}
         </div>
         <h1>
           <span className={styles.srOnly}>{headline}</span>
@@ -58,7 +60,7 @@ export function HeroSection({
           onClick={() => setPaused(!paused)}
           aria-pressed={paused}
         >
-          {paused ? 'Reanudar animación' : 'Pausar animación'}{' '}
+          {paused ? labels.resumeMotion : labels.pauseMotion}{' '}
           <span aria-hidden="true">{paused ? '↗' : 'Ⅱ'}</span>
         </button>
         <div className={styles.actions}>

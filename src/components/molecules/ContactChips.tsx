@@ -35,7 +35,13 @@ async function copyText(value: string) {
   if (!copied) throw new Error('Copy command failed');
 }
 
-export function ContactChips({ items }: { items: readonly ContactChip[] }) {
+export function ContactChips({
+  items,
+  labels,
+}: {
+  items: readonly ContactChip[];
+  labels: { label: string; copied: string; unableToCopy: string; copy: string };
+}) {
   const [message, setMessage] = useState('');
   const resetTimer = useRef<ReturnType<typeof setTimeout>>(undefined);
 
@@ -43,21 +49,25 @@ export function ContactChips({ items }: { items: readonly ContactChip[] }) {
 
   const handleCopy = (item: ContactChip) => {
     clearTimeout(resetTimer.current);
-    setMessage(`${item.label} copiado`);
+    setMessage(`${item.label} ${labels.copied}`);
     resetTimer.current = setTimeout(() => setMessage(''), 2500);
 
     void copyText(item.value).catch(() => {
-      setMessage(`No se pudo copiar ${item.label}`);
+      setMessage(`${labels.unableToCopy} ${item.label}`);
     });
   };
 
   return (
-    <div className={styles.list} aria-label="Contacto rápido">
+    <div className={styles.list} aria-label={labels.label}>
       {items.map((item) => {
-        const copied = message === `${item.label} copiado`;
-        const failed = message === `No se pudo copiar ${item.label}`;
+        const copied = message === `${item.label} ${labels.copied}`;
+        const failed = message === `${labels.unableToCopy} ${item.label}`;
         const copyLabel = item.icon === 'mail' ? 'email' : item.label;
-        const feedback = copied ? 'Copiado' : failed ? 'No se pudo copiar' : '';
+        const feedback = copied
+          ? labels.copied
+          : failed
+            ? labels.unableToCopy
+            : '';
 
         return (
           <div
@@ -77,9 +87,11 @@ export function ContactChips({ items }: { items: readonly ContactChip[] }) {
               type="button"
               onClick={() => handleCopy(item)}
               aria-label={
-                copied ? `${copyLabel} copiado` : `Copiar ${copyLabel}`
+                copied
+                  ? `${copyLabel} ${labels.copied}`
+                  : `${labels.copy} ${copyLabel}`
               }
-              title={copied ? 'Copiado' : `Copiar ${copyLabel}`}
+              title={copied ? labels.copied : `${labels.copy} ${copyLabel}`}
             >
               <Icon name={copied ? 'check' : 'copy'} size={16} />
             </button>

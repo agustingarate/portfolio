@@ -1,14 +1,6 @@
 import type { Service } from '@/content/portfolio.types';
 import styles from './ServiceCard.module.css';
 
-const serviceSignals: Record<string, readonly [string, string]> = {
-  mobile: ['IOS', 'ANDROID'],
-  web: ['WEB', 'INTERFAZ'],
-  backend: ['SISTEMAS', 'OPERACIONES'],
-  automation: ['ENTRADA', 'ACCIÓN'],
-  rocket: ['IDEA', 'MVP'],
-};
-
 export function ServiceCard({
   service,
   index,
@@ -16,10 +8,7 @@ export function ServiceCard({
   service: Service;
   index: number;
 }) {
-  const [signalFrom, signalTo] = serviceSignals[service.icon] ?? [
-    'IDEA',
-    'PRODUCTO',
-  ];
+  const [signalFrom, signalTo] = service.signals;
 
   return (
     <article
