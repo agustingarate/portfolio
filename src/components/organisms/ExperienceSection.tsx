@@ -32,7 +32,9 @@ export function ExperienceSection({
     <section id="experiencia" className={styles.section}>
       <Container>
         <div className={styles.experienceGrid}>
-          <SectionHeading title={title} index="02" />
+          <Reveal>
+            <SectionHeading title={title} index="02" />
+          </Reveal>
           <div className={styles.timeline}>
             {items.map((item, index) => (
               <div
