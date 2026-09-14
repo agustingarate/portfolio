@@ -9,9 +9,11 @@ import styles from './Sections.module.css';
 export function ExperienceSection({
   title,
   items,
+  newTabLabel,
 }: {
   title: string;
   items: readonly Experience[];
+  newTabLabel: string;
 }) {
   const refs = useRef<(HTMLDivElement | null)[]>([]);
   const [active, setActive] = useState(0);
@@ -45,7 +47,11 @@ export function ExperienceSection({
                 }}
               >
                 <Reveal delay={index * 150}>
-                  <ExperienceItem item={item} active={index === active} />
+                  <ExperienceItem
+                    item={item}
+                    active={index === active}
+                    newTabLabel={newTabLabel}
+                  />
                 </Reveal>
               </div>
             ))}

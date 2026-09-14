@@ -13,11 +13,13 @@ export function ProjectLifecycle({
   hint,
   weeks,
   phases,
+  todayLabel,
 }: {
   title: string;
   hint: string;
   weeks: readonly string[];
   phases: readonly LifecyclePhase[];
+  todayLabel: string;
 }) {
   const wrapperRef = useRef<HTMLDivElement>(null);
   const viewportRef = useRef<HTMLDivElement>(null);
@@ -138,7 +140,7 @@ export function ProjectLifecycle({
                   <div className={styles.rows}>
                     <div className={styles.progressArea} aria-hidden="true">
                       <span ref={todayRef} className={styles.today}>
-                        <i>Hoy</i>
+                        <i>{todayLabel}</i>
                       </span>
                     </div>
                     {phases.map((phase) => {

@@ -2,6 +2,7 @@
 import { useState } from 'react';
 import Script from 'next/script';
 import type { ProjectType, SocialLink } from '@/content/portfolio.types';
+import type { Locale } from '@/lib/i18n';
 import { Button } from '@/components/atoms/Button';
 import { Container } from '@/components/atoms/Container';
 import { Icon } from '@/components/atoms/Icon';
@@ -13,12 +14,29 @@ export function ContactSection({
   projectTypes,
   socials,
   turnstileSiteKey,
+  labels,
+  locale,
 }: {
   title: string;
   description: string;
   projectTypes: readonly ProjectType[];
   socials: readonly SocialLink[];
   turnstileSiteKey: string;
+  locale: Locale;
+  labels: {
+    projectType: string;
+    name: string;
+    namePlaceholder: string;
+    email: string;
+    emailPlaceholder: string;
+    message: string;
+    messagePlaceholder: string;
+    website: string;
+    sending: string;
+    sent: string;
+    error: string;
+    submit: string;
+  };
 }) {
   const [status, setStatus] = useState('');
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -27,7 +45,7 @@ export function ContactSection({
     const formElement = event.currentTarget;
     const form = new FormData(formElement);
     setIsSubmitting(true);
-    setStatus('Enviando mensaje…');
+    setStatus(labels.sending);
     try {
       const response = await fetch('/api/contact', {
         method: 'POST',
@@ -43,11 +61,9 @@ export function ContactSection({
       });
       if (!response.ok) throw new Error('contact-request-failed');
       formElement.reset();
-      setStatus('¡Gracias! Tu mensaje fue enviado correctamente.');
+      setStatus(labels.sent);
     } catch {
-      setStatus(
-        'No pudimos enviar tu mensaje. Intenta nuevamente en unos minutos.',
-      );
+      setStatus(labels.error);
     } finally {
       setIsSubmitting(false);
     }
@@ -83,7 +99,7 @@ export function ContactSection({
             </div>
             <form onSubmit={submit}>
               <fieldset>
-                <legend>Tipo de Proyecto</legend>
+                <legend>{labels.projectType}</legend>
                 <div className={styles.types}>
                   {projectTypes.map((type, index) => (
                     <label key={type.value}>
@@ -99,38 +115,38 @@ export function ContactSection({
                 </div>
               </fieldset>
               <label className={styles.fieldLabel} htmlFor="name">
-                Nombre
+                {labels.name}
               </label>
               <input
                 required
                 id="name"
                 name="name"
-                placeholder="Tu Nombre"
+                placeholder={labels.namePlaceholder}
                 autoComplete="name"
               />
               <label className={styles.fieldLabel} htmlFor="email">
-                Email
+                {labels.email}
               </label>
               <input
                 required
                 id="email"
                 name="email"
                 type="email"
-                placeholder="Tu Email"
+                placeholder={labels.emailPlaceholder}
                 autoComplete="email"
               />
               <label className={styles.fieldLabel} htmlFor="message">
-                Mensaje
+                {labels.message}
               </label>
               <textarea
                 required
                 id="message"
                 name="message"
                 rows={4}
-                placeholder="Contame un poco mas sobre tu idea o proyecto"
+                placeholder={labels.messagePlaceholder}
               />
               <label className={styles.honeypot} htmlFor="website">
-                Sitio web
+                {labels.website}
               </label>
               <input
                 className={styles.honeypot}
@@ -144,10 +160,10 @@ export function ContactSection({
                 className={`${styles.turnstile} cf-turnstile`}
                 data-sitekey={turnstileSiteKey}
                 data-theme="light"
-                data-language="es"
+                data-language={locale}
               />
               <Button type="submit" wide disabled={isSubmitting}>
-                {isSubmitting ? 'Enviando…' : 'Enviar Mensaje'}
+                {isSubmitting ? labels.sending : labels.submit}
               </Button>
               <p className={styles.status} aria-live="polite">
                 {status}
