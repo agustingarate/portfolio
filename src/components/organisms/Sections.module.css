@@ -45,18 +45,13 @@
 }
 .services {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 24px;
+  grid-template-columns: 1fr;
 }
 .services > div {
   display: flex;
 }
-.services > div:nth-child(even) {
-  transform: translateY(48px);
-}
-.featuredReveal {
-  grid-column: span 2;
-  margin-top: 48px;
+.services > div:last-child > article {
+  border-bottom: 1px solid var(--editorial-line);
 }
 @media (max-width: 900px) {
   .experienceGrid {
@@ -88,13 +83,5 @@
   }
   .services {
     grid-template-columns: 1fr;
-    gap: 20px;
-  }
-  .services > div:nth-child(even) {
-    transform: none;
-  }
-  .featuredReveal {
-    grid-column: auto;
-    margin-top: 0;
   }
 }

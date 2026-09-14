@@ -1,10 +1,14 @@
 .section {
+  position: relative;
+  overflow: hidden;
   margin-bottom: 0;
   padding-block: 96px 72px;
   scroll-margin-top: 0;
-  background: #3300d5;
+  background:
+    radial-gradient(circle at 8% 92%, #705c923d, transparent 32%),
+    radial-gradient(circle at 88% 8%, #52677a30, transparent 28%), #262431;
   color: #fbfaee;
-  --on-surface-variant: #ded7f6;
+  --on-surface-variant: #d8d3df;
 }
 .container {
   position: relative;
@@ -23,7 +27,7 @@
   margin-bottom: 30px;
   font: 11px/1.5 var(--font-mono);
   letter-spacing: 0.1em;
-  color: #d5c6fc;
+  color: #c8bddb;
 }
 .grid h2 {
   margin: 0 0 32px;
@@ -35,7 +39,7 @@
 .description {
   max-width: 390px;
   margin: 0 0 36px;
-  color: #ded7f6;
+  color: #d8d3df;
   font-size: 17px;
   line-height: 1.7;
 }
@@ -59,13 +63,6 @@
 .socials a svg {
   flex: 0 0 auto;
 }
-.sculpture {
-  width: 260px;
-  max-width: 75%;
-  margin-top: 36px;
-  margin-left: -24px;
-  filter: brightness(1.25);
-}
 .grid form {
   min-width: 0;
   display: flex;
@@ -80,7 +77,7 @@
 }
 .grid legend {
   margin-bottom: 20px;
-  color: #ded7f6;
+  color: #d8d3df;
   font: 11px/16px var(--font-mono);
   letter-spacing: 0.08em;
   text-transform: uppercase;
@@ -104,7 +101,7 @@
   align-items: center;
   min-height: 44px;
   padding: 10px 16px;
-  border: 1px solid #b19ce780;
+  border: 1px solid #c3b7d766;
   border-radius: 999px;
   font-size: 13px;
   cursor: pointer;
@@ -115,7 +112,7 @@
 .types input:checked + span {
   border-color: #fbfaee;
   background: #fbfaee;
-  color: #3300d5;
+  color: #262431;
 }
 .types input:focus-visible + span {
   outline: 2px solid #fbfaee;
@@ -124,39 +121,59 @@
 .fieldLabel {
   margin-top: 8px;
   font: 11px var(--font-mono);
-  color: #ded7f6;
+  color: #d8d3df;
 }
 .grid input:not([type='radio']),
 .grid textarea {
   width: 100%;
-  padding: 12px 0 16px;
-  border: 0;
-  border-bottom: 1px solid #b19ce780;
-  border-radius: 0;
-  background: transparent;
+  padding: 15px 18px;
+  border: 1px solid #ffffff14;
+  border-radius: 14px;
+  background: #302e3d;
   color: #fbfaee;
+  caret-color: #c4c0ff;
   resize: vertical;
   font-size: 16px;
+  transition:
+    background-color 250ms var(--ease-standard),
+    border-color 250ms var(--ease-standard),
+    box-shadow 250ms var(--ease-standard);
+}
+.grid textarea {
+  min-height: 132px;
+}
+.grid input:not([type='radio']):hover,
+.grid textarea:hover {
+  border-color: #c3b7d744;
+  background: #343140;
 }
 .grid input::placeholder,
 .grid textarea::placeholder {
-  color: #c7b7ed;
+  color: #bbb4c6;
   opacity: 1;
 }
 .grid input:not([type='radio']):focus,
 .grid textarea:focus {
   outline: none;
-  border-bottom-color: #fbfaee;
-  box-shadow: 0 1px 0 #fbfaee;
+  border-color: #b9adff;
+  background: #373445;
+  box-shadow: 0 0 0 3px #8b72ff24;
+}
+.grid input:-webkit-autofill,
+.grid input:-webkit-autofill:hover,
+.grid input:-webkit-autofill:focus {
+  -webkit-text-fill-color: #fbfaee;
+  caret-color: #c4c0ff;
+  box-shadow: 0 0 0 1000px #302e3d inset;
 }
 .grid button[type='submit'] {
   background: #fbfaee;
-  color: #3300d5;
+  color: #262431;
   min-height: 56px;
   margin-top: 8px;
 }
 .grid button[type='submit']:hover {
-  background: #e0d7f6;
+  background: #e6e0ec;
 }
 .grid button:disabled {
   cursor: wait;
@@ -168,7 +185,7 @@
 .status {
   min-height: 20px;
   margin: 0;
-  color: #ded7f6;
+  color: #d8d3df;
   font-size: 13px;
   text-align: center;
 }
@@ -185,6 +202,8 @@
   height: 1px;
   padding: 0;
   border: 0;
+  border-radius: 0;
+  background: transparent;
 }
 .turnstile {
   min-height: 65px;
@@ -208,20 +227,5 @@
   }
   .grid h2 {
     font-size: clamp(50px, 13vw, 76px);
-  }
-  .sculpture {
-    position: absolute;
-    width: 150px;
-    right: -20px;
-    top: -55px;
-    margin: 0;
-    opacity: 0.45;
-    pointer-events: none;
-  }
-  .intro {
-    isolation: isolate;
-  }
-  .sculpture {
-    z-index: -1;
   }
 }

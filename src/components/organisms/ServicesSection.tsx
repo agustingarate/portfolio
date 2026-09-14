@@ -18,14 +18,12 @@ export function ServicesSection({
   return (
     <section id="servicios" className={styles.section}>
       <Container>
-        <SectionHeading title={title} description={description} index="04" />
+        <Reveal>
+          <SectionHeading title={title} description={description} />
+        </Reveal>
         <div className={styles.services}>
           {items.map((service, index) => (
-            <Reveal
-              key={service.title}
-              delay={(index % 2) * 80}
-              className={service.featured ? styles.featuredReveal : ''}
-            >
+            <Reveal key={service.title}>
               <ServiceCard service={service} index={index + 1} />
             </Reveal>
           ))}

@@ -29,6 +29,8 @@
   width: max-content;
   gap: 60px;
   padding-inline: 30px;
+  animation: marquee-scroll 18s linear infinite;
+  will-change: transform;
 }
 .technology {
   display: flex;
@@ -57,6 +59,11 @@
   width: 64px;
   pointer-events: none;
 }
+@keyframes marquee-scroll {
+  to {
+    transform: translate3d(-50%, 0, 0);
+  }
+}
 .fadeLeft {
   left: 0;
   background: linear-gradient(90deg, var(--background), transparent);
@@ -64,14 +71,6 @@
 .fadeRight {
   right: 0;
   background: linear-gradient(-90deg, var(--background), transparent);
-}
-/* Scrollable rather than continuously moving: every technology stays reachable. */
-.marquee {
-  overflow-x: auto;
-  scrollbar-width: thin;
-}
-.technology[aria-hidden='true'] {
-  display: none;
 }
 @media (max-width: 767px) {
   .section {
@@ -89,5 +88,16 @@
   }
   .technology span {
     font-size: 24px;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .marquee {
+    overflow-x: auto;
+  }
+  .track {
+    animation: none;
+  }
+  .technology[aria-hidden='true'] {
+    display: none;
   }
 }
