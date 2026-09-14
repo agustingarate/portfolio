@@ -18,7 +18,7 @@ export function AboutSection({
       <Container>
         <Reveal>
           <div className={styles.location}>
-            <Chip tone="tonal">
+            <Chip variant="outline">
               <Icon name="location" size={15} />
               {location}
             </Chip>

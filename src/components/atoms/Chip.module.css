@@ -16,3 +16,25 @@
   background: var(--surface-container);
   color: var(--on-surface-variant);
 }
+.outline {
+  gap: 8px;
+  padding: 9px 20px;
+  border-color: #d7d4e3;
+  background: transparent;
+  color: var(--on-surface);
+  font:
+    600 clamp(12px, 1.1vw, 16px) / 1.25 var(--font-hanken),
+    sans-serif;
+  letter-spacing: 0.02em;
+}
+.outline svg {
+  width: 16px;
+  height: 16px;
+  color: var(--primary);
+}
+@media (max-width: 767px) {
+  .outline {
+    padding: 8px 14px;
+    font-size: 12px;
+  }
+}

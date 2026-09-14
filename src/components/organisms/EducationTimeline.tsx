@@ -372,7 +372,9 @@ export function EducationTimeline({
               <p>{description}</p>
               <div className={styles.topics}>
                 {topics.map((topic) => (
-                  <Chip key={topic}>{topic}</Chip>
+                  <Chip key={topic} variant="outline">
+                    {topic}
+                  </Chip>
                 ))}
               </div>
             </div>

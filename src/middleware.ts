@@ -12,7 +12,7 @@ function prefersEnglish(request: NextRequest) {
   );
 }
 
-export function proxy(request: NextRequest) {
+export function middleware(request: NextRequest) {
   if (request.nextUrl.pathname === '/' && prefersEnglish(request)) {
     const response = NextResponse.redirect(new URL('/en', request.url));
     response.headers.set('Vary', 'Accept-Language, Cookie');
