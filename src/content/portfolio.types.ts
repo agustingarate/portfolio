@@ -66,6 +66,7 @@ export type Service = {
   title: string;
   description: string;
   detail?: string;
+  signals: readonly [string, string];
   icon: IconName;
   featured?: boolean;
 };

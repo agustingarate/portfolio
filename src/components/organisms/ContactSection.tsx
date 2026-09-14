@@ -2,9 +2,11 @@
 import { useState } from 'react';
 import Script from 'next/script';
 import type { ProjectType, SocialLink } from '@/content/portfolio.types';
+import type { Locale } from '@/lib/i18n';
 import { Button } from '@/components/atoms/Button';
 import { Container } from '@/components/atoms/Container';
 import { Icon } from '@/components/atoms/Icon';
+import { Reveal } from '@/components/molecules/Reveal';
 import styles from './ContactSection.module.css';
 export function ContactSection({
   title,
@@ -12,12 +14,29 @@ export function ContactSection({
   projectTypes,
   socials,
   turnstileSiteKey,
+  labels,
+  locale,
 }: {
   title: string;
   description: string;
   projectTypes: readonly ProjectType[];
   socials: readonly SocialLink[];
   turnstileSiteKey: string;
+  locale: Locale;
+  labels: {
+    projectType: string;
+    name: string;
+    namePlaceholder: string;
+    email: string;
+    emailPlaceholder: string;
+    message: string;
+    messagePlaceholder: string;
+    website: string;
+    sending: string;
+    sent: string;
+    error: string;
+    submit: string;
+  };
 }) {
   const [status, setStatus] = useState('');
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -26,7 +45,7 @@ export function ContactSection({
     const formElement = event.currentTarget;
     const form = new FormData(formElement);
     setIsSubmitting(true);
-    setStatus('Enviando mensaje…');
+    setStatus(labels.sending);
     try {
       const response = await fetch('/api/contact', {
         method: 'POST',
@@ -42,11 +61,9 @@ export function ContactSection({
       });
       if (!response.ok) throw new Error('contact-request-failed');
       formElement.reset();
-      setStatus('¡Gracias! Tu mensaje fue enviado correctamente.');
+      setStatus(labels.sent);
     } catch {
-      setStatus(
-        'No pudimos enviar tu mensaje. Intenta nuevamente en unos minutos.',
-      );
+      setStatus(labels.error);
     } finally {
       setIsSubmitting(false);
     }
@@ -59,96 +76,101 @@ export function ContactSection({
         strategy="afterInteractive"
       />
       <Container className={styles.container}>
-        <div className={styles.grid}>
-          <div>
-            <h2>{title}</h2>
-            <p className={styles.description}>{description}</p>
-            <div className={styles.socials}>
-              {socials.map((social) => (
-                <a
-                  key={social.label}
-                  href={social.href}
-                  data-contact-icon={social.icon}
-                >
-                  <Icon name={social.icon} size={20} />
-                  {social.label}
-                </a>
-              ))}
-            </div>
-          </div>
-          <form onSubmit={submit}>
-            <fieldset>
-              <legend>Tipo de Proyecto</legend>
-              <div className={styles.types}>
-                {projectTypes.map((type, index) => (
-                  <label key={type.value}>
-                    <input
-                      type="radio"
-                      name="project_type"
-                      value={type.value}
-                      defaultChecked={index === 0}
-                    />
-                    <span>{type.label}</span>
-                  </label>
+        <Reveal>
+          <div className={styles.grid}>
+            <div className={styles.intro}>
+              <span className={styles.index} aria-hidden="true">
+                06 /
+              </span>
+              <h2>{title}</h2>
+              <p className={styles.description}>{description}</p>
+              <div className={styles.socials}>
+                {socials.map((social) => (
+                  <a
+                    key={social.label}
+                    href={social.href}
+                    data-contact-icon={social.icon}
+                  >
+                    <Icon name={social.icon} size={20} />
+                    {social.label}
+                  </a>
                 ))}
               </div>
-            </fieldset>
-            <label className="sr-only" htmlFor="name">
-              Nombre
-            </label>
-            <input
-              required
-              id="name"
-              name="name"
-              placeholder="Tu Nombre"
-              autoComplete="name"
-            />
-            <label className="sr-only" htmlFor="email">
-              Email
-            </label>
-            <input
-              required
-              id="email"
-              name="email"
-              type="email"
-              placeholder="Tu Email"
-              autoComplete="email"
-            />
-            <label className="sr-only" htmlFor="message">
-              Mensaje
-            </label>
-            <textarea
-              required
-              id="message"
-              name="message"
-              rows={4}
-              placeholder="Contame un poco más sobre el contexto…"
-            />
-            <label className={styles.honeypot} htmlFor="website">
-              Sitio web
-            </label>
-            <input
-              className={styles.honeypot}
-              id="website"
-              name="website"
-              type="text"
-              tabIndex={-1}
-              autoComplete="off"
-            />
-            <div
-              className={`${styles.turnstile} cf-turnstile`}
-              data-sitekey={turnstileSiteKey}
-              data-theme="light"
-              data-language="es"
-            />
-            <Button type="submit" wide disabled={isSubmitting}>
-              {isSubmitting ? 'Enviando…' : 'Enviar Mensaje'}
-            </Button>
-            <p className={styles.status} aria-live="polite">
-              {status}
-            </p>
-          </form>
-        </div>
+            </div>
+            <form onSubmit={submit}>
+              <fieldset>
+                <legend>{labels.projectType}</legend>
+                <div className={styles.types}>
+                  {projectTypes.map((type, index) => (
+                    <label key={type.value}>
+                      <input
+                        type="radio"
+                        name="project_type"
+                        value={type.value}
+                        defaultChecked={index === 0}
+                      />
+                      <span>{type.label}</span>
+                    </label>
+                  ))}
+                </div>
+              </fieldset>
+              <label className={styles.fieldLabel} htmlFor="name">
+                {labels.name}
+              </label>
+              <input
+                required
+                id="name"
+                name="name"
+                placeholder={labels.namePlaceholder}
+                autoComplete="name"
+              />
+              <label className={styles.fieldLabel} htmlFor="email">
+                {labels.email}
+              </label>
+              <input
+                required
+                id="email"
+                name="email"
+                type="email"
+                placeholder={labels.emailPlaceholder}
+                autoComplete="email"
+              />
+              <label className={styles.fieldLabel} htmlFor="message">
+                {labels.message}
+              </label>
+              <textarea
+                required
+                id="message"
+                name="message"
+                rows={4}
+                placeholder={labels.messagePlaceholder}
+              />
+              <label className={styles.honeypot} htmlFor="website">
+                {labels.website}
+              </label>
+              <input
+                className={styles.honeypot}
+                id="website"
+                name="website"
+                type="text"
+                tabIndex={-1}
+                autoComplete="off"
+              />
+              <div
+                className={`${styles.turnstile} cf-turnstile`}
+                data-sitekey={turnstileSiteKey}
+                data-theme="light"
+                data-language={locale}
+              />
+              <Button type="submit" wide disabled={isSubmitting}>
+                {isSubmitting ? labels.sending : labels.submit}
+              </Button>
+              <p className={styles.status} aria-live="polite">
+                {status}
+              </p>
+            </form>
+          </div>
+        </Reveal>
       </Container>
     </section>
   );

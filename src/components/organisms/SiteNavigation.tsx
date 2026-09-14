@@ -9,13 +9,25 @@ import {
   isImmersiveScrollActive,
 } from '@/lib/immersive-scroll';
 import styles from './SiteNavigation.module.css';
+import { localePath, type Locale } from '@/lib/i18n';
 
 export function SiteNavigation({
   name,
   items,
+  locale,
+  labels,
 }: {
   name: string;
   items: readonly NavigationItem[];
+  locale: Locale;
+  labels: {
+    mainLabel: string;
+    homeLabel: string;
+    contactCta: string;
+    languageLabel: string;
+    spanishLabel: string;
+    englishLabel: string;
+  };
 }) {
   const ids = useMemo(() => items.map((item) => item.href.slice(1)), [items]);
   const active = useActiveSection(ids);
@@ -82,7 +94,7 @@ export function SiteNavigation({
           <a
             href="#inicio"
             className={`${styles.logo} ${compact ? styles.compact : ''}`}
-            aria-label={`${name}, ir al inicio`}
+            aria-label={`${name}, ${labels.homeLabel}`}
             onClick={handleNavigationClick}
           >
             <span>{first[0]}</span>
@@ -90,7 +102,7 @@ export function SiteNavigation({
             <span>{last[0]}</span>
             <span className={styles.remainder}>{last.slice(1)}</span>
           </a>
-          <nav className={styles.desktopNav} aria-label="Navegación principal">
+          <nav className={styles.desktopNav} aria-label={labels.mainLabel}>
             {items.map((item) => (
               <a
                 key={item.href}
@@ -110,11 +122,36 @@ export function SiteNavigation({
             href="#contacto"
             onClick={handleNavigationClick}
           >
-            Ir al contacto
+            {labels.contactCta}
           </a>
+          <div className={styles.language} aria-label={labels.languageLabel}>
+            <a
+              href={localePath('es')}
+              lang="es"
+              aria-current={locale === 'es' ? 'true' : undefined}
+              onClick={() => {
+                document.cookie =
+                  'locale=es; path=/; max-age=31536000; SameSite=Lax';
+              }}
+            >
+              ES
+            </a>
+            <span aria-hidden="true">/</span>
+            <a
+              href={localePath('en')}
+              lang="en"
+              aria-current={locale === 'en' ? 'true' : undefined}
+              onClick={() => {
+                document.cookie =
+                  'locale=en; path=/; max-age=31536000; SameSite=Lax';
+              }}
+            >
+              EN
+            </a>
+          </div>
         </div>
       </header>
-      <nav className={styles.mobileNav} aria-label="Navegación principal">
+      <nav className={styles.mobileNav} aria-label={labels.mainLabel}>
         {items.map((item) => {
           const selected = active === item.href.slice(1);
           return (
@@ -130,6 +167,17 @@ export function SiteNavigation({
             </a>
           );
         })}
+        <a
+          className={styles.languageToggle}
+          href={localePath(locale === 'es' ? 'en' : 'es')}
+          lang={locale === 'es' ? 'en' : 'es'}
+          aria-label={`${labels.languageLabel}: ${locale === 'es' ? labels.englishLabel : labels.spanishLabel}`}
+          onClick={() => {
+            document.cookie = `locale=${locale === 'es' ? 'en' : 'es'}; path=/; max-age=31536000; SameSite=Lax`;
+          }}
+        >
+          {locale === 'es' ? 'EN' : 'ES'}
+        </a>
       </nav>
     </>
   );

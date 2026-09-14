@@ -6,9 +6,11 @@ import styles from './ExperienceItem.module.css';
 export function ExperienceItem({
   item,
   active,
+  newTabLabel,
 }: {
   item: Experience;
   active?: boolean;
+  newTabLabel: string;
 }) {
   return (
     <article className={`${styles.item} ${active ? styles.active : ''}`}>
@@ -21,7 +23,7 @@ export function ExperienceItem({
           href={item.companyUrl}
           target="_blank"
           rel="noopener noreferrer"
-          aria-label={`${item.company} (abre una nueva pestaña)`}
+          aria-label={`${item.company} (${newTabLabel})`}
         >
           {item.company}
           <Icon name="external-link" size={14} />

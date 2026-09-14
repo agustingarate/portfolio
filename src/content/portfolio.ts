@@ -21,8 +21,55 @@ export const portfolioContent = {
   metadata: {
     title: 'Agustin Garate — Software Developer',
     description:
-      'Portfolio de desarrollo de productos digitales, experiencias móviles e inteligencia artificial.',
+      'Portfolio de desarrollo de productos digitales, aplicaciones móviles y web e inteligencia artificial.',
     siteUrl: 'https://agustingarate.com',
+  },
+  locale: 'es' as const,
+  ui: {
+    navigation: {
+      mainLabel: 'Navegación principal',
+      homeLabel: 'Ir al inicio',
+      contactCta: 'Ir al contacto',
+      languageLabel: 'Cambiar idioma',
+      spanishLabel: 'Español',
+      englishLabel: 'English',
+    },
+    hero: {
+      eyebrow: 'Ingeniero de software',
+      pauseMotion: 'Pausar animación',
+      resumeMotion: 'Reanudar animación',
+    },
+    contactChips: {
+      label: 'Contacto rápido',
+      copied: 'Copiado',
+      unableToCopy: 'No se pudo copiar',
+      copy: 'Copiar',
+    },
+    contactForm: {
+      projectType: 'Tipo de proyecto',
+      name: 'Nombre',
+      namePlaceholder: 'Tu nombre',
+      email: 'Email',
+      emailPlaceholder: 'Tu email',
+      message: 'Mensaje',
+      messagePlaceholder: 'Contame un poco más sobre tu idea o proyecto',
+      website: 'Sitio web',
+      sending: 'Enviando mensaje…',
+      sent: '¡Gracias! Tu mensaje fue enviado correctamente.',
+      error:
+        'No pudimos enviar tu mensaje. Intentá nuevamente en unos minutos.',
+      submit: 'Enviar mensaje',
+    },
+    experience: { newTab: 'abre una nueva pestaña' },
+    stack: { featuredTechnologies: 'Tecnologías destacadas' },
+    lifecycle: { today: 'Hoy' },
+    share: {
+      button: 'Compartir',
+      text: 'Conocé el portfolio de Agustin Garate.',
+      copyLink: 'Copiar enlace',
+      linkCopied: 'Enlace copiado',
+      unableToCopy: 'No se pudo copiar el enlace',
+    },
   },
   navigation: [
     { label: 'Inicio', href: '#inicio', icon: 'home' },
@@ -149,30 +196,34 @@ export const portfolioContent = {
   services: {
     title: 'Servicios',
     description:
-      'Cada solución se define a partir del problema, las prioridades y el contexto real de tu negocio.',
+      'Diseño y desarrollo soluciones a medida enfocadas en resolver problemas reales, optimizar procesos e impulsar el crecimiento de tu proyecto. ',
     items: [
       {
         title: 'Aplicaciones móviles',
         description:
           'Desarrollo de aplicaciones móviles multiplataforma para iOS y Android optimizadas para rendimiento y fluidez.',
+        signals: ['IOS', 'ANDROID'],
         icon: 'mobile',
       },
       {
         title: 'Páginas web',
         description:
-          'Creación de plataformas web interactivas y landing pages enfocadas en la experiencia de usuario.',
+          'Creación de plataformas web interactivas y landing pages enfocadas en la captación y conversión de nuevos usuarios o clientes.',
+        signals: ['WEB', 'INTERFAZ'],
         icon: 'web',
       },
       {
         title: 'Sistemas internos y back office',
         description:
-          'Diseño e implementación de herramientas internas a medida para optimizar operaciones de negocio.',
+          'Diseño e implementación de herramientas internas a medida para optimizar tus operaciones, facilmente integrables con tus sistemas y la información de tu negocio.',
+        signals: ['SISTEMAS', 'OPERACIONES'],
         icon: 'backend',
       },
       {
         title: 'Automatizaciones',
         description:
-          'Integración de sistemas y automatización de procesos mediante IA y flujos programados.',
+          'Integraciones de sistemas y automatización de procesos mediante IA y flujos programados.',
+        signals: ['ENTRADA', 'ACCIÓN'],
         icon: 'automation',
       },
       {
@@ -181,6 +232,7 @@ export const portfolioContent = {
           'Lanzamiento ágil de productos mínimos viables (MVPs) para validar ideas en el mercado rápidamente con una base técnica sólida.',
         detail:
           '¿Qué es un MVP? Es una versión simple, temprana y totalmente funcional de tu idea que nos permite lanzarla rápido al mercado para probar si funciona, ahorrando tiempo y costos antes de construir el producto final completo.',
+        signals: ['IDEA', 'MVP'],
         icon: 'rocket',
         featured: true,
       },
@@ -190,14 +242,14 @@ export const portfolioContent = {
     title: 'Etapas de un proyecto',
     hint: 'Desplazá para ver el progreso del proyecto',
     weeks: [
-      'Semana 1',
-      'Semana 3',
-      'Semana 4',
-      'Semana 7',
-      'Semana 8',
-      'Semana 11',
-      'Semana 15',
-      'Semana N',
+      'Dia 1',
+      'Dia 3',
+      'Dia 4',
+      'Dia 7',
+      'Dia 8',
+      'Dia 11',
+      'Dia 15',
+      'Dia N',
     ],
     phases: [
       {

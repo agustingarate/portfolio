@@ -1,40 +1,87 @@
 .section {
-  margin-bottom: 128px;
-  scroll-margin-top: 128px;
+  margin-bottom: 160px;
+  scroll-margin-top: 0;
 }
 .location {
-  margin-bottom: 16px;
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 36px;
+}
+.about {
+  display: grid;
+  grid-template-columns: 1fr 1.5fr;
+  gap: 60px;
+  padding-bottom: 60px;
+  border-bottom: 1px solid var(--editorial-line);
+}
+.about > p {
+  margin: 40px 0 0;
+  font:
+    400 clamp(24px, 2.75vw, 36px)/1.4 var(--font-hanken),
+    sans-serif;
+  letter-spacing: -0.03em;
+}
+.experienceGrid {
+  display: grid;
+  grid-template-columns: 0.8fr 1.3fr;
+  gap: 80px;
+  align-items: start;
+}
+.experienceGrid > div:first-child {
+  position: sticky;
+  top: 130px;
+}
+.experienceGrid h2 {
+  font-size: clamp(44px, 4.7vw, 65px);
+  overflow-wrap: normal;
 }
 .timeline {
-  max-width: 896px;
-  margin-left: 32px;
-  padding-left: 48px;
-  border-left: 2px solid
-    color-mix(in srgb, var(--outline-variant) 30%, transparent);
+  min-width: 0;
+  padding-left: 24px;
+  border-left: 1px solid var(--editorial-line);
 }
 .timeline > div:not(:last-child) {
   margin-bottom: 64px;
 }
 .services {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 24px;
+  grid-template-columns: 1fr;
 }
-.featuredReveal {
-  grid-column: span 2;
+.services > div {
+  display: flex;
+}
+.services > div:last-child > article {
+  border-bottom: 1px solid var(--editorial-line);
+}
+@media (max-width: 900px) {
+  .experienceGrid {
+    gap: 36px;
+    grid-template-columns: 1fr 1.4fr;
+  }
 }
 @media (max-width: 767px) {
   .section {
-    margin-bottom: 112px;
+    margin-bottom: 96px;
+  }
+  .about,
+  .experienceGrid {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+  .about > p {
+    margin-top: 0;
+  }
+  .location {
+    justify-content: flex-start;
+  }
+  .experienceGrid > div:first-child {
+    position: static;
   }
   .timeline {
-    margin-left: 16px;
-    padding-left: 32px;
+    margin-left: 4px;
+    padding-left: 24px;
   }
   .services {
     grid-template-columns: 1fr;
-  }
-  .featuredReveal {
-    grid-column: auto;
   }
 }

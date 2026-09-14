@@ -9,17 +9,21 @@ export function StackSection({
   title,
   categories,
   marquee,
+  ariaLabel,
 }: {
   title: string;
   categories: readonly StackCategory[];
   marquee: readonly Technology[];
+  ariaLabel: string;
 }) {
   const repeated = [...marquee, ...marquee];
   return (
     <>
       <section id="stack" className={styles.section}>
         <Container>
-          <SectionHeading title={title} />
+          <Reveal>
+            <SectionHeading title={title} index="05" />
+          </Reveal>
           <div className={styles.grid}>
             {categories.map((category, index) => (
               <Reveal key={category.title} delay={index * 100}>
@@ -29,7 +33,7 @@ export function StackSection({
           </div>
         </Container>
       </section>
-      <section className={styles.marquee} aria-label="Tecnologías destacadas">
+      <section className={styles.marquee} aria-label={ariaLabel}>
         <div className={styles.fadeLeft} />
         <div className={styles.fadeRight} />
         <div className={styles.track}>
