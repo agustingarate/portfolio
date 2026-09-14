@@ -230,16 +230,8 @@
 .topics {
   display: flex;
   flex-wrap: wrap;
-  gap: 8px;
+  gap: 12px;
   grid-column: 2;
-}
-.topics > * {
-  border: 1px solid #3300e024;
-  background: #ffffff4f;
-  color: #383044;
-  font-size: 10px;
-  font-weight: 400;
-  letter-spacing: 0;
 }
 .curve {
   width: 100%;
