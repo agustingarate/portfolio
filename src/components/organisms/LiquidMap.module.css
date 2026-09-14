@@ -6,3 +6,32 @@
   pointer-events: none;
   opacity: 0.98;
 }
+
+.fallbackMarker {
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: map-marker-pulse 1800ms ease-in-out infinite;
+}
+
+.fallbackHalo {
+  fill: #df3529;
+  opacity: 0.2;
+}
+
+.fallbackDot {
+  fill: #d1261c;
+  stroke: #fbfaee;
+  stroke-width: 0.75;
+}
+
+@keyframes map-marker-pulse {
+  50% {
+    transform: scale(1.16);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .fallbackMarker {
+    animation: none;
+  }
+}

@@ -1,5 +1,5 @@
 import * as THREE from 'three';
-import { argentina } from './map-shape';
+import { argentina, rosario } from './map-shape';
 
 const SEGMENTS = 240;
 const SIDES = 24;
@@ -104,7 +104,7 @@ function addMorph(source: THREE.TubeGeometry, target: THREE.TubeGeometry) {
 
 function studioEnvironment(renderer: THREE.WebGLRenderer) {
   const studio = new THREE.Scene();
-  studio.background = new THREE.Color('#03040a');
+  studio.background = new THREE.Color('#222331');
   const geometry = new THREE.PlaneGeometry(1, 1);
   const cards: THREE.MeshBasicMaterial[] = [];
   const panel = (
@@ -125,23 +125,16 @@ function studioEnvironment(renderer: THREE.WebGLRenderer) {
     studio.add(mesh);
     cards.push(material);
   };
-  panel('#9ed7ff', 7.5, [-3, 2, 3], 2.5, 4);
-  panel('#f49dce', 7, [3, 0.5, 2], 2, 3.5);
-  panel('#9beacb', 6, [-1, -3, 1], 3, 1.5);
-  panel('#a78cf8', 6, [1, 2, -3], 2, 3);
-  // Each broad softbox contains two smaller, saturated lights. The close hues
-  // remain part of the same reflection while producing richer bands as the
-  // environment rotates across the metal.
-  panel('#36a7ff', 10, [-2.88, 2.14, 2.88], 0.52, 1.35);
-  panel('#77dcff', 8.5, [-2.78, 1.58, 2.78], 0.42, 0.78);
-  panel('#ff3f9d', 10, [2.88, 0.78, 1.92], 0.48, 1.08);
-  panel('#ff8dcc', 8.5, [2.78, -0.05, 1.84], 0.42, 0.82);
-  panel('#2ed69e', 8.5, [-1.2, -2.88, 1.05], 0.92, 0.34);
-  panel('#86ffd0', 7.5, [-0.35, -2.8, 0.82], 0.64, 0.28);
-  panel('#7f4dff', 9, [0.78, 1.92, -2.88], 0.5, 0.92);
-  panel('#bd70ff', 8, [1.35, 1.72, -2.78], 0.4, 0.72);
-  panel('#ffffff', 11, [-1, 3, 1], 1.6, 0.5);
-  panel('#fff0e7', 9, [3, -1, -1], 0.6, 2);
+  // Broad neutral softboxes describe the tube volume; narrow cards leave
+  // crisp specular edges. Colored rims stay subordinate to the silver body.
+  panel('#fffaf2', 5.5, [-3, 4, 5], 4.5, 6);
+  panel('#d5e5ff', 3.5, [4, 1, 3], 3, 4.5);
+  panel('#b9adff', 3, [1, 2, -4], 3, 5);
+  panel('#c9c8de', 2, [-1, -4, 2], 5, 2);
+  panel('#ffffff', 9, [-2, 3, 2], 0.38, 4.5);
+  panel('#f6f3ff', 7, [3, 0, 2], 0.3, 3.8);
+  panel('#8b72ff', 4, [3, 1, -2], 0.65, 3);
+  panel('#b3e9f5', 3, [-3, -1, -1], 0.55, 2.5);
   const generator = new THREE.PMREMGenerator(renderer);
   const environment = generator.fromScene(studio, 0.025);
   generator.dispose();
@@ -172,7 +165,7 @@ const compositeFragment = `
       float radius = sqrt((float(i) + 0.5) / 12.0) * 6.0;
       glow += peak(vUv + vec2(cos(angle), sin(angle)) * texel * radius);
     }
-    glow *= 0.20 / 12.0;
+    glow *= 0.12 / 12.0;
     float haloAlpha = clamp(max(glow.r, max(glow.g, glow.b)) * 0.3, 0.0, 0.28);
     float alpha = base.a + (1.0 - base.a) * haloAlpha;
     vec3 color = tone(base.rgb / max(base.a, 0.001) + glow);
@@ -203,12 +196,12 @@ export function createMetalScene(canvas: HTMLCanvasElement, reduced: boolean) {
     (point) => new THREE.Vector3((point.x - 0.5) * 4, (0.65 - point.y) * 4, 0),
   );
   const material = new THREE.MeshPhysicalMaterial({
-    color: '#777e91',
+    color: '#bec3d3',
     metalness: 1,
-    roughness: 0.22,
-    clearcoat: 0.8,
-    clearcoatRoughness: 0.16,
-    envMapIntensity: 1.1,
+    roughness: 0.19,
+    clearcoat: 0.65,
+    clearcoatRoughness: 0.12,
+    envMapIntensity: 0.95,
   });
   const meshes = Array.from({ length: 6 }, (_, index) => {
     const geometry = tube(ringPoints(index), index === 0 ? 0.082 : 0.052);
@@ -226,6 +219,51 @@ export function createMetalScene(canvas: HTMLCanvasElement, reduced: boolean) {
     group.add(mesh);
     return mesh;
   });
+  const marker = new THREE.Group();
+  marker.position.set((rosario.x - 0.5) * 4, (0.65 - rosario.y) * 4, 0.18);
+  marker.visible = false;
+  const markerCoreMaterial = new THREE.MeshBasicMaterial({
+    color: '#d1261c',
+    transparent: true,
+    opacity: 0,
+    depthTest: false,
+    depthWrite: false,
+  });
+  const markerRingMaterial = new THREE.MeshBasicMaterial({
+    color: '#ef4a3e',
+    transparent: true,
+    opacity: 0,
+    depthTest: false,
+    depthWrite: false,
+    side: THREE.DoubleSide,
+  });
+  const markerHaloMaterial = new THREE.MeshBasicMaterial({
+    color: '#ff6a5f',
+    transparent: true,
+    opacity: 0,
+    depthTest: false,
+    depthWrite: false,
+  });
+  const markerHalo = new THREE.Mesh(
+    new THREE.CircleGeometry(0.31, 40),
+    markerHaloMaterial,
+  );
+  const markerRing = new THREE.Mesh(
+    new THREE.RingGeometry(0.155, 0.195, 40),
+    markerRingMaterial,
+  );
+  const markerCore = new THREE.Mesh(
+    new THREE.CircleGeometry(0.12, 40),
+    markerCoreMaterial,
+  );
+  markerHalo.position.z = 0.01;
+  markerRing.position.z = 0.02;
+  markerCore.position.z = 0.03;
+  markerHalo.renderOrder = 8;
+  markerRing.renderOrder = 9;
+  markerCore.renderOrder = 10;
+  marker.add(markerHalo, markerRing, markerCore);
+  group.add(marker);
   const target = new THREE.WebGLRenderTarget(1, 1, {
     type: THREE.HalfFloatType,
     samples: Math.min(4, renderer.capabilities.maxSamples),
@@ -262,6 +300,17 @@ export function createMetalScene(canvas: HTMLCanvasElement, reduced: boolean) {
         mesh.material.depthWrite = mesh.material.opacity > 0.98;
       }
     }
+    const markerReveal = ease(
+      Math.min(1, Math.max(0, (progress - 0.82) / 0.18)),
+    );
+    const markerPulse = reduced ? 0 : Math.sin(time * 3.4);
+    marker.visible = markerReveal > 0.01;
+    marker.scale.setScalar(1 + markerPulse * 0.09);
+    markerHalo.scale.setScalar(1.08 + (markerPulse + 1) * 0.12);
+    markerCoreMaterial.opacity = markerReveal;
+    markerRingMaterial.opacity = markerReveal * 0.82;
+    markerHaloMaterial.opacity =
+      markerReveal * (0.1 + (markerPulse + 1) * 0.035);
     group.rotation.set(
       (1 - progress) * 0.16 + Math.sin(time * 0.58) * 0.08,
       Math.sin(time * 0.46) * 0.22,
@@ -361,6 +410,12 @@ export function createMetalScene(canvas: HTMLCanvasElement, reduced: boolean) {
       mesh.geometry.dispose();
       mesh.material.dispose();
     });
+    markerCore.geometry.dispose();
+    markerRing.geometry.dispose();
+    markerHalo.geometry.dispose();
+    markerCoreMaterial.dispose();
+    markerRingMaterial.dispose();
+    markerHaloMaterial.dispose();
     environment.dispose();
     target.dispose();
     quad.geometry.dispose();

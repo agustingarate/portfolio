@@ -2,6 +2,13 @@ type Point = { x: number; y: number };
 
 const POINT_COUNT = 96;
 
+function projectCoordinate(longitude: number, latitude: number): Point {
+  return {
+    x: 0.5 + (longitude + 63.7) * 0.026,
+    y: 0.035 + (-21.945 - latitude) * 0.04,
+  };
+}
+
 // Simplified from Natural Earth's public-domain 1:50m Argentina boundary.
 const argentinaCoordinates: readonly [number, number][] = [
   [-65.933, -21.945],
@@ -69,11 +76,11 @@ const argentinaCoordinates: readonly [number, number][] = [
 ];
 
 const argentinaSource: Point[] = argentinaCoordinates.map(
-  ([longitude, latitude]) => ({
-    x: 0.5 + (longitude + 63.7) * 0.026,
-    y: 0.035 + (-21.945 - latitude) * 0.04,
-  }),
+  ([longitude, latitude]) => projectCoordinate(longitude, latitude),
 );
+
+// Rosario, Santa Fe — projected with the same transform as the country path.
+export const rosario = projectCoordinate(-60.6505, -32.9442);
 
 function distance(a: Point, b: Point) {
   return Math.hypot(b.x - a.x, b.y - a.y);

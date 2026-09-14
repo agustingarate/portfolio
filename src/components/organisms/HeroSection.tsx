@@ -1,7 +1,9 @@
 'use client';
 import { Button } from '@/components/atoms/Button';
-import { useState } from 'react';
+import { useMemo, useState } from 'react';
+import { useTypewriter } from '@/hooks/use-typewriter';
 import { LiquidMap } from './LiquidMap';
+import { OrganicShader } from './OrganicShader';
 import styles from './HeroSection.module.css';
 
 type HeroProps = {
@@ -19,8 +21,13 @@ export function HeroSection({
   secondaryAction,
 }: HeroProps) {
   const [paused, setPaused] = useState(false);
+  const statements = useMemo(() => phrases.slice(1), [phrases]);
+  const typedStatement = useTypewriter(statements, paused);
   return (
     <section id="inicio" className={styles.hero}>
+      <div className={styles.atmosphere} aria-hidden="true">
+        <OrganicShader />
+      </div>
       <div className={styles.art} aria-hidden="true">
         <div className={styles.orbit} />
         <LiquidMap />
@@ -38,16 +45,12 @@ export function HeroSection({
             <span>{phrases[0]?.split(' ').slice(1).join(' ')}</span>
           </span>
         </h1>
-        <div className={styles.statements} data-paused={paused}>
-          {phrases.slice(1).map((phrase, index) => (
-            <p
-              className={styles.statement}
-              key={phrase}
-              style={{ '--phrase-index': index } as React.CSSProperties}
-            >
-              {phrase}
-            </p>
-          ))}
+        <div className={styles.statements}>
+          <p className={styles.statement} aria-hidden="true">
+            {typedStatement}
+            <span className={styles.cursor}>|</span>
+          </p>
+          <span className={styles.srOnly}>{statements.join('. ')}</span>
         </div>
         <button
           className={styles.motionToggle}
@@ -64,10 +67,10 @@ export function HeroSection({
             {secondaryAction.label}
           </Button>
         </div>
-      </div>
-      <div className={styles.caption}>
-        <span aria-hidden="true">↘</span>
-        <p>{description}</p>
+        <div className={styles.caption}>
+          <span aria-hidden="true">↘</span>
+          <p>{description}</p>
+        </div>
       </div>
     </section>
   );

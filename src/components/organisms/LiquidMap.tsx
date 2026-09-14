@@ -2,7 +2,7 @@
 
 import { useEffect, useRef, useState } from 'react';
 import { usePrefersReducedMotion } from '@/hooks/use-prefers-reduced-motion';
-import { argentinaPath } from '@/lib/hero/map-shape';
+import { argentinaPath, rosario } from '@/lib/hero/map-shape';
 import styles from './LiquidMap.module.css';
 
 export function LiquidMap() {
@@ -53,6 +53,20 @@ export function LiquidMap() {
             strokeWidth="3"
             strokeLinejoin="round"
           />
+          <g className={styles.fallbackMarker}>
+            <circle
+              className={styles.fallbackHalo}
+              cx={rosario.x * 100}
+              cy={rosario.y * 100}
+              r="5.5"
+            />
+            <circle
+              className={styles.fallbackDot}
+              cx={rosario.x * 100}
+              cy={rosario.y * 100}
+              r="2.7"
+            />
+          </g>
         </svg>
       )}
       <canvas ref={canvasRef} className={styles.canvas} aria-hidden="true" />
