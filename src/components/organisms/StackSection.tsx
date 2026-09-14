@@ -19,7 +19,9 @@ export function StackSection({
     <>
       <section id="stack" className={styles.section}>
         <Container>
-          <SectionHeading title={title} />
+          <Reveal>
+            <SectionHeading title={title} index="05" />
+          </Reveal>
           <div className={styles.grid}>
             {categories.map((category, index) => (
               <Reveal key={category.title} delay={index * 100}>

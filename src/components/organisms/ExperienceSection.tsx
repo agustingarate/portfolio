@@ -31,21 +31,25 @@ export function ExperienceSection({
   return (
     <section id="experiencia" className={styles.section}>
       <Container>
-        <SectionHeading title={title} />
-        <div className={styles.timeline}>
-          {items.map((item, index) => (
-            <div
-              key={item.role}
-              data-index={index}
-              ref={(node) => {
-                refs.current[index] = node;
-              }}
-            >
-              <Reveal delay={index * 150}>
-                <ExperienceItem item={item} active={index === active} />
-              </Reveal>
-            </div>
-          ))}
+        <div className={styles.experienceGrid}>
+          <Reveal>
+            <SectionHeading title={title} index="02" />
+          </Reveal>
+          <div className={styles.timeline}>
+            {items.map((item, index) => (
+              <div
+                key={item.role}
+                data-index={index}
+                ref={(node) => {
+                  refs.current[index] = node;
+                }}
+              >
+                <Reveal delay={index * 150}>
+                  <ExperienceItem item={item} active={index === active} />
+                </Reveal>
+              </div>
+            ))}
+          </div>
         </div>
       </Container>
     </section>

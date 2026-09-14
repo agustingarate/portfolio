@@ -21,7 +21,7 @@ export const portfolioContent = {
   metadata: {
     title: 'Agustin Garate — Software Developer',
     description:
-      'Portfolio de desarrollo de productos digitales, experiencias móviles e inteligencia artificial.',
+      'Portfolio de desarrollo de productos digitales, aplicaciones móviles y web e inteligencia artificial.',
     siteUrl: 'https://agustingarate.com',
   },
   navigation: [
@@ -149,7 +149,7 @@ export const portfolioContent = {
   services: {
     title: 'Servicios',
     description:
-      'Cada solución se define a partir del problema, las prioridades y el contexto real de tu negocio.',
+      'Diseño y desarrollo soluciones a medida enfocadas en resolver problemas reales, optimizar procesos e impulsar el crecimiento de tu proyecto. ',
     items: [
       {
         title: 'Aplicaciones móviles',
@@ -160,19 +160,19 @@ export const portfolioContent = {
       {
         title: 'Páginas web',
         description:
-          'Creación de plataformas web interactivas y landing pages enfocadas en la experiencia de usuario.',
+          'Creación de plataformas web interactivas y landing pages enfocadas en la captación y conversión de nuevos usuarios o clientes.',
         icon: 'web',
       },
       {
         title: 'Sistemas internos y back office',
         description:
-          'Diseño e implementación de herramientas internas a medida para optimizar operaciones de negocio.',
+          'Diseño e implementación de herramientas internas a medida para optimizar tus operaciones, facilmente integrables con tus sistemas y la información de tu negocio.',
         icon: 'backend',
       },
       {
         title: 'Automatizaciones',
         description:
-          'Integración de sistemas y automatización de procesos mediante IA y flujos programados.',
+          'Integraciones de sistemas y automatización de procesos mediante IA y flujos programados.',
         icon: 'automation',
       },
       {
@@ -190,14 +190,14 @@ export const portfolioContent = {
     title: 'Etapas de un proyecto',
     hint: 'Desplazá para ver el progreso del proyecto',
     weeks: [
-      'Semana 1',
-      'Semana 3',
-      'Semana 4',
-      'Semana 7',
-      'Semana 8',
-      'Semana 11',
-      'Semana 15',
-      'Semana N',
+      'Dia 1',
+      'Dia 3',
+      'Dia 4',
+      'Dia 7',
+      'Dia 8',
+      'Dia 11',
+      'Dia 15',
+      'Dia N',
     ],
     phases: [
       {

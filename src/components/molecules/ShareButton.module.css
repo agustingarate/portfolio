@@ -2,6 +2,17 @@
   position: relative;
 }
 
+.share > button {
+  border-color: rgba(251, 250, 238, 0.42);
+  color: #fbfaee;
+}
+
+.share > button:hover {
+  border-color: rgba(251, 250, 238, 0.72);
+  background: rgba(251, 250, 238, 0.1);
+  color: #ffffff;
+}
+
 .options {
   position: absolute;
   right: 0;

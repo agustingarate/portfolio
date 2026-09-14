@@ -23,7 +23,10 @@ export function AboutSection({
               {location}
             </Chip>
           </div>
-          <SectionHeading title={title} description={description} />
+          <div className={styles.about}>
+            <SectionHeading title={title} index="01" />
+            <p>{description}</p>
+          </div>
         </Reveal>
       </Container>
     </section>

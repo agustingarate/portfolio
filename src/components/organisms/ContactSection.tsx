@@ -5,6 +5,7 @@ import type { ProjectType, SocialLink } from '@/content/portfolio.types';
 import { Button } from '@/components/atoms/Button';
 import { Container } from '@/components/atoms/Container';
 import { Icon } from '@/components/atoms/Icon';
+import { Reveal } from '@/components/molecules/Reveal';
 import styles from './ContactSection.module.css';
 export function ContactSection({
   title,
@@ -59,96 +60,101 @@ export function ContactSection({
         strategy="afterInteractive"
       />
       <Container className={styles.container}>
-        <div className={styles.grid}>
-          <div>
-            <h2>{title}</h2>
-            <p className={styles.description}>{description}</p>
-            <div className={styles.socials}>
-              {socials.map((social) => (
-                <a
-                  key={social.label}
-                  href={social.href}
-                  data-contact-icon={social.icon}
-                >
-                  <Icon name={social.icon} size={20} />
-                  {social.label}
-                </a>
-              ))}
-            </div>
-          </div>
-          <form onSubmit={submit}>
-            <fieldset>
-              <legend>Tipo de Proyecto</legend>
-              <div className={styles.types}>
-                {projectTypes.map((type, index) => (
-                  <label key={type.value}>
-                    <input
-                      type="radio"
-                      name="project_type"
-                      value={type.value}
-                      defaultChecked={index === 0}
-                    />
-                    <span>{type.label}</span>
-                  </label>
+        <Reveal>
+          <div className={styles.grid}>
+            <div className={styles.intro}>
+              <span className={styles.index} aria-hidden="true">
+                06 /
+              </span>
+              <h2>{title}</h2>
+              <p className={styles.description}>{description}</p>
+              <div className={styles.socials}>
+                {socials.map((social) => (
+                  <a
+                    key={social.label}
+                    href={social.href}
+                    data-contact-icon={social.icon}
+                  >
+                    <Icon name={social.icon} size={20} />
+                    {social.label}
+                  </a>
                 ))}
               </div>
-            </fieldset>
-            <label className="sr-only" htmlFor="name">
-              Nombre
-            </label>
-            <input
-              required
-              id="name"
-              name="name"
-              placeholder="Tu Nombre"
-              autoComplete="name"
-            />
-            <label className="sr-only" htmlFor="email">
-              Email
-            </label>
-            <input
-              required
-              id="email"
-              name="email"
-              type="email"
-              placeholder="Tu Email"
-              autoComplete="email"
-            />
-            <label className="sr-only" htmlFor="message">
-              Mensaje
-            </label>
-            <textarea
-              required
-              id="message"
-              name="message"
-              rows={4}
-              placeholder="Contame un poco más sobre el contexto…"
-            />
-            <label className={styles.honeypot} htmlFor="website">
-              Sitio web
-            </label>
-            <input
-              className={styles.honeypot}
-              id="website"
-              name="website"
-              type="text"
-              tabIndex={-1}
-              autoComplete="off"
-            />
-            <div
-              className={`${styles.turnstile} cf-turnstile`}
-              data-sitekey={turnstileSiteKey}
-              data-theme="light"
-              data-language="es"
-            />
-            <Button type="submit" wide disabled={isSubmitting}>
-              {isSubmitting ? 'Enviando…' : 'Enviar Mensaje'}
-            </Button>
-            <p className={styles.status} aria-live="polite">
-              {status}
-            </p>
-          </form>
-        </div>
+            </div>
+            <form onSubmit={submit}>
+              <fieldset>
+                <legend>Tipo de Proyecto</legend>
+                <div className={styles.types}>
+                  {projectTypes.map((type, index) => (
+                    <label key={type.value}>
+                      <input
+                        type="radio"
+                        name="project_type"
+                        value={type.value}
+                        defaultChecked={index === 0}
+                      />
+                      <span>{type.label}</span>
+                    </label>
+                  ))}
+                </div>
+              </fieldset>
+              <label className={styles.fieldLabel} htmlFor="name">
+                Nombre
+              </label>
+              <input
+                required
+                id="name"
+                name="name"
+                placeholder="Tu Nombre"
+                autoComplete="name"
+              />
+              <label className={styles.fieldLabel} htmlFor="email">
+                Email
+              </label>
+              <input
+                required
+                id="email"
+                name="email"
+                type="email"
+                placeholder="Tu Email"
+                autoComplete="email"
+              />
+              <label className={styles.fieldLabel} htmlFor="message">
+                Mensaje
+              </label>
+              <textarea
+                required
+                id="message"
+                name="message"
+                rows={4}
+                placeholder="Contame un poco mas sobre tu idea o proyecto"
+              />
+              <label className={styles.honeypot} htmlFor="website">
+                Sitio web
+              </label>
+              <input
+                className={styles.honeypot}
+                id="website"
+                name="website"
+                type="text"
+                tabIndex={-1}
+                autoComplete="off"
+              />
+              <div
+                className={`${styles.turnstile} cf-turnstile`}
+                data-sitekey={turnstileSiteKey}
+                data-theme="light"
+                data-language="es"
+              />
+              <Button type="submit" wide disabled={isSubmitting}>
+                {isSubmitting ? 'Enviando…' : 'Enviar Mensaje'}
+              </Button>
+              <p className={styles.status} aria-live="polite">
+                {status}
+              </p>
+            </form>
+          </div>
+        </Reveal>
       </Container>
     </section>
   );

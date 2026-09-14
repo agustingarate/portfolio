@@ -17,8 +17,13 @@ export function Reveal({
     const node = ref.current;
     if (!node) return;
     const observer = new IntersectionObserver(
-      ([entry]) => setVisible(entry.isIntersecting),
-      { rootMargin: '0px 0px -8%', threshold: 0.16 },
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setVisible(true);
+          observer.unobserve(entry.target);
+        }
+      },
+      { rootMargin: '0px 0px -3%', threshold: 0.08 },
     );
     observer.observe(node);
     return () => observer.disconnect();

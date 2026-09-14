@@ -127,3 +127,41 @@
     transition-duration: 1ms;
   }
 }
+
+.header {
+  height: 88px;
+}
+.logo {
+  font-size: 24px;
+  letter-spacing: -0.04em;
+}
+.desktopNav {
+  gap: 26px;
+}
+.desktopNav a {
+  font-size: 13px;
+}
+.cta {
+  margin-left: 32px;
+  padding: 12px 20px;
+  font-size: 10px;
+}
+@media (min-width: 768px) and (max-width: 1000px) {
+  .desktopNav {
+    gap: 16px;
+  }
+  .logo {
+    font-size: 20px;
+    margin-right: 20px;
+  }
+  .cta {
+    display: none;
+  }
+}
+@media (max-width: 767px) {
+  .mobileNav {
+    bottom: max(16px, env(safe-area-inset-bottom));
+    background: #fbfaeee8;
+    border-color: #3300e026;
+  }
+}

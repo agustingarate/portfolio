@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="1000" viewBox="0 0 1600 1000" fill="none">
+<defs>
+ <linearGradient id="sky" x2=".35" y2="1"><stop stop-color="#88c5e9"/><stop offset=".6" stop-color="#c1dff0"/><stop offset="1" stop-color="#f8d7dc"/></linearGradient>
+ <radialGradient id="cloud" cx=".35" cy=".2" r=".8"><stop stop-color="#fffef3"/><stop offset=".45" stop-color="#fff1d7"/><stop offset=".73" stop-color="#efd4cc"/><stop offset="1" stop-color="#b9c2d6"/></radialGradient>
+ <radialGradient id="pink" cx=".3" cy=".15" r=".85"><stop stop-color="#fff7e9"/><stop offset=".4" stop-color="#ffe4da"/><stop offset=".76" stop-color="#edbfd0"/><stop offset="1" stop-color="#b6bfd7"/></radialGradient>
+ <filter id="soft" x="-15%" y="-15%" width="130%" height="130%"><feTurbulence type="fractalNoise" baseFrequency=".009 .014" numOctaves="3" seed="12" result="noise"/><feDisplacementMap in="SourceGraphic" in2="noise" scale="35" xChannelSelector="R" yChannelSelector="G"/><feGaussianBlur stdDeviation="5"/></filter>
+ <linearGradient id="veil" x2="0" y2="1"><stop offset=".55" stop-color="#ffedde" stop-opacity="0"/><stop offset="1" stop-color="#ffe4dc" stop-opacity=".65"/></linearGradient>
+</defs>
+<path fill="url(#sky)" d="M0 0h1600v1000H0z"/>
+<g filter="url(#soft)" fill="url(#cloud)">
+ <ellipse cx="30" cy="450" rx="260" ry="220"/><ellipse cx="100" cy="255" rx="145" ry="140"/>
+ <ellipse cx="-10" cy="135" rx="115" ry="130"/><ellipse cx="260" cy="435" rx="170" ry="150"/>
+ <ellipse cx="350" cy="580" rx="240" ry="190"/><ellipse cx="150" cy="655" rx="260" ry="250"/>
+ <ellipse cx="505" cy="650" rx="190" ry="180"/><ellipse cx="460" cy="485" rx="115" ry="130"/>
+ <ellipse cx="590" cy="550" rx="100" ry="105"/><ellipse cx="630" cy="755" rx="260" ry="180"/>
+</g>
+<g filter="url(#soft)" fill="url(#pink)">
+ <ellipse cx="1600" cy="375" rx="150" ry="165"/><ellipse cx="1490" cy="540" rx="170" ry="170"/>
+ <ellipse cx="1360" cy="610" rx="155" ry="160"/><ellipse cx="1520" cy="755" rx="280" ry="210"/>
+ <ellipse cx="1175" cy="765" rx="210" ry="190"/><ellipse cx="1060" cy="875" rx="270" ry="185"/>
+ <ellipse cx="1380" cy="965" rx="440" ry="210"/>
+</g>
+<g filter="url(#soft)" fill="url(#cloud)"><ellipse cx="50" cy="920" rx="440" ry="200"/><ellipse cx="485" cy="950" rx="310" ry="170"/><ellipse cx="770" cy="1020" rx="330" ry="175"/></g>
+<path fill="url(#veil)" d="M0 0h1600v1000H0z"/>
+</svg>
