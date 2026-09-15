@@ -1,4 +1,5 @@
 import Script from 'next/script';
+import { Suspense } from 'react';
 import { PointerGlow } from '@/components/organisms/PointerGlow';
 import { SiteNavigation } from '@/components/organisms/SiteNavigation';
 import { HeroSection } from '@/components/organisms/HeroSection';
@@ -70,12 +71,14 @@ export function PortfolioPage({ locale }: { locale: Locale }) {
         {JSON.stringify(structuredData).replace(/</g, '\\u003c')}
       </Script>
       <PointerGlow />
-      <SiteNavigation
-        name={content.identity.name}
-        items={content.navigation}
-        locale={locale}
-        labels={content.ui.navigation}
-      />
+      <Suspense fallback={null}>
+        <SiteNavigation
+          name={content.identity.name}
+          items={content.navigation}
+          locale={locale}
+          labels={content.ui.navigation}
+        />
+      </Suspense>
       <main className="page-shell">
         <HeroSection {...content.hero} labels={content.ui.hero} />
         <ContactChips

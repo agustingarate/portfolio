@@ -19,13 +19,15 @@ export function BlogShell({
           ? 'Saltar al contenido principal'
           : 'Skip to main content'}
       </a>
-      <SiteNavigation
-        name={content.identity.name}
-        items={content.navigation}
-        locale={locale}
-        labels={content.ui.navigation}
-        enableImmersive={false}
-      />
+      <Suspense fallback={null}>
+        <SiteNavigation
+          name={content.identity.name}
+          items={content.navigation}
+          locale={locale}
+          labels={content.ui.navigation}
+          enableImmersive={false}
+        />
+      </Suspense>
       <main id="contenido-principal">{children}</main>
       <SiteFooter
         name={content.identity.name}
@@ -37,3 +39,4 @@ export function BlogShell({
     </div>
   );
 }
+import { Suspense } from 'react';
