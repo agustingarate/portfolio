@@ -2,6 +2,8 @@ node_modules
 .pnpm-store
 .next
 .open-next
+studio/dist
+studio/.sanity
 out
 .wrangler
 cloudflare-env.d.ts

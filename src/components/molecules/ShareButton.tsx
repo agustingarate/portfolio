@@ -12,6 +12,7 @@ function currentUrl() {
 
 export function ShareButton({
   labels,
+  tone = 'default',
 }: {
   labels: {
     button: string;
@@ -20,6 +21,7 @@ export function ShareButton({
     linkCopied: string;
     unableToCopy: string;
   };
+  tone?: 'default' | 'inverse';
 }) {
   const [isOpen, setIsOpen] = useState(false);
   const [message, setMessage] = useState('');
@@ -56,7 +58,9 @@ export function ShareButton({
   const encodedText = encodeURIComponent(labels.text);
 
   return (
-    <div className={styles.share}>
+    <div
+      className={`${styles.share} ${tone === 'inverse' ? styles.inverse : ''}`}
+    >
       <Button
         type="button"
         variant="secondary"

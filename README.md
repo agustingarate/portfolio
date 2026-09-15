@@ -19,15 +19,19 @@ pnpm exec wrangler login
 
 ## Comandos
 
-| Comando           | Uso                                                                            |
-| ----------------- | ------------------------------------------------------------------------------ |
-| `pnpm dev`        | Inicia Next.js en desarrollo, con recarga rápida.                              |
-| `pnpm lint`       | Ejecuta ESLint sobre el código fuente.                                         |
-| `pnpm build`      | Genera el build de producción de Next.js.                                      |
-| `pnpm start`      | Sirve el último build de Next.js localmente. Ejecutar después de `pnpm build`. |
-| `pnpm preview`    | Construye con OpenNext y prueba el sitio en el runtime local de Cloudflare.    |
-| `pnpm deploy`     | Construye y publica el Worker configurado.                                     |
-| `pnpm cf-typegen` | Regenera `cloudflare-env.d.ts` al cambiar las variables de `wrangler.jsonc`.   |
+| Comando                     | Uso                                                                            |
+| --------------------------- | ------------------------------------------------------------------------------ |
+| `pnpm dev`                  | Inicia Next.js en desarrollo, con recarga rápida.                              |
+| `pnpm lint`                 | Ejecuta ESLint sobre el código fuente.                                         |
+| `pnpm build`                | Genera el build de producción de Next.js.                                      |
+| `pnpm start`                | Sirve el último build de Next.js localmente. Ejecutar después de `pnpm build`. |
+| `pnpm preview`              | Construye con OpenNext y prueba el sitio en el runtime local de Cloudflare.    |
+| `pnpm deploy`               | Construye y publica el Worker configurado.                                     |
+| `pnpm cf-typegen`           | Regenera `cloudflare-env.d.ts` al cambiar las variables de `wrangler.jsonc`.   |
+| `pnpm studio:dev`           | Inicia el panel de Sanity localmente.                                          |
+| `pnpm studio:build`         | Comprueba que el panel de Sanity puede compilarse.                             |
+| `pnpm studio:deploy`        | Publica el panel en el hosting administrado de Sanity (`*.sanity.studio`).     |
+| `pnpm studio:deploy:worker` | Construye y publica el panel en el Worker de `admin.agustingarate.com`.        |
 
 Flujo recomendado antes de publicar:
 
@@ -61,6 +65,124 @@ El sistema visual sigue Atomic Design: atoms → molecules → organisms. Evitá
 - Shader del hero: `src/lib/webgl/shader-source.ts`.
 
 El Sitekey de Turnstile es público y está en `portfolioContent.contact.turnstileSiteKey`. Si se reemplaza el widget, actualizar ese valor y volver a desplegar.
+
+## Blog y CMS con Sanity
+
+El blog público está disponible en `/blog` y `/en/blog`. Los artículos comparten un
+slug y tienen sus campos editoriales en español e inglés. El Studio —el panel de
+administración— vive en `studio/` para poder desplegarse de forma independiente.
+
+### Conexión inicial
+
+1. Crear un proyecto en [Sanity Manage](https://sanity.io/manage) con un dataset
+   público llamado `production`.
+2. Copiar `.env.example` a `.env` y completar `NEXT_PUBLIC_SANITY_PROJECT_ID`.
+3. Copiar `studio/.env.example` a `studio/.env`, con el mismo Project ID.
+4. Ejecutar `pnpm studio:dev`, iniciar sesión con Sanity y crear las categorías y
+   artículos desde el panel.
+5. Elegir dónde alojar el panel: el subdominio administrado por Sanity o el
+   subdominio propio detallado a continuación.
+
+### Panel de administración en `admin.agustingarate.com`
+
+El Studio es una aplicación estática independiente del sitio público. Para
+servirlo desde un dominio propio se publica en un segundo Worker con Static
+Assets y se registra su URL en Sanity.
+
+#### Configuración inicial (una sola vez)
+
+Esta parte se realiza solo al crear el panel de administración. No es necesario
+repetirla al actualizar el Studio.
+
+1. En Cloudflare Dashboard, abrir **Websites → agustingarate.com → DNS →
+   Records**. Comprobar que no exista un registro llamado `admin`.
+
+   - Si no existe, continuar.
+   - Si existe y no se usa, eliminarlo desde Cloudflare antes de continuar.
+   - Si se usa, no eliminarlo: primero hay que decidir cómo migrar ese servicio.
+
+   El Worker necesita que `admin.agustingarate.com` esté libre porque Cloudflare
+   creará y administrará ese registro DNS automáticamente.
+
+2. Confirmar que `agustingarate.com` aparece como una zona **Active** en
+   Cloudflare. El archivo `studio/wrangler.jsonc` ya declara el Worker separado
+   `admin`, sus archivos estáticos y el dominio
+   `admin.agustingarate.com`.
+
+3. Iniciar sesión en Cloudflare desde la raíz del repositorio:
+
+   ```bash
+   pnpm exec wrangler login
+   ```
+
+4. Crear el Worker y su dominio con el primer despliegue:
+
+   ```bash
+   pnpm studio:deploy:worker
+   ```
+
+   Si todavía no existen, Cloudflare crea el Worker `admin`, el Custom Domain
+   `admin.agustingarate.com` y el certificado HTTPS. Si ya se crearon desde el
+   dashboard, esta orden actualiza ese mismo Worker con los archivos del Studio
+   y conserva el dominio asociado. Abrir `https://admin.agustingarate.com` para
+   comprobar que aparece la pantalla de inicio de sesión de Sanity.
+
+5. En [Sanity Manage](https://sanity.io/manage), abrir el proyecto → **API →
+   CORS Origins**, agregar `https://admin.agustingarate.com` y habilitar las
+   credenciales autenticadas.
+
+6. Registrar esa URL en Sanity y publicar el esquema desde la raíz del
+   repositorio:
+
+   ```bash
+   pnpm --dir studio exec sanity deploy --external --url https://admin.agustingarate.com
+   ```
+
+   Este comando no publica el panel: solo le informa a Sanity que el panel vive
+   en esa URL y mantiene el esquema disponible para Dashboard, Media Library y
+   las demás herramientas de Sanity.
+
+#### Publicar una nueva versión del panel
+
+Una vez terminada la configuración inicial, para actualizar el Studio solo hay
+que ejecutar estas dos órdenes desde la raíz del repositorio:
+
+```bash
+pnpm studio:deploy:worker
+pnpm --dir studio exec sanity deploy --external --url https://admin.agustingarate.com
+```
+
+La primera reconstruye `studio/dist` y actualiza los archivos del Worker. La
+segunda actualiza el esquema registrado en Sanity. No se modifican DNS, dominio
+ni CORS durante estas actualizaciones.
+
+La orden de Sanity requiere una sesión iniciada con `sanity login`. El acceso al
+panel continúa protegido por los usuarios y roles configurados en Sanity; no se
+deben guardar tokens de edición en el repositorio.
+
+### Automatización opcional del panel
+
+El workflow actual puede publicar también el Studio como un segundo job tras el
+deploy del Worker principal en `main`. Ese job ejecutaría
+`pnpm studio:deploy:worker` y luego registraría el esquema con
+`sanity deploy --external`. Para esto se requieren:
+
+- Los secretos existentes `CLOUDFLARE_API_TOKEN` y `CLOUDFLARE_ACCOUNT_ID`, con
+  permiso de edición sobre Workers y DNS.
+- Un secreto nuevo `SANITY_DEPLOY_TOKEN`, creado en Sanity Manage → **API**, que
+  el job expondrá como `SANITY_AUTH_TOKEN`.
+
+Conviene activar esta automatización después de completar una publicación manual
+exitosa, así quedan confirmados el Worker, el dominio y los permisos.
+
+El Project ID y el dataset son valores públicos de solo lectura. No se necesita
+ningún token para mostrar contenido publicado. Los tokens de escritura o de vista
+previa no deben añadirse a `.env.example`, `wrangler.jsonc` ni al repositorio.
+
+Mientras `NEXT_PUBLIC_SANITY_PROJECT_ID` no esté configurado, las rutas del blog
+siguen funcionando y muestran un estado vacío. Los artículos publicados se
+actualizan como máximo cada cinco minutos en la web pública y se incluyen en el
+sitemap cuando Sanity está conectado.
 
 ## Cloudflare Workers
 

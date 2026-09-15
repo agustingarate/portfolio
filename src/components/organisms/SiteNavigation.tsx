@@ -1,6 +1,7 @@
 'use client';
 import { useEffect, useMemo, useState } from 'react';
 import type { MouseEvent } from 'react';
+import { usePathname, useSearchParams } from 'next/navigation';
 import type { NavigationItem } from '@/content/portfolio.types';
 import { Icon } from '@/components/atoms/Icon';
 import { useActiveSection } from '@/hooks/use-active-section';
@@ -16,6 +17,7 @@ export function SiteNavigation({
   items,
   locale,
   labels,
+  enableImmersive = true,
 }: {
   name: string;
   items: readonly NavigationItem[];
@@ -28,8 +30,17 @@ export function SiteNavigation({
     spanishLabel: string;
     englishLabel: string;
   };
+  enableImmersive?: boolean;
 }) {
-  const ids = useMemo(() => items.map((item) => item.href.slice(1)), [items]);
+  const pathname = usePathname();
+  const searchParams = useSearchParams();
+  const ids = useMemo(
+    () =>
+      items
+        .filter((item) => item.href.startsWith('#'))
+        .map((item) => item.href.slice(1)),
+    [items],
+  );
   const active = useActiveSection(ids);
   const [compact, setCompact] = useState(false);
   const [immersive, setImmersive] = useState(false);
@@ -41,6 +52,7 @@ export function SiteNavigation({
     return () => window.removeEventListener('scroll', update);
   }, []);
   useEffect(() => {
+    if (!enableImmersive) return;
     const frame = requestAnimationFrame(() => {
       setImmersive(isImmersiveScrollActive());
     });
@@ -52,7 +64,7 @@ export function SiteNavigation({
       cancelAnimationFrame(frame);
       window.removeEventListener(IMMERSIVE_EVENT, update);
     };
-  }, []);
+  }, [enableImmersive]);
   useEffect(() => {
     if (!navigationScroll) return;
 
@@ -83,16 +95,43 @@ export function SiteNavigation({
 
   const [first, ...rest] = name.split(' ');
   const last = rest.join(' ');
+  const isBlog = pathname.includes('/blog');
+  const navigationItems = items.map((item) => ({
+    ...item,
+    href:
+      isBlog && item.href.startsWith('#')
+        ? `${localePath(locale)}${item.href}`
+        : item.href,
+  }));
+  const homeHref = isBlog ? localePath(locale) : '#inicio';
+  const contactHref = isBlog ? `${localePath(locale)}#contacto` : '#contacto';
+  const localizedHref = (targetLocale: Locale) => {
+    const canonicalPath =
+      pathname === '/en' ? '/' : pathname.replace(/^\/en(?=\/)/, '');
+    const targetPath =
+      targetLocale === 'en'
+        ? canonicalPath === '/'
+          ? '/en'
+          : `/en${canonicalPath}`
+        : canonicalPath;
+    const query = searchParams.toString();
+    return query ? `${targetPath}?${query}` : targetPath;
+  };
+  const isCurrent = (href: string) =>
+    href.startsWith('#')
+      ? active === href.slice(1)
+      : pathname === href ||
+        (href.endsWith('/blog') && pathname.startsWith(href));
   return (
     <>
       <header
         className={`${styles.header} ${immersive && !navigationScroll ? styles.immersive : ''}`}
-        aria-hidden={immersive && !navigationScroll}
-        inert={immersive && !navigationScroll}
+        aria-hidden={enableImmersive && immersive && !navigationScroll}
+        inert={enableImmersive && immersive && !navigationScroll}
       >
         <div className={styles.inner}>
           <a
-            href="#inicio"
+            href={homeHref}
             className={`${styles.logo} ${compact ? styles.compact : ''}`}
             aria-label={`${name}, ${labels.homeLabel}`}
             onClick={handleNavigationClick}
@@ -103,14 +142,12 @@ export function SiteNavigation({
             <span className={styles.remainder}>{last.slice(1)}</span>
           </a>
           <nav className={styles.desktopNav} aria-label={labels.mainLabel}>
-            {items.map((item) => (
+            {navigationItems.map((item) => (
               <a
                 key={item.href}
                 href={item.href}
-                aria-current={
-                  active === item.href.slice(1) ? 'page' : undefined
-                }
-                className={active === item.href.slice(1) ? styles.active : ''}
+                aria-current={isCurrent(item.href) ? 'page' : undefined}
+                className={isCurrent(item.href) ? styles.active : ''}
                 onClick={handleNavigationClick}
               >
                 {item.label}
@@ -119,14 +156,14 @@ export function SiteNavigation({
           </nav>
           <a
             className={styles.cta}
-            href="#contacto"
+            href={contactHref}
             onClick={handleNavigationClick}
           >
             {labels.contactCta}
           </a>
           <div className={styles.language} aria-label={labels.languageLabel}>
             <a
-              href={localePath('es')}
+              href={localizedHref('es')}
               lang="es"
               aria-current={locale === 'es' ? 'true' : undefined}
               onClick={() => {
@@ -138,7 +175,7 @@ export function SiteNavigation({
             </a>
             <span aria-hidden="true">/</span>
             <a
-              href={localePath('en')}
+              href={localizedHref('en')}
               lang="en"
               aria-current={locale === 'en' ? 'true' : undefined}
               onClick={() => {
@@ -152,8 +189,8 @@ export function SiteNavigation({
         </div>
       </header>
       <nav className={styles.mobileNav} aria-label={labels.mainLabel}>
-        {items.map((item) => {
-          const selected = active === item.href.slice(1);
+        {navigationItems.map((item) => {
+          const selected = isCurrent(item.href);
           return (
             <a
               key={item.href}
@@ -169,7 +206,7 @@ export function SiteNavigation({
         })}
         <a
           className={styles.languageToggle}
-          href={localePath(locale === 'es' ? 'en' : 'es')}
+          href={localizedHref(locale === 'es' ? 'en' : 'es')}
           lang={locale === 'es' ? 'en' : 'es'}
           aria-label={`${labels.languageLabel}: ${locale === 'es' ? labels.englishLabel : labels.spanishLabel}`}
           onClick={() => {

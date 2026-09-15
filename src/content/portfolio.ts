@@ -76,6 +76,7 @@ export const portfolioContent = {
     { label: 'Sobre mí', href: '#sobre-mi', icon: 'person' },
     { label: 'Servicios', href: '#servicios', icon: 'services' },
     { label: 'Herramientas', href: '#stack', icon: 'layers' },
+    { label: 'Blog', href: '/blog', icon: 'code' },
     { label: 'Contacto', href: '#contacto', icon: 'mail' },
   ] satisfies readonly NavigationItem[],
   hero: {

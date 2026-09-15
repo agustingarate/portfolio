@@ -60,6 +60,7 @@ export const portfolioContentEn = {
     { label: 'About', href: '#sobre-mi', icon: 'person' },
     { label: 'Services', href: '#servicios', icon: 'services' },
     { label: 'Stack', href: '#stack', icon: 'layers' },
+    { label: 'Blog', href: '/en/blog', icon: 'code' },
     { label: 'Contact', href: '#contacto', icon: 'mail' },
   ],
   hero: {

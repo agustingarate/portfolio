@@ -37,7 +37,7 @@ export type IconName =
 
 export type NavigationItem = {
   label: string;
-  href: `#${string}`;
+  href: string;
   icon: IconName;
 };
 export type Experience = {

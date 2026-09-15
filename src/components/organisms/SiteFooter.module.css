@@ -24,12 +24,24 @@
 .inner p {
   color: var(--on-surface-variant);
 }
+.links a {
+  display: inline-flex;
+  gap: 8px;
+  align-items: center;
+}
 .links a:hover {
   color: var(--primary);
 }
 .inner p {
   margin: 0;
   text-align: right;
+}
+.links a {
+  color: #ded7f6;
+  font-size: 0.85rem;
+}
+.links a:hover {
+  color: #ffffff;
 }
 @media (max-width: 800px) {
   .inner {

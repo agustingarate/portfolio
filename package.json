@@ -11,11 +11,18 @@
     "preview": "opennextjs-cloudflare build && opennextjs-cloudflare preview",
     "deploy": "opennextjs-cloudflare build && opennextjs-cloudflare deploy",
     "cf-typegen": "wrangler types --env-interface CloudflareEnv cloudflare-env.d.ts",
+    "studio:dev": "pnpm --dir studio dev",
+    "studio:build": "pnpm --dir studio build",
+    "studio:deploy": "pnpm --dir studio deploy",
+    "studio:deploy:worker": "pnpm studio:build && pnpm exec wrangler deploy --config studio/wrangler.jsonc",
     "format": "prettier --write .",
     "format:check": "prettier --check ."
   },
   "dependencies": {
     "@opennextjs/cloudflare": "^1.8.0",
+    "@portabletext/react": "^8.0.1",
+    "@sanity/client": "^8.6.1",
+    "@sanity/image-url": "^2.1.1",
     "motion": "^12.0.0",
     "next": "^16.0.0",
     "react": "^19.0.0",

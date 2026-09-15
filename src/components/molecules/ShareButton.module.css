@@ -2,12 +2,12 @@
   position: relative;
 }
 
-.share > button {
+.inverse > button {
   border-color: rgba(251, 250, 238, 0.42);
   color: #fbfaee;
 }
 
-.share > button:hover {
+.inverse > button:hover {
   border-color: rgba(251, 250, 238, 0.72);
   background: rgba(251, 250, 238, 0.1);
   color: #ffffff;
