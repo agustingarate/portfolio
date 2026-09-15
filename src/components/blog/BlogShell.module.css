@@ -1,0 +1,35 @@
+.page {
+  min-height: 100vh;
+  padding-top: 132px;
+}
+
+.page main {
+  padding: 0 var(--page-gutter) 96px;
+}
+
+.skipLink {
+  position: fixed;
+  z-index: 10;
+  top: 12px;
+  left: 12px;
+  padding: 10px 14px;
+  transform: translateY(-160%);
+  border-radius: var(--radius-sm);
+  background: var(--primary);
+  color: var(--on-primary);
+  font-weight: 700;
+}
+
+.skipLink:focus-visible {
+  transform: translateY(0);
+}
+
+@media (max-width: 767px) {
+  .page {
+    padding-top: 44px;
+  }
+
+  .page main {
+    padding-bottom: 64px;
+  }
+}

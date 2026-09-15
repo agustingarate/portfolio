@@ -1,81 +1,81 @@
 <!doctype html>
 
-<html class="light" lang="es">
+<html class="scroll-smooth" lang="es" style="scroll-behavior: smooth">
   <head>
     <meta charset="utf-8" />
     <meta content="width=device-width, initial-scale=1.0" name="viewport" />
-    <title>DevPortfolio - Portfolio Profesional</title>
+    <title>DevPortfolio - Minimalista Editorial</title>
     <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
     <link
       href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
       rel="stylesheet"
     />
     <link
-      href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700&amp;family=Inter:wght@400;500;600&amp;family=Geist:wght@400;600&amp;display=swap"
+      href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700&amp;family=Inter:wght@400;500&amp;family=Geist:wght@600&amp;display=swap"
       rel="stylesheet"
     />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
-      rel="stylesheet"
-    />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollToPlugin.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
     <script id="tailwind-config">
       tailwind.config = {
         darkMode: 'class',
         theme: {
           extend: {
             colors: {
-              'accent-green': '#DFF6F0',
-              'accent-coral': '#FFD8D8',
-              'inverse-on-surface': '#f2f1e5',
-              background: '#fbfaee',
-              'on-tertiary-container': '#ffccbd',
-              'surface-tint': '#4d34ff',
-              'primary-fixed-dim': '#c4c0ff',
-              'on-primary-container': '#d7d3ff',
-              'on-surface-variant': '#464557',
-              tertiary: '#832400',
-              'on-secondary-container': '#615b7c',
-              'on-tertiary': '#ffffff',
-              'surface-container-high': '#e9e9dd',
-              'outline-variant': '#c7c4da',
-              'surface-container-lowest': '#ffffff',
-              'inverse-surface': '#303129',
-              outline: '#777589',
-              'primary-fixed': '#e3dfff',
               'on-background': '#1b1c15',
-              'surface-container-low': '#f5f4e8',
+              'secondary-fixed': '#e6deff',
+              secondary: '#605a7c',
+              'tertiary-container': '#ac3200',
+              error: '#ba1a1a',
+              'surface-container': '#efeee3',
+              'secondary-fixed-dim': '#cac1e8',
+              'inverse-on-surface': '#f2f1e5',
+              'on-error-container': '#93000a',
               'on-primary': '#ffffff',
+              'surface-container-lowest': '#ffffff',
+              'surface-tint': '#4d34ff',
+              'on-surface': '#1b1c15',
+              'primary-container': '#4c32ff',
+              'accent-coral': '#FFD8D8',
+              'on-tertiary-container': '#ffccbd',
+              'on-primary-fixed': '#120068',
+              'on-primary-container': '#d7d3ff',
+              outline: '#777589',
+              'primary-fixed-dim': '#c4c0ff',
+              'primary-fixed': '#e3dfff',
+              'on-secondary': '#ffffff',
               'on-secondary-fixed': '#1c1735',
-              'tertiary-fixed-dim': '#ffb59e',
+              'outline-variant': '#c7c4da',
+              'surface-cream': '#F5F3E7',
               'surface-dim': '#dbdbcf',
+              'surface-container-highest': '#e4e3d7',
+              'inverse-primary': '#c4c0ff',
+              'on-tertiary-fixed': '#3a0b00',
+              'error-container': '#ffdad6',
+              'surface-container-low': '#f5f4e8',
+              'secondary-container': '#ded5fd',
+              primary: '#3300e0',
+              'on-tertiary': '#ffffff',
+              'on-surface-variant': '#464557',
+              'tertiary-fixed': '#ffdbd0',
+              'on-tertiary-fixed-variant': '#842400',
               'on-primary-fixed-variant': '#3400e2',
               'accent-blue': '#D0E8FF',
-              'on-secondary': '#ffffff',
-              'on-error-container': '#93000a',
-              'surface-gray': '#F0F0F0',
+              tertiary: '#832400',
+              'surface-container-high': '#e9e9dd',
+              background: '#fbfaee',
+              'accent-green': '#DFF6F0',
               'surface-variant': '#e4e3d7',
-              'surface-cream': '#F5F3E7',
-              'on-tertiary-fixed': '#3a0b00',
-              'secondary-fixed': '#e6deff',
-              'surface-container-highest': '#e4e3d7',
-              'surface-container': '#efeee3',
-              'surface-bright': '#fbfaee',
-              'tertiary-fixed': '#ffdbd0',
-              surface: '#fbfaee',
-              'on-surface': '#1b1c15',
-              'secondary-container': '#ded5fd',
-              'on-primary-fixed': '#120068',
-              primary: '#3300e0',
-              'secondary-fixed-dim': '#cac1e8',
-              'on-tertiary-fixed-variant': '#842400',
-              error: '#ba1a1a',
-              secondary: '#605a7c',
               'on-secondary-fixed-variant': '#484263',
-              'tertiary-container': '#ac3200',
-              'inverse-primary': '#c4c0ff',
-              'error-container': '#ffdad6',
-              'primary-container': '#4c32ff',
+              'inverse-surface': '#303129',
+              surface: '#fbfaee',
+              'tertiary-fixed-dim': '#ffb59e',
+              'on-secondary-container': '#615b7c',
               'on-error': '#ffffff',
+              'surface-bright': '#fbfaee',
+              'surface-gray': '#F0F0F0',
             },
             borderRadius: {
               DEFAULT: '1rem',
@@ -84,62 +84,22 @@
               full: '9999px',
             },
             spacing: {
-              'container-max': '1280px',
-              'margin-mobile': '20px',
               gutter: '32px',
+              'margin-mobile': '20px',
               unit: '8px',
+              'container-max': '1280px',
               'margin-desktop': '64px',
             },
             fontFamily: {
-              'headline-lg-mobile': ['Hanken Grotesk'],
-              display: ['Hanken Grotesk'],
-              'body-lg': ['Inter'],
-              'headline-lg': ['Hanken Grotesk'],
-              'label-caps': ['Geist'],
               'body-md': ['Inter'],
               'headline-md': ['Hanken Grotesk'],
+              'headline-lg-mobile': ['Hanken Grotesk'],
+              'body-lg': ['Inter'],
+              display: ['Hanken Grotesk'],
+              'label-caps': ['Geist'],
+              'headline-lg': ['Hanken Grotesk'],
             },
             fontSize: {
-              'headline-lg-mobile': [
-                '32px',
-                {
-                  lineHeight: '40px',
-                  letterSpacing: '-0.01em',
-                  fontWeight: '500',
-                },
-              ],
-              display: [
-                '72px',
-                {
-                  lineHeight: '80px',
-                  letterSpacing: '-0.02em',
-                  fontWeight: '600',
-                },
-              ],
-              'body-lg': [
-                '20px',
-                {
-                  lineHeight: '32px',
-                  letterSpacing: '0.01em',
-                  fontWeight: '400',
-                },
-              ],
-              'headline-lg': [
-                '48px',
-                {
-                  lineHeight: '56px',
-                  letterSpacing: '-0.01em',
-                  fontWeight: '500',
-                },
-              ],
-              'label-caps': [
-                '12px',
-                {
-                  lineHeight: '16px',
-                  letterSpacing: '0.08em',
-                  fontWeight: '600',
-                },
-              ],
               'body-md': [
                 '16px',
                 {
@@ -155,174 +115,575 @@
                   fontWeight: '500',
                 },
               ],
+              'headline-lg-mobile': [
+                '32px',
+                {
+                  lineHeight: '40px',
+                  letterSpacing: '-0.01em',
+                  fontWeight: '500',
+                },
+              ],
+              'body-lg': [
+                '20px',
+                {
+                  lineHeight: '32px',
+                  letterSpacing: '0.01em',
+                  fontWeight: '400',
+                },
+              ],
+              display: [
+                '72px',
+                {
+                  lineHeight: '80px',
+                  letterSpacing: '-0.02em',
+                  fontWeight: '600',
+                },
+              ],
+              'label-caps': [
+                '12px',
+                {
+                  lineHeight: '16px',
+                  letterSpacing: '0.08em',
+                  fontWeight: '600',
+                },
+              ],
+              'headline-lg': [
+                '48px',
+                {
+                  lineHeight: '56px',
+                  letterSpacing: '-0.01em',
+                  fontWeight: '500',
+                },
+              ],
             },
           },
         },
       };
     </script>
     <style>
-      .clip-organic {
-        clip-path: path(
-          'M0,0 C100,20 200,80 300,100 C400,120 500,60 600,0 Z'
-        ); /* Placeholder curve */
+      body {
+        background-color: transparent;
+        color: theme('colors.on-surface');
+      }
+      /* Custom scrollbar for webkit */
+      ::-webkit-scrollbar {
+        width: 8px;
+      }
+      ::-webkit-scrollbar-track {
+        background: theme('colors.surface-container-low');
+      }
+      ::-webkit-scrollbar-thumb {
+        background: theme('colors.outline-variant');
+        border-radius: 4px;
+      }
+      ::-webkit-scrollbar-thumb:hover {
+        background: theme('colors.outline');
+      }
+      @keyframes blink {
+        0%,
+        100% {
+          opacity: 1;
+        }
+        50% {
+          opacity: 0;
+        }
+      }
+      .cursor-blink {
+        animation: blink 1s step-end infinite;
+      }
+
+      /* Timeline styles */
+      .timeline-item {
+        opacity: 0.5;
+        transform: scale(0.95);
+        transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+      }
+      .timeline-item.active {
+        opacity: 1;
+        transform: scale(1);
+      }
+      .timeline-node {
+        transition: all 0.5s ease;
+      }
+      .timeline-item.active .timeline-node {
+        background-color: theme('colors.primary');
+        transform: scale(1.2);
+        box-shadow: 0 0 0 4px theme('colors.primary-container');
+      }
+
+      /* Carousel Animation */
+      @keyframes scroll {
+        0% {
+          transform: translateX(0);
+        }
+        100% {
+          transform: translateX(calc(-50% - 16px));
+        } /* Adjust based on gap */
+      }
+      .animate-scroll {
+        animation: scroll 20s linear infinite;
+      }
+      .animate-scroll:hover {
+        animation-play-state: paused;
+      }
+
+      /* Gantt Chart Styles */
+      .gantt-container {
+        /* height managed by ScrollTrigger pinning */
+      }
+      .gantt-sticky {
+        /* position managed by ScrollTrigger pinning */
+        overflow: hidden;
+        width: 100%;
+      }
+      .gantt-track {
+        display: flex;
+        width: fit-content;
+        will-change: transform;
+      }
+      .gantt-grid-bg {
+        background-image:
+          linear-gradient(
+            to right,
+            theme('colors.outline-variant') 1px,
+            transparent 1px
+          ),
+          linear-gradient(
+            to right,
+            theme('colors.outline-variant') 1px,
+            transparent 1px
+          );
+        background-size:
+          150px 100%,
+          150px 100%;
+        background-position:
+          0 0,
+          75px 0;
+        background-repeat: repeat-x;
+        opacity: 0.2;
+      }
+      /* Hatched background for empty space */
+      .bg-hatched {
+        background-image: repeating-linear-gradient(
+          45deg,
+          theme('colors.surface-container-low'),
+          theme('colors.surface-container-low') 10px,
+          transparent 10px,
+          transparent 20px
+        );
+      }
+      .phase-description {
+        opacity: 0;
+        transition: opacity 0.3s ease;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        pointer-events: none;
+      }
+      .phase-description.active {
+        opacity: 1;
+        pointer-events: auto;
+        position: relative;
+      }
+      .gantt-wrapper {
+        position: relative;
+      }
+
+      /* Navigation Links */
+      .nav-link.active {
+        color: theme('colors.primary');
+        border-bottom-width: 2px;
+        border-color: theme('colors.primary');
+        padding-bottom: 0.25rem;
+      }
+      .dark .nav-link.active {
+        color: theme('colors.primary-fixed');
+        border-color: theme('colors.primary-fixed');
+      }
+
+      /* Logo Animation Styles */
+      .logo-container {
+        display: flex;
+        align-items: center;
+      }
+      .logo-letter {
+        display: inline-block;
+        transition: transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+      }
+      .logo-remainder {
+        display: inline-block;
+        overflow: hidden;
+        white-space: pre;
+        transition: all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+        max-width: 100px;
+        opacity: 1;
+      }
+      .scrolled .logo-remainder {
+        max-width: 0;
+        opacity: 0;
+        transform: scale(0.8) translateX(-10px);
+        margin: 0;
+      }
+      .scrolled .logo-letter {
+        transform: scale(1.1);
+      }
+
+      /* Scroll Animations */
+      .scroll-fade-up {
+        opacity: 0;
+        transform: translateY(40px);
+        transition:
+          opacity 1.2s cubic-bezier(0.22, 1, 0.36, 1),
+          transform 1.2s cubic-bezier(0.22, 1, 0.36, 1);
+        will-change: opacity, transform;
+      }
+      .scroll-fade-up.is-visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
+      .stagger-1 {
+        transition-delay: 100ms;
+      }
+      .stagger-2 {
+        transition-delay: 250ms;
+      }
+      .stagger-3 {
+        transition-delay: 400ms;
+      }
+      .stagger-4 {
+        transition-delay: 550ms;
+      }
+      .stagger-5 {
+        transition-delay: 700ms;
+      }
+    </style>
+    <style>
+      .nav-link.active {
+        color: #3300e0 !important;
+        border-color: #3300e0 !important;
+        border-bottom-width: 2px !important;
       }
     </style>
   </head>
   <body
-    class="bg-background text-on-background font-body-md text-body-md antialiased overflow-x-hidden selection:bg-accent-green selection:text-primary"
+    class="antialiased min-h-screen flex flex-col font-body-md text-body-md relative bg-background"
   >
-    <!-- TopAppBar (Web) -->
+    <!-- Global Background Glow -->
+    <div
+      class="fixed inset-0 w-full h-full -z-10 pointer-events-none mix-blend-soft-light"
+      id="mouse-glow"
+      style="
+        background: radial-gradient(
+          800px at 1212px 2449px,
+          rgba(76, 50, 255, 0.15),
+          transparent 70%
+        );
+      "
+    ></div>
+    <script>
+      document.addEventListener('DOMContentLoaded', function () {
+        const glow = document.getElementById('mouse-glow');
+        window.addEventListener('mousemove', (e) => {
+          requestAnimationFrame(() => {
+            glow.style.background = `radial-gradient(circle 800px at ${e.clientX}px ${e.clientY}px, rgba(76, 50, 255, 0.15), transparent 70%)`;
+          });
+        });
+      });
+    </script>
+    <!-- TopAppBar -->
     <header
-      class="fixed top-0 w-full z-50 bg-surface/70 dark:bg-surface-dim/70 backdrop-blur-xl transition-all duration-300 hidden md:block"
+      class="fixed top-0 w-full z-50 bg-surface/70 dark:bg-surface-dim/70 backdrop-blur-xl transition-all duration-300"
       id="main-header"
     >
       <div
         class="flex justify-between items-center px-margin-mobile md:px-margin-desktop py-6 max-w-container-max mx-auto"
       >
-        <a
-          class="font-headline-md text-headline-md font-bold text-on-surface dark:text-inverse-on-surface"
-          href="#"
+        <div
+          class="logo-container font-headline-md text-headline-md font-bold text-on-surface dark:text-inverse-on-surface mr-8"
+          id="header-logo"
         >
-          DevPortfolio
-        </a>
-        <nav class="hidden md:flex gap-gutter items-center">
+          <span class="logo-letter">A</span>
+          <span class="logo-remainder">gus </span>
+          <span class="logo-letter">G</span>
+          <span class="logo-remainder">arate</span>
+        </div>
+        <nav class="hidden md:flex gap-gutter items-center" id="nav-menu">
           <a
-            class="text-primary dark:text-primary-fixed border-b-2 border-primary dark:border-primary-fixed pb-1 hover:text-primary dark:hover:text-primary-fixed transition-colors duration-300"
+            class="nav-link text-on-surface-variant dark:text-outline-variant hover:text-primary dark:hover:text-primary-fixed border-transparent border-b-0 pb-1 font-body-md text-body-md transition-all duration-300 text-primary"
             href="#inicio"
             >Inicio</a
           >
           <a
-            class="text-on-surface-variant dark:text-outline-variant hover:text-primary dark:hover:text-primary-fixed transition-colors duration-300"
+            class="nav-link text-on-surface-variant dark:text-outline-variant hover:text-primary dark:hover:text-primary-fixed border-transparent border-b-0 pb-1 transition-all duration-300 font-body-md text-body-md"
             href="#sobre-mi"
             >Sobre mí</a
           >
           <a
-            class="text-on-surface-variant dark:text-outline-variant hover:text-primary dark:hover:text-primary-fixed transition-colors duration-300"
-            href="#stack"
-            >Stack</a
-          >
-          <a
-            class="text-on-surface-variant dark:text-outline-variant hover:text-primary dark:hover:text-primary-fixed transition-colors duration-300"
+            class="nav-link text-on-surface-variant dark:text-outline-variant hover:text-primary dark:hover:text-primary-fixed border-transparent border-b-0 pb-1 transition-all duration-300 font-body-md text-body-md"
             href="#servicios"
             >Servicios</a
           >
           <a
-            class="text-on-surface-variant dark:text-outline-variant hover:text-primary dark:hover:text-primary-fixed transition-colors duration-300"
+            class="nav-link text-on-surface-variant dark:text-outline-variant hover:text-primary dark:hover:text-primary-fixed border-transparent border-b-0 pb-1 transition-all duration-300 font-body-md text-body-md"
+            href="#stack"
+            >Stack</a
+          >
+          <a
+            class="nav-link text-on-surface-variant dark:text-outline-variant hover:text-primary dark:hover:text-primary-fixed border-transparent border-b-0 pb-1 transition-all duration-300 font-body-md text-body-md active border-b-2"
             href="#contacto"
             >Contacto</a
           >
         </nav>
-        <a
-          class="hidden md:inline-flex items-center justify-center bg-primary text-on-primary px-6 py-3 rounded-full font-label-caps text-label-caps hover:bg-primary-container hover:text-on-primary-container transition-colors shadow-sm"
-          href="#contacto"
-        >
-          Hablemos
-        </a>
+        <div class="hidden md:block">
+          <a
+            class="bg-primary text-on-primary px-6 py-3 rounded-full font-label-caps text-label-caps hover:bg-on-primary-fixed transition-colors nav-link-btn"
+            href="#contacto"
+          >
+            Hablemos
+          </a>
+        </div>
       </div>
     </header>
-    <!-- BottomNavBar (Mobile) -->
+    <!-- BottomNavBar (Mobile Only) -->
     <nav
       class="fixed bottom-6 left-1/2 -translate-x-1/2 w-[90%] rounded-full z-50 md:hidden bg-surface-container/80 dark:bg-surface-container-highest/80 backdrop-blur-lg shadow-lg"
     >
-      <div class="flex justify-around items-center p-2">
+      <div class="flex justify-around items-center p-2" id="mobile-nav">
         <a
-          class="flex flex-col items-center justify-center bg-primary-container text-on-primary-container rounded-full w-12 h-12 transition-transform duration-200 scale-90"
+          class="nav-link-mobile flex flex-col items-center justify-center hover:bg-surface-variant rounded-full w-12 h-12 transition-all duration-300 text-on-surface-variant"
+          data-target="#inicio"
           href="#inicio"
         >
-          <span
-            class="material-symbols-outlined"
-            style="font-variation-settings: 'FILL' 1"
-            >home</span
-          >
-          <span class="sr-only">Inicio</span>
+          <span class="material-symbols-outlined text-xl">home</span>
         </a>
         <a
-          class="flex flex-col items-center justify-center text-on-surface-variant w-12 h-12 hover:bg-surface-variant rounded-full transition-colors"
+          class="nav-link-mobile flex flex-col items-center justify-center text-on-surface-variant w-12 h-12 hover:bg-surface-variant rounded-full transition-colors duration-300"
+          data-target="#sobre-mi"
           href="#sobre-mi"
         >
-          <span class="material-symbols-outlined">person_search</span>
-          <span class="sr-only">Sobre mí</span>
+          <span class="material-symbols-outlined text-xl">person_search</span>
         </a>
         <a
-          class="flex flex-col items-center justify-center text-on-surface-variant w-12 h-12 hover:bg-surface-variant rounded-full transition-colors"
-          href="#stack"
-        >
-          <span class="material-symbols-outlined">layers</span>
-          <span class="sr-only">Stack</span>
-        </a>
-        <a
-          class="flex flex-col items-center justify-center text-on-surface-variant w-12 h-12 hover:bg-surface-variant rounded-full transition-colors"
+          class="nav-link-mobile flex flex-col items-center justify-center text-on-surface-variant w-12 h-12 hover:bg-surface-variant rounded-full transition-colors duration-300"
+          data-target="#servicios"
           href="#servicios"
         >
-          <span class="material-symbols-outlined">design_services</span>
-          <span class="sr-only">Servicios</span>
+          <span class="material-symbols-outlined text-xl">design_services</span>
         </a>
         <a
-          class="flex flex-col items-center justify-center text-on-surface-variant w-12 h-12 hover:bg-surface-variant rounded-full transition-colors"
+          class="nav-link-mobile flex flex-col items-center justify-center text-on-surface-variant w-12 h-12 hover:bg-surface-variant rounded-full transition-colors duration-300"
+          data-target="#stack"
+          href="#stack"
+        >
+          <span class="material-symbols-outlined text-xl">layers</span>
+        </a>
+        <a
+          class="nav-link-mobile flex flex-col items-center justify-center w-12 h-12 hover:bg-surface-variant rounded-full transition-colors duration-300 bg-primary-container text-on-primary-container opacity-80 scale-95"
+          data-target="#contacto"
           href="#contacto"
         >
-          <span class="material-symbols-outlined">mail</span>
-          <span class="sr-only">Contacto</span>
+          <span class="material-symbols-outlined text-xl">mail</span>
         </a>
       </div>
     </nav>
-    <main>
+    <script>
+      document.addEventListener('DOMContentLoaded', function () {
+        gsap.registerPlugin(ScrollTrigger, ScrollToPlugin);
+
+        // Smooth scrolling for navigation links
+        const navLinks = document.querySelectorAll('a[href^="#"]');
+        navLinks.forEach((link) => {
+          link.addEventListener('click', function (e) {
+            e.preventDefault();
+            const targetId = this.getAttribute('href');
+            if (targetId === '#') return;
+
+            const targetElement = document.querySelector(targetId);
+            if (targetElement) {
+              gsap.to(window, {
+                duration: 1,
+                scrollTo: {
+                  y: targetElement,
+                  offsetY: 100, // Adjust for header height
+                },
+                ease: 'power3.inOut',
+              });
+            }
+          });
+        });
+
+        // ScrollSpy Logic & Header Logo Animation
+        const sections = document.querySelectorAll('section[id]');
+        const desktopLinks = document.querySelectorAll('#nav-menu .nav-link');
+        const mobileLinks = document.querySelectorAll(
+          '#mobile-nav .nav-link-mobile',
+        );
+        const headerLogo = document.getElementById('header-logo');
+
+        function updateActiveNav() {
+          let current = '';
+          const scrollY = window.pageYOffset;
+
+          // Logo Animation Toggle
+          if (scrollY > 50) {
+            headerLogo.classList.add('scrolled');
+          } else {
+            headerLogo.classList.remove('scrolled');
+          }
+
+          sections.forEach((section) => {
+            const sectionHeight = section.offsetHeight;
+            const sectionTop = section.offsetTop - 200; // offset
+
+            if (scrollY > sectionTop && scrollY <= sectionTop + sectionHeight) {
+              current = section.getAttribute('id');
+            }
+          });
+
+          // Handle special case for top of page
+          if (scrollY < 100) {
+            current = 'inicio';
+          }
+
+          // Handle special case for bottom of page
+          if (window.innerHeight + scrollY >= document.body.offsetHeight - 50) {
+            current = 'contacto';
+          }
+
+          desktopLinks.forEach((link) => {
+            link.classList.remove('active', 'border-b-2');
+            if (link.getAttribute('href').includes(current)) {
+              link.classList.add('active', 'border-b-2');
+            }
+          });
+
+          mobileLinks.forEach((link) => {
+            link.classList.remove(
+              'bg-primary-container',
+              'text-on-primary-container',
+              'opacity-80',
+              'scale-95',
+            );
+            link.classList.add('text-on-surface-variant');
+            if (link.getAttribute('data-target') === `#${current}`) {
+              link.classList.add(
+                'bg-primary-container',
+                'text-on-primary-container',
+                'opacity-80',
+                'scale-95',
+              );
+              link.classList.remove('text-on-surface-variant');
+            }
+          });
+        }
+
+        window.addEventListener('scroll', updateActiveNav);
+        updateActiveNav(); // Initial call
+      });
+    </script>
+    <!-- Main Content Canvas -->
+    <main class="flex-grow pt-32 pb-32">
       <!-- Hero Section -->
       <section
-        class="relative min-h-screen flex items-center pt-32 pb-24 px-margin-mobile md:px-margin-desktop overflow-hidden"
+        class="relative min-h-[819px] flex items-center px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto overflow-hidden rounded-xl bg-transparent mb-32"
         id="inicio"
       >
-        <!-- Organic Background Elements -->
-        <div class="absolute inset-0 z-0 pointer-events-none opacity-40">
-          <div
-            class="absolute top-[-10%] right-[-10%] w-[60%] h-[70%] bg-accent-coral/30 rounded-full blur-[100px] mix-blend-multiply"
-          ></div>
-          <div
-            class="absolute bottom-[-10%] left-[-10%] w-[50%] h-[60%] bg-accent-green/30 rounded-full blur-[100px] mix-blend-multiply"
-          ></div>
-        </div>
-        <!-- Shader Area -->
+        <canvas
+          class="absolute inset-0 w-full h-full -z-10"
+          height="819"
+          id="hero-gl"
+          style="border-radius: inherit"
+          width="1280"
+        ></canvas>
         <div
-          class="absolute inset-0 z-0 opacity-20 mask-image:radial-gradient(ellipse_at_center,black,transparent_70%)"
-        >
-          <!-- STITCH_SHADER_START:ANIMATION_1 class="w-full h-full object-cover" -->
-          <div class="w-full h-full object-cover" style="display: block">
-            <canvas
-              id="shader-canvas-ANIMATION_1"
-              style="display: block; width: 100%; height: 100%"
-            ></canvas>
-            <script>
-              (function () {
-                const canvas = document.getElementById(
-                  'shader-canvas-ANIMATION_1',
-                );
+          class="absolute inset-0 bg-surface/50 dark:bg-surface-dim/50 z-0 pointer-events-none backdrop-blur-[2px]"
+        ></div>
+        <div class="relative z-10 max-w-3xl">
+          <h1
+            class="font-display text-display text-on-surface mb-8 min-h-[320px] md:min-h-[240px]"
+          >
+            <span class="" id="typewriter">Transformo problemas complejo</span
+            ><span class="cursor-blink">|</span>
+          </h1>
+          <script>
+            document.addEventListener('DOMContentLoaded', function () {
+              const phrases = [
+                'Hola! Soy Agus',
+                'Construyo productos digitales claros, escalables y pensados para las personas que los usan.',
+                'Transformo problemas complejos en soluciones técnicas sólidas.',
+                'Diseño experiencias móviles nativas y ecosistemas impulsados por IA.',
+              ];
+              let currentPhraseIndex = 0;
+              let currentCharIndex = 0;
+              let isDeleting = false;
+              const typewriterElement = document.getElementById('typewriter');
 
-                // Sync the WebGL drawing-buffer size with the CSS-driven layout size.
-                // This fires on initial layout and whenever the element is resized.
-                function syncSize() {
-                  const w = canvas.clientWidth || 1280;
-                  const h = canvas.clientHeight || 720;
-                  if (canvas.width !== w || canvas.height !== h) {
-                    canvas.width = w;
-                    canvas.height = h;
-                  }
-                }
-                if (typeof ResizeObserver !== 'undefined') {
-                  new ResizeObserver(syncSize).observe(canvas);
-                }
-                syncSize();
+              function type() {
+                const currentPhrase = phrases[currentPhraseIndex];
 
-                const gl =
-                  canvas.getContext('webgl') ||
-                  canvas.getContext('experimental-webgl');
-                if (!gl) return;
-                const vs = `attribute vec2 a_position;
+                if (isDeleting) {
+                  typewriterElement.textContent = currentPhrase.substring(
+                    0,
+                    currentCharIndex - 1,
+                  );
+                  currentCharIndex--;
+                } else {
+                  typewriterElement.textContent = currentPhrase.substring(
+                    0,
+                    currentCharIndex + 1,
+                  );
+                  currentCharIndex++;
+                }
+
+                let typeSpeed = isDeleting ? 30 : 60;
+
+                if (!isDeleting && currentCharIndex === currentPhrase.length) {
+                  typeSpeed = 2000;
+                  isDeleting = true;
+                } else if (isDeleting && currentCharIndex === 0) {
+                  isDeleting = false;
+                  currentPhraseIndex =
+                    (currentPhraseIndex + 1) % phrases.length;
+                  typeSpeed = 500;
+                }
+
+                setTimeout(type, typeSpeed);
+              }
+
+              setTimeout(type, 1000);
+            });
+
+            // WebGL Shader for Hero Background
+            (function () {
+              const canvas = document.getElementById('hero-gl');
+
+              // Sync the WebGL drawing-buffer size with the CSS-driven layout size.
+              // This fires on initial layout and whenever the element is resized.
+              function syncSize() {
+                const w = canvas.clientWidth || 1280;
+                const h = canvas.clientHeight || 720;
+                if (canvas.width !== w || canvas.height !== h) {
+                  canvas.width = w;
+                  canvas.height = h;
+                }
+              }
+              if (typeof ResizeObserver !== 'undefined') {
+                new ResizeObserver(syncSize).observe(canvas);
+              }
+              syncSize();
+
+              const gl =
+                canvas.getContext('webgl') ||
+                canvas.getContext('experimental-webgl');
+              if (!gl) return;
+              const vs = `attribute vec2 a_position;
 varying vec2 v_texCoord;
 void main() {
   v_texCoord = a_position * 0.5 + 0.5;
   gl_Position = vec4(a_position, 0.0, 1.0);
 }`;
-                const fs = `precision highp float;
+              const fs = `precision highp float;
 varying vec2 v_texCoord;
 uniform float u_time;
 uniform vec2 u_resolution;
@@ -374,164 +735,1759 @@ void main() {
     
     gl_FragColor = vec4(color, 1.0);
 }`;
-                function cs(type, src) {
-                  const s = gl.createShader(type);
-                  gl.shaderSource(s, src);
-                  gl.compileShader(s);
-                  return s;
-                }
-                const prog = gl.createProgram();
-                gl.attachShader(prog, cs(gl.VERTEX_SHADER, vs));
-                gl.attachShader(prog, cs(gl.FRAGMENT_SHADER, fs));
-                gl.linkProgram(prog);
-                gl.useProgram(prog);
-                const buf = gl.createBuffer();
-                gl.bindBuffer(gl.ARRAY_BUFFER, buf);
-                gl.bufferData(
-                  gl.ARRAY_BUFFER,
-                  new Float32Array([-1, -1, 1, -1, -1, 1, 1, 1]),
-                  gl.STATIC_DRAW,
-                );
-                const pos = gl.getAttribLocation(prog, 'a_position');
-                gl.enableVertexAttribArray(pos);
-                gl.vertexAttribPointer(pos, 2, gl.FLOAT, false, 0, 0);
-                const uTime = gl.getUniformLocation(prog, 'u_time');
-                const uRes = gl.getUniformLocation(prog, 'u_resolution');
-                const uMouse = gl.getUniformLocation(prog, 'u_mouse');
+              function cs(type, src) {
+                const s = gl.createShader(type);
+                gl.shaderSource(s, src);
+                gl.compileShader(s);
+                return s;
+              }
+              const prog = gl.createProgram();
+              gl.attachShader(prog, cs(gl.VERTEX_SHADER, vs));
+              gl.attachShader(prog, cs(gl.FRAGMENT_SHADER, fs));
+              gl.linkProgram(prog);
+              gl.useProgram(prog);
+              const buf = gl.createBuffer();
+              gl.bindBuffer(gl.ARRAY_BUFFER, buf);
+              gl.bufferData(
+                gl.ARRAY_BUFFER,
+                new Float32Array([-1, -1, 1, -1, -1, 1, 1, 1]),
+                gl.STATIC_DRAW,
+              );
+              const pos = gl.getAttribLocation(prog, 'a_position');
+              gl.enableVertexAttribArray(pos);
+              gl.vertexAttribPointer(pos, 2, gl.FLOAT, false, 0, 0);
+              const uTime = gl.getUniformLocation(prog, 'u_time');
+              const uRes = gl.getUniformLocation(prog, 'u_resolution');
+              const uMouse = gl.getUniformLocation(prog, 'u_mouse');
 
-                // u_mouse is in pixel coordinates matching u_resolution (ShaderToy convention).
-                // Shaders that need normalized coords should use: u_mouse / u_resolution.
-                let mouse = { x: canvas.width / 2, y: canvas.height / 2 };
-                window.addEventListener('mousemove', (event) => {
-                  const rect = canvas.getBoundingClientRect();
-                  if (rect.width && rect.height) {
-                    const nx = (event.clientX - rect.left) / rect.width;
-                    const ny = 1.0 - (event.clientY - rect.top) / rect.height;
-                    mouse.x = nx * canvas.width;
-                    mouse.y = ny * canvas.height;
-                  }
-                });
-
-                function render(t) {
-                  if (typeof ResizeObserver === 'undefined') syncSize();
-                  gl.viewport(0, 0, canvas.width, canvas.height);
-                  if (uTime) gl.uniform1f(uTime, t * 0.001);
-                  if (uRes) gl.uniform2f(uRes, canvas.width, canvas.height);
-                  if (uMouse) gl.uniform2f(uMouse, mouse.x, mouse.y);
-                  gl.drawArrays(gl.TRIANGLE_STRIP, 0, 4);
-                  requestAnimationFrame(render);
+              // u_mouse is in pixel coordinates matching u_resolution (ShaderToy convention).
+              // Shaders that need normalized coords should use: u_mouse / u_resolution.
+              let mouse = { x: canvas.width / 2, y: canvas.height / 2 };
+              window.addEventListener('mousemove', (event) => {
+                const rect = canvas.getBoundingClientRect();
+                if (rect.width && rect.height) {
+                  const nx = (event.clientX - rect.left) / rect.width;
+                  const ny = 1.0 - (event.clientY - rect.top) / rect.height;
+                  mouse.x = nx * canvas.width;
+                  mouse.y = ny * canvas.height;
                 }
-                render(0);
-              })();
-            </script>
+              });
+
+              function render(t) {
+                if (typeof ResizeObserver === 'undefined') syncSize();
+                gl.viewport(0, 0, canvas.width, canvas.height);
+                if (uTime) gl.uniform1f(uTime, t * 0.001);
+                if (uRes) gl.uniform2f(uRes, canvas.width, canvas.height);
+                if (uMouse) gl.uniform2f(uMouse, mouse.x, mouse.y);
+                gl.drawArrays(gl.TRIANGLE_STRIP, 0, 4);
+                requestAnimationFrame(render);
+              }
+              render(0);
+            })();
+          </script>
+          <p
+            class="font-body-lg text-body-lg text-on-surface-variant mb-12 max-w-2xl"
+          >
+            Especializado en experiencias móviles nativas y ecosistemas
+            impulsados por IA, puenteando la brecha entre la ingeniería robusta
+            y el diseño intuitivo. Mi enfoque es crear soluciones que se sientan
+            naturales y funcionen a escala.
+          </p>
+          <div class="flex gap-4">
+            <a
+              class="bg-primary text-on-primary px-8 py-4 rounded-full font-label-caps text-label-caps hover:bg-on-primary-fixed transition-colors"
+              href="#experiencia"
+            >
+              Ver Proyectos
+            </a>
+            <a
+              class="border border-outline-variant text-on-surface px-8 py-4 rounded-full font-label-caps text-label-caps hover:bg-surface-container-low transition-colors"
+              href="#sobre-mi"
+            >
+              Conóceme
+            </a>
           </div>
-          <!-- STITCH_SHADER_END:ANIMATION_1 -->
+        </div>
+      </section>
+      <div
+        class="px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto mb-16 -mt-16 relative z-20"
+      >
+        <div class="flex flex-wrap gap-4 items-center justify-end">
+          <a
+            class="inline-flex items-center gap-2 bg-surface-container-low text-on-surface-variant px-6 py-2.5 rounded-full font-body-md text-body-md border border-outline-variant/20 hover:bg-surface-container-high transition-colors duration-300 group"
+            href="mailto:agus.garate@example.com"
+            ><span
+              class="material-symbols-outlined text-xl"
+              style="color: #333333"
+              >mail</span
+            ><span class="">agus.garate@example.com</span
+            ><button
+              class="ml-2 p-1 rounded-full hover:bg-primary/10 text-primary transition-colors flex items-center justify-center"
+              onclick="navigator.clipboard.writeText('agus.garate@example.com')"
+              title="Copiar"
+            >
+              <span
+                class="material-symbols-outlined text-sm"
+                style="color: #333333"
+                >content_copy</span
+              >
+            </button></a
+          ><a
+            class="inline-flex items-center gap-2 bg-surface-container-low text-on-surface-variant px-6 py-2.5 rounded-full font-body-md text-body-md border border-outline-variant/20 hover:bg-surface-container-high transition-colors duration-300 group"
+            href="https://linkedin.com/in/agusgarate"
+            target="_blank"
+            ><span
+              class="material-symbols-outlined text-xl"
+              style="color: #333333"
+              >link</span
+            ><span class="">LinkedIn</span
+            ><button
+              class="ml-2 p-1 rounded-full hover:bg-primary/10 text-primary transition-colors flex items-center justify-center"
+              onclick="
+                navigator.clipboard.writeText(
+                  'https://linkedin.com/in/agusgarate',
+                )
+              "
+              title="Copiar"
+            >
+              <span
+                class="material-symbols-outlined text-sm"
+                style="color: #333333"
+                >content_copy</span
+              >
+            </button></a
+          >
+        </div>
+      </div>
+      <!-- Sobre mi Placeholder (implied) -->
+      <section
+        class="px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto mb-32"
+        id="sobre-mi"
+      >
+        <div class="max-w-3xl">
+          <div
+            class="inline-flex items-center gap-2 bg-surface-container text-on-surface-variant px-4 py-1.5 rounded-full font-label-caps text-label-caps mb-4 border border-outline-variant/20"
+          >
+            <span class="material-symbols-outlined text-sm">location_on</span>
+            <span class="">Rosario, Argentina</span>
+          </div>
+          <h2
+            class="font-headline-lg text-headline-lg-mobile md:text-headline-lg text-on-surface mb-6"
+          >
+            Trayectoria &amp; Enfoque
+          </h2>
+          <p class="font-body-lg text-body-lg text-on-surface-variant">
+            Con más de 5 años de experiencia diseñando e implementando
+            arquitecturas limpias, me centro en entender el core del negocio
+            para transformar ideas complejas en interfaces simples y flujos de
+            trabajo eficientes.
+          </p>
+        </div>
+      </section>
+      <!-- Experiencia Section -->
+      <section
+        class="px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto mb-32"
+        id="experiencia"
+      >
+        <div class="max-w-3xl mb-12">
+          <h2
+            class="font-headline-lg text-headline-lg-mobile md:text-headline-lg text-on-surface mb-6"
+          >
+            Experiencia Profesional
+          </h2>
         </div>
         <div
-          class="relative z-10 max-w-container-max mx-auto w-full grid grid-cols-1 lg:grid-cols-12 gap-gutter items-center"
+          class="relative border-l-2 border-outline-variant/30 ml-4 md:ml-8 pl-8 md:pl-12 space-y-16"
         >
-          <div class="lg:col-span-8 space-y-8">
+          <!-- Item 1 -->
+          <div
+            class="timeline-item relative scroll-fade-up stagger-1 is-visible"
+          >
             <div
-              class="inline-flex items-center gap-2 px-4 py-2 bg-surface-cream rounded-full border border-outline-variant/20"
+              class="timeline-node absolute -left-[41px] md:-left-[57px] top-1 w-4 h-4 rounded-full bg-outline-variant border-4 border-background"
+            ></div>
+            <div class="font-label-caps text-label-caps text-primary mb-2">
+              2022 - Present
+            </div>
+            <h3
+              class="font-headline-md text-[24px] font-semibold text-on-surface mb-1"
             >
-              <span class="w-2 h-2 rounded-full bg-accent-green"></span>
+              Senior Mobile Engineer
+            </h3>
+            <div class="font-body-md mb-4 text-on-surface">@ TechFlow</div>
+            <p class="font-body-md mb-4 text-on-surface">
+              Leading mobile product team, focusing on fluid architectures and
+              high-fidelity interaction design.
+            </p>
+            <ul
+              class="list-disc list-inside font-body-md text-on-surface-variant mb-4 space-y-1"
+            >
+              <li class="text-on-surface">
+                Liderazgo técnico de equipos móviles
+              </li>
+              <li class="text-on-surface">
+                Arquitecturas escalables y diseño de interacciones de alta
+                fidelidad
+              </li>
+            </ul>
+            <div class="flex flex-wrap gap-2">
               <span
-                class="font-label-caps text-label-caps text-on-surface-variant"
-                >Disponible para nuevos proyectos</span
+                class="bg-surface-container-low text-on-surface px-3 py-1 rounded-full font-label-caps text-[10px]"
+                >React Native</span
+              >
+              <span
+                class="bg-surface-container-low text-on-surface px-3 py-1 rounded-full font-label-caps text-[10px]"
+                >Swift</span
               >
             </div>
-            <h1
-              class="font-display text-display text-on-background font-bold tracking-tight"
+          </div>
+          <!-- Item 2 -->
+          <div class="timeline-item relative scroll-fade-up stagger-2">
+            <div
+              class="timeline-node absolute -left-[41px] md:-left-[57px] top-1 w-4 h-4 rounded-full bg-outline-variant border-4 border-background"
+            ></div>
+            <div class="font-label-caps text-label-caps text-primary mb-2">
+              2019 - 2022
+            </div>
+            <h3
+              class="font-headline-md text-[24px] font-semibold text-on-surface mb-1"
             >
-              Construyendo <br class="hidden md:block" />
-              <span class="text-primary relative inline-block">
-                experiencias fluidas
-                <svg
-                  class="absolute w-full h-4 -bottom-1 left-0 text-accent-coral/60"
-                  preserveaspectratio="none"
-                  viewbox="0 0 200 20"
-                >
-                  <path
-                    d="M0,10 Q50,20 100,10 T200,10"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-linecap="round"
-                    stroke-width="4"
-                  ></path>
-                </svg>
-              </span>
-            </h1>
-            <p
-              class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl leading-relaxed"
-            >
-              Ingeniero de Software enfocado en Producto. Transformo conceptos
-              complejos en interfaces elegantes, cálidas y altamente
-              funcionales. Especialista en arquitecturas modernas y diseño
-              orgánico.
+              Product Designer &amp; Developer
+            </h3>
+            <div class="font-body-md mb-4 text-on-surface">@ InnovaSoft</div>
+            <p class="font-body-md mb-4 text-on-surface">
+              Creation of hybrid design systems and development of shared
+              components for web and mobile.
             </p>
-            <div class="flex flex-wrap gap-4 pt-4">
-              <a
-                class="inline-flex items-center justify-center px-8 py-4 bg-primary text-on-primary rounded-full font-label-caps text-label-caps hover:bg-primary-container hover:text-on-primary-container transition-all shadow-sm hover:shadow-md"
-                href="#contacto"
+            <ul
+              class="list-disc list-inside font-body-md text-on-surface-variant mb-4 space-y-1"
+            >
+              <li class="text-on-surface">
+                Creación de sistemas de diseño híbridos
+              </li>
+              <li class="text-on-surface">
+                Desarrollo de componentes compartidos web y mobile
+              </li>
+            </ul>
+            <div class="flex flex-wrap gap-2">
+              <span
+                class="bg-surface-container-low text-on-surface px-3 py-1 rounded-full font-label-caps text-[10px]"
+                >Flutter</span
               >
-                Iniciar Proyecto
+              <span
+                class="bg-surface-container-low text-on-surface px-3 py-1 rounded-full font-label-caps text-[10px]"
+                >React</span
+              >
+            </div>
+          </div>
+          <!-- Item 3 -->
+          <div class="timeline-item relative scroll-fade-up stagger-3">
+            <div
+              class="timeline-node absolute -left-[41px] md:-left-[57px] top-1 w-4 h-4 rounded-full bg-outline-variant border-4 border-background"
+            ></div>
+            <div class="font-label-caps text-label-caps text-primary mb-2">
+              2017 - 2019
+            </div>
+            <h3
+              class="font-headline-md text-[24px] font-semibold text-on-surface mb-1"
+            >
+              Junior Developer
+            </h3>
+            <div class="font-body-md mb-4 text-on-surface">@ StartUp Hub</div>
+            <p class="font-body-md mb-4 text-on-surface">
+              Fullstack development for internal platforms and process
+              automation.
+            </p>
+            <ul
+              class="list-disc list-inside font-body-md text-on-surface-variant mb-4 space-y-1"
+            >
+              <li class="text-on-surface">
+                Desarrollo fullstack para platforms internas
+              </li>
+              <li class="text-on-surface">Automatización de procesos</li>
+            </ul>
+            <div class="flex flex-wrap gap-2">
+              <span
+                class="bg-surface-container-low text-on-surface px-3 py-1 rounded-full font-label-caps text-[10px]"
+                >Node.js</span
+              >
+              <span
+                class="bg-surface-container-low text-on-surface px-3 py-1 rounded-full font-label-caps text-[10px]"
+                >Vue</span
+              >
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- Educación Section -->
+      <section
+        class="px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto mb-32 relative"
+        id="educacion"
+      >
+        <div class="max-w-3xl mb-12">
+          <h2
+            class="font-headline-lg text-headline-lg-mobile md:text-headline-lg text-on-surface mb-6"
+          >
+            Educación
+          </h2>
+        </div>
+        <div
+          class="w-full relative overflow-hidden bg-surface-container rounded-3xl p-8 shadow-sm"
+          id="education-timeline-wrapper"
+        >
+          <div
+            class="absolute top-8 right-8 overflow-hidden h-[40px] flex items-center justify-end min-w-[200px]"
+          >
+            <div
+              class="font-headline-md text-2xl text-on-surface-variant font-bold transition-all duration-300 transform translate-y-0 opacity-100"
+              id="dynamic-year-label"
+            >
+              Primer año
+            </div>
+          </div>
+          <div
+            class="relative w-full h-[120px] flex items-center mt-12 mb-8"
+            id="education-track-container"
+          >
+            <!-- The path -->
+            <div
+              class="absolute left-10 right-10 h-1 bg-outline-variant/30 rounded-full top-1/2 -translate-y-1/2"
+            ></div>
+            <!-- Nodes -->
+            <div
+              class="absolute inset-0 flex items-center justify-between px-10 z-10"
+              id="education-nodes"
+            >
+              <div
+                class="flex flex-col items-center edu-node relative"
+                data-index="0"
+              >
+                <div
+                  class="w-6 h-6 rounded-full bg-primary border-[6px] border-surface-container mb-2 transition-all duration-300 edu-dot"
+                ></div>
+                <span
+                  class="font-label-caps text-on-surface-variant absolute top-10"
+                  >2018</span
+                >
+              </div>
+              <div
+                class="flex flex-col items-center edu-node relative"
+                data-index="1"
+              >
+                <div
+                  class="w-6 h-6 rounded-full bg-primary border-[6px] border-surface-container mb-2 transition-all duration-300 edu-dot"
+                ></div>
+                <span
+                  class="font-label-caps text-on-surface-variant absolute top-10"
+                  >2019</span
+                >
+              </div>
+              <div
+                class="flex flex-col items-center edu-node relative"
+                data-index="2"
+              >
+                <div
+                  class="w-6 h-6 rounded-full bg-primary border-[6px] border-surface-container mb-2 transition-all duration-300 edu-dot"
+                ></div>
+                <span
+                  class="font-label-caps text-on-surface-variant absolute top-10"
+                  >2020</span
+                >
+              </div>
+              <div
+                class="flex flex-col items-center edu-node relative"
+                data-index="3"
+              >
+                <div
+                  class="w-6 h-6 rounded-full bg-primary border-[6px] border-surface-container mb-2 transition-all duration-300 edu-dot"
+                ></div>
+                <span
+                  class="font-label-caps text-on-surface-variant absolute top-10"
+                  >2021</span
+                >
+              </div>
+              <div
+                class="flex flex-col items-center edu-node relative"
+                data-index="4"
+              >
+                <div
+                  class="w-6 h-6 rounded-full bg-primary border-[6px] border-surface-container mb-2 transition-all duration-300 edu-dot"
+                ></div>
+                <span
+                  class="font-label-caps text-on-surface-variant absolute top-10"
+                  >2022</span
+                >
+              </div>
+              <div
+                class="flex flex-col items-center edu-node relative"
+                data-index="5"
+              >
+                <div
+                  class="w-6 h-6 rounded-full bg-primary border-[6px] border-surface-container mb-2 transition-all duration-300 edu-dot scale-110"
+                ></div>
+                <span
+                  class="font-label-caps text-on-surface-variant absolute top-10"
+                  >2023</span
+                >
+              </div>
+            </div>
+            <!-- The moving Icon -->
+            <div
+              class="absolute left-10 top-1/2 -mt-16 -translate-x-1/2 flex items-center justify-center z-20"
+              id="edu-icon-wrap"
+              style="transform: translateX(0px)"
+            >
+              <span
+                class="material-symbols-outlined text-on-surface text-5xl"
+                id="edu-icon"
+                >school</span
+              >
+            </div>
+          </div>
+          <!-- Content Display -->
+          <div
+            class="bg-surface rounded-xl p-8 relative border border-outline-variant/20 flex flex-col justify-center items-start mt-8"
+          >
+            <h4 class="font-headline-md text-2xl text-primary mb-4">
+              Ingeniero en Sistemas
+            </h4>
+            <div
+              class="font-body-md font-semibold text-on-surface-variant mb-4"
+            >
+              Universidad Tecnológica Nacional — Rosario
+            </div>
+            <p
+              class="font-body-md text-on-surface-variant mb-6 text-left max-w-2xl"
+            >
+              Formación integral en ciencias de la computación, arquitectura de
+              software y gestión de proyectos tecnológicos. Enfoque en la
+              resolución de problemas complejos mediante el diseño de sistemas
+              escalables y eficientes.
+            </p>
+            <div class="flex flex-wrap gap-2">
+              <span
+                class="bg-surface-container-low text-on-surface px-4 py-2 rounded-full font-label-caps text-xs border border-outline-variant/30"
+                >Arquitectura de Software</span
+              >
+              <span
+                class="bg-surface-container-low text-on-surface px-4 py-2 rounded-full font-label-caps text-xs border border-outline-variant/30"
+                >Algoritmos</span
+              >
+              <span
+                class="bg-surface-container-low text-on-surface px-4 py-2 rounded-full font-label-caps text-xs border border-outline-variant/30"
+                >Bases de Datos</span
+              >
+              <span
+                class="bg-surface-container-low text-on-surface px-4 py-2 rounded-full font-label-caps text-xs border border-outline-variant/30"
+                >Ingeniería de Requisitos</span
+              >
+            </div>
+          </div>
+        </div>
+        <script>
+          document.addEventListener('DOMContentLoaded', function () {
+            gsap.registerPlugin(ScrollTrigger);
+
+            const yearLabels = [
+              'Primer año',
+              'Segundo año',
+              'Tercer año',
+              'Cuarto año',
+              'Quinto año',
+              'Sexto año',
+            ];
+            const dynLabel = document.getElementById('dynamic-year-label');
+
+            const eduWrapper = document.getElementById(
+              'education-timeline-wrapper',
+            );
+            const iconWrap = document.getElementById('edu-icon-wrap');
+            const iconSpan = document.getElementById('edu-icon');
+            const nodes = document.querySelectorAll('.edu-node');
+            const trackContainer = document.getElementById(
+              'education-track-container',
+            );
+
+            let confettiFired = false;
+            let currentLabelIndex = -1;
+
+            function updateEduContent(index) {
+              if (index !== currentLabelIndex) {
+                dynLabel.classList.remove('translate-y-0', 'opacity-100');
+                dynLabel.classList.add('-translate-y-4', 'opacity-0');
+                setTimeout(() => {
+                  if (yearLabels[index]) {
+                    dynLabel.textContent = yearLabels[index];
+                  }
+                  dynLabel.classList.remove('-translate-y-4');
+                  dynLabel.classList.add('translate-y-4');
+                  setTimeout(() => {
+                    dynLabel.classList.remove('translate-y-4', 'opacity-0');
+                    dynLabel.classList.add('translate-y-0', 'opacity-100');
+                  }, 50);
+                }, 150);
+                currentLabelIndex = index;
+              }
+
+              nodes.forEach((node, i) => {
+                const dot = node.querySelector('.edu-dot');
+                if (i < index) {
+                  dot.className =
+                    'w-6 h-6 rounded-full bg-primary border-[6px] border-surface-container mb-2 transition-all duration-300 edu-dot';
+                } else if (i === index) {
+                  dot.className =
+                    'w-8 h-8 rounded-full bg-primary border-[4px] border-surface-container ring-4 ring-primary-container mb-2 transition-all duration-300 edu-dot scale-110';
+                } else {
+                  dot.className =
+                    'w-6 h-6 rounded-full bg-outline-variant border-[6px] border-surface-container mb-2 transition-all duration-300 edu-dot';
+                }
+              });
+
+              if (index === 5 && !confettiFired) {
+                iconSpan.textContent = '🎉';
+                confetti({
+                  particleCount: 100,
+                  spread: 70,
+                  origin: { y: 0.6 },
+                });
+                confettiFired = true;
+              } else if (index < 5) {
+                iconSpan.textContent = 'school';
+                confettiFired = false;
+              }
+            }
+
+            // Initial content setup
+            updateEduContent(0);
+
+            // Get padding to calculate exact path distance
+            const paddingX = 40; // px-10 is 40px
+
+            gsap.to(iconWrap, {
+              x: () => trackContainer.offsetWidth - paddingX * 2, // move across container minus padding
+              ease: 'none',
+              scrollTrigger: {
+                trigger: eduWrapper,
+                start: 'center center',
+                end: '+=1500', // lock for 1500px of scroll
+                pin: true,
+                scrub: 0.5,
+                invalidateOnRefresh: true,
+                onUpdate: (self) => {
+                  const progress = self.progress;
+                  const activeIndex = Math.min(
+                    5,
+                    Math.max(0, Math.floor(progress * 5.99)),
+                  );
+                  updateEduContent(activeIndex);
+                },
+              },
+            });
+          });
+        </script>
+      </section>
+      <!-- Servicios Section (Moved Above Stack) -->
+      <section
+        class="px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto mb-32"
+        id="servicios"
+      >
+        <div class="max-w-3xl mb-12">
+          <h2
+            class="font-headline-lg text-headline-lg-mobile md:text-headline-lg text-on-surface mb-6"
+          >
+            Servicios
+          </h2>
+          <p class="font-body-lg text-body-lg text-on-surface-variant">
+            Cada solución se define a partir del problema, las prioridades y el
+            contexto real del producto.
+          </p>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-24">
+          <!-- Card 1 -->
+          <div
+            class="group bg-surface-container rounded-[2rem] p-8 hover:bg-surface-container-high transition-colors duration-300 cursor-pointer scroll-fade-up stagger-1"
+          >
+            <div class="flex items-center gap-4 mb-4">
+              <span
+                class="material-symbols-outlined text-on-surface group-hover:text-primary transition-colors"
+                style="font-size: 32px"
+                >smartphone</span
+              >
+              <h3
+                class="font-headline-md text-[24px] font-semibold text-on-surface group-hover:text-primary transition-colors"
+              >
+                Aplicaciónes moviles
+              </h3>
+            </div>
+            <p class="font-body-md text-on-surface-variant">
+              Desarrollo de aplicaciones móviles multiplataforma para iOS y
+              Android optimizadas para rendimiento y fluidez.
+            </p>
+          </div>
+          <!-- Card 2 -->
+          <div
+            class="group bg-surface-container rounded-[2rem] p-8 hover:bg-surface-container-high transition-colors duration-300 cursor-pointer scroll-fade-up stagger-2"
+          >
+            <div class="flex items-center gap-4 mb-4">
+              <span
+                class="material-symbols-outlined text-on-surface group-hover:text-primary transition-colors"
+                style="font-size: 32px"
+                >language</span
+              >
+              <h3
+                class="font-headline-md text-[24px] font-semibold text-on-surface group-hover:text-primary transition-colors"
+              >
+                Paginas web
+              </h3>
+            </div>
+            <p class="font-body-md text-on-surface-variant">
+              Creación de plataformas web interactivas y landing pages enfocadas
+              en la experiencia de usuario.
+            </p>
+          </div>
+          <!-- Card 3 -->
+          <div
+            class="group bg-surface-container rounded-[2rem] p-8 hover:bg-surface-container-high transition-colors duration-300 cursor-pointer scroll-fade-up stagger-3"
+          >
+            <div class="flex items-center gap-4 mb-4">
+              <span
+                class="material-symbols-outlined text-on-surface group-hover:text-primary transition-colors"
+                style="font-size: 32px"
+                >settings_suggest</span
+              >
+              <h3
+                class="font-headline-md text-[24px] font-semibold text-on-surface group-hover:text-primary transition-colors"
+              >
+                Sistemas internos y Backoffice
+              </h3>
+            </div>
+            <p class="font-body-md text-on-surface-variant">
+              Diseño e implementación de herramientas internas a medida para
+              optimizar operaciones de negocio.
+            </p>
+          </div>
+          <!-- Card 4 -->
+          <div
+            class="group bg-surface-container rounded-[2rem] p-8 hover:bg-surface-container-high transition-colors duration-300 cursor-pointer scroll-fade-up stagger-4"
+          >
+            <div class="flex items-center gap-4 mb-4">
+              <span
+                class="material-symbols-outlined text-on-surface group-hover:text-primary transition-colors"
+                style="font-size: 32px"
+                >smart_toy</span
+              >
+              <h3
+                class="font-headline-md text-[24px] font-semibold text-on-surface group-hover:text-primary transition-colors"
+              >
+                Automatizaciones
+              </h3>
+            </div>
+            <p class="font-body-md text-on-surface-variant">
+              Integración de sistemas y automatización de procesos mediante IA y
+              flujos programados.
+            </p>
+          </div>
+          <!-- Card 5 -->
+          <div
+            class="group bg-surface-container rounded-[2rem] p-8 hover:bg-surface-container-high transition-colors duration-300 cursor-pointer md:col-span-2 scroll-fade-up stagger-5"
+          >
+            <div class="flex items-center gap-4 mb-4">
+              <span
+                class="material-symbols-outlined text-on-surface group-hover:text-primary transition-colors"
+                style="font-size: 32px"
+                >rocket_launch</span
+              >
+              <h3
+                class="font-headline-md text-[24px] font-semibold text-on-surface group-hover:text-primary transition-colors"
+              >
+                Desarrollos de MVP
+              </h3>
+            </div>
+            <p class="font-body-md text-on-surface-variant max-w-2xl">
+              Lanzamiento ágil de Productos Mínimos Viables (MVPs) para validar
+              ideas en el mercado rápidamente con una base técnica sólida.
+            </p>
+            <p
+              class="font-body-md text-xs text-on-surface-variant/80 italic mt-4 max-w-2xl"
+            >
+              ¿Qué es un MVP? Es una versión simple, temprana y totalmente
+              funcional de tu idea que nos permite lanzarla rápido al mercado
+              para probar si funciona, ahorrando tiempo y costos antes de
+              construir el producto final completo.
+            </p>
+          </div>
+        </div>
+        <!-- Gantt Chart Section -->
+        <div class="gantt-wrapper w-full overflow-hidden" id="gantt-wrapper">
+          <div
+            class="gantt-container max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop"
+            id="gantt-section"
+          >
+            <div
+              class="gantt-sticky bg-surface rounded-3xl shadow-sm border border-outline-variant/20 pt-8 pl-8 relative flex flex-col"
+            >
+              <h3
+                class="font-headline-md text-[24px] font-semibold text-on-surface mb-8"
+              >
+                Ciclo de Vida del Proyecto
+              </h3>
+              <div class="absolute inset-0 bg-hatched -z-10 rounded-3xl"></div>
+              <!-- Headers -->
+              <div
+                class="flex gantt-headers ml-48 text-on-surface-variant font-label-caps mb-4"
+                id="gantt-headers"
+                style="
+                  translate: none;
+                  rotate: none;
+                  scale: none;
+                  transform: translate(0px, 0px);
+                "
+              >
+                <div class="w-[150px] shrink-0 text-center">Semana 1</div>
+                <div class="w-[150px] shrink-0 text-center">Semana 2</div>
+                <div class="w-[150px] shrink-0 text-center">Semana 3</div>
+                <div class="w-[150px] shrink-0 text-center">Semana 4</div>
+                <div class="w-[150px] shrink-0 text-center">Semana 5</div>
+                <div class="w-[150px] shrink-0 text-center">Semana 6</div>
+                <div class="w-[150px] shrink-0 text-center">Semana 7</div>
+                <div class="w-[150px] shrink-0 text-center">Semana 8</div>
+              </div>
+              <!-- Scrollable Track -->
+              <div
+                class="relative w-full flex-grow overflow-hidden min-h-[450px]"
+              >
+                <!-- Timeline Line -->
+                <div
+                  class="absolute top-0 bottom-0 left-[300px] w-px bg-tertiary z-20 flex flex-col items-center gantt-timeline-indicator"
+                >
+                  <div
+                    class="bg-surface-cream text-tertiary px-3 py-1 rounded-full font-label-caps text-[10px] -mt-3 border border-tertiary"
+                  >
+                    Hoy
+                  </div>
+                  <div class="w-2 h-2 rounded-full bg-tertiary mt-1"></div>
+                </div>
+                <div
+                  class="gantt-track absolute left-0"
+                  id="gantt-track"
+                  style="
+                    translate: none;
+                    rotate: none;
+                    scale: none;
+                    transform: translate(0px, 0px);
+                  "
+                >
+                  <!-- Background Grid -->
+                  <div
+                    class="absolute inset-0 ml-48 gantt-grid-bg -z-10"
+                    style="width: 1200px; height: 100%"
+                  ></div>
+                  <!-- Rows Container -->
+                  <div class="flex flex-col gap-4 relative z-10">
+                    <!-- Row 1: Discovery -->
+                    <div class="flex items-center h-12">
+                      <div
+                        class="w-48 shrink-0 font-body-md text-on-surface pr-4 text-right"
+                      >
+                        Discovery
+                      </div>
+                      <div class="relative h-full" style="width: 1200px">
+                        <div
+                          class="absolute top-1/2 -translate-y-1/2 left-0 w-[200px] h-10 bg-primary-fixed rounded-full flex items-center px-4 shadow-sm phase-bubble transition-transform duration-300"
+                          data-end="200"
+                          data-phase="discovery"
+                          data-start="0"
+                        >
+                          <span
+                            class="font-body-md text-on-primary-fixed-variant text-sm truncate"
+                            >Discovery</span
+                          >
+                        </div>
+                      </div>
+                    </div>
+                    <!-- Row 2: Kick-off -->
+                    <div class="flex items-center h-12">
+                      <div
+                        class="w-48 shrink-0 font-body-md text-on-surface pr-4 text-right"
+                      >
+                        Kick-off
+                      </div>
+                      <div class="relative h-full" style="width: 1200px">
+                        <div
+                          class="absolute top-1/2 -translate-y-1/2 left-[150px] w-[100px] h-10 bg-tertiary-fixed rounded-full flex items-center px-4 shadow-sm phase-bubble transition-transform duration-300"
+                          data-end="250"
+                          data-phase="kickoff"
+                          data-start="150"
+                        >
+                          <span
+                            class="font-body-md text-on-tertiary-fixed-variant text-sm truncate"
+                            >Kick-off</span
+                          >
+                        </div>
+                      </div>
+                    </div>
+                    <!-- Row 3: Diseño UX/UI -->
+                    <div class="flex items-center h-12">
+                      <div
+                        class="w-48 shrink-0 font-body-md text-on-surface pr-4 text-right"
+                      >
+                        Diseño UX/UI
+                      </div>
+                      <div class="relative h-full" style="width: 1200px">
+                        <div
+                          class="absolute top-1/2 -translate-y-1/2 left-[200px] w-[250px] h-10 bg-secondary-fixed rounded-full flex items-center px-4 shadow-sm phase-bubble transition-transform duration-300"
+                          data-end="450"
+                          data-phase="diseno"
+                          data-start="200"
+                        >
+                          <span
+                            class="font-body-md text-on-secondary-fixed-variant text-sm truncate"
+                            >Diseño UX/UI</span
+                          >
+                        </div>
+                      </div>
+                    </div>
+                    <!-- Row 4: Desarrollo Frontend -->
+                    <div class="flex items-center h-12">
+                      <div
+                        class="w-48 shrink-0 font-body-md text-on-surface pr-4 text-right"
+                      >
+                        Desarrollo Frontend
+                      </div>
+                      <div class="relative h-full" style="width: 1200px">
+                        <div
+                          class="absolute top-1/2 -translate-y-1/2 left-[400px] w-[350px] h-10 bg-accent-blue rounded-full flex items-center px-4 shadow-sm phase-bubble transition-transform duration-300"
+                          data-end="750"
+                          data-phase="frontend"
+                          data-start="400"
+                        >
+                          <span
+                            class="font-body-md text-on-surface text-sm truncate"
+                            >Desarrollo Frontend</span
+                          >
+                        </div>
+                      </div>
+                    </div>
+                    <!-- Row 5: Desarrollo Backend -->
+                    <div class="flex items-center h-12">
+                      <div
+                        class="w-48 shrink-0 font-body-md text-on-surface pr-4 text-right"
+                      >
+                        Desarrollo Backend
+                      </div>
+                      <div class="relative h-full" style="width: 1200px">
+                        <div
+                          class="absolute top-1/2 -translate-y-1/2 left-[450px] w-[300px] h-10 bg-accent-green rounded-full flex items-center px-4 shadow-sm phase-bubble transition-transform duration-300"
+                          data-end="750"
+                          data-phase="backend"
+                          data-start="450"
+                        >
+                          <span
+                            class="font-body-md text-on-surface text-sm truncate"
+                            >Desarrollo Backend</span
+                          >
+                        </div>
+                      </div>
+                    </div>
+                    <!-- Row 6: Testing & QA -->
+                    <div class="flex items-center h-12">
+                      <div
+                        class="w-48 shrink-0 font-body-md text-on-surface pr-4 text-right"
+                      >
+                        Testing &amp; QA
+                      </div>
+                      <div class="relative h-full" style="width: 1200px">
+                        <div
+                          class="absolute top-1/2 -translate-y-1/2 left-[700px] w-[200px] h-10 bg-accent-coral rounded-full flex items-center px-4 shadow-sm phase-bubble transition-transform duration-300"
+                          data-end="900"
+                          data-phase="testing"
+                          data-start="700"
+                        >
+                          <span
+                            class="font-body-md text-on-surface text-sm truncate"
+                            >Testing &amp; QA</span
+                          >
+                        </div>
+                      </div>
+                    </div>
+                    <!-- Row 7: Despliegue -->
+                    <div class="flex items-center h-12">
+                      <div
+                        class="w-48 shrink-0 font-body-md text-on-surface pr-4 text-right"
+                      >
+                        Despliegue
+                      </div>
+                      <div class="relative h-full" style="width: 1200px">
+                        <div
+                          class="absolute top-1/2 -translate-y-1/2 left-[850px] w-[150px] h-10 bg-primary-container rounded-full flex items-center px-4 shadow-sm phase-bubble transition-transform duration-300"
+                          data-end="1000"
+                          data-phase="despliegue"
+                          data-start="850"
+                        >
+                          <span
+                            class="font-body-md text-on-primary-container text-sm truncate"
+                            >Despliegue</span
+                          >
+                        </div>
+                      </div>
+                    </div>
+                    <!-- Row 8: Capacitación -->
+                    <div class="flex items-center h-12">
+                      <div
+                        class="w-48 shrink-0 font-body-md text-on-surface pr-4 text-right"
+                      >
+                        Capacitación
+                      </div>
+                      <div class="relative h-full" style="width: 1200px">
+                        <div
+                          class="absolute top-1/2 -translate-y-1/2 left-[950px] w-[200px] h-10 bg-surface-container-highest rounded-full flex items-center px-4 shadow-sm phase-bubble transition-transform duration-300"
+                          data-end="1150"
+                          data-phase="capacitacion"
+                          data-start="950"
+                        >
+                          <span
+                            class="font-body-md text-on-surface-variant text-sm truncate"
+                            >Capacitación</span
+                          >
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- Dynamic Phase Descriptions -->
+              <div
+                class="h-24 bg-surface-container-low mt-0 border-t border-outline-variant/20 rounded-b-3xl relative overflow-hidden"
+                id="phase-descriptions"
+              >
+                <div class="phase-description p-4 active" id="desc-default">
+                  <p
+                    class="font-body-md text-on-surface-variant text-center italic mt-2"
+                  >
+                    Desplaza para ver el progreso del proyecto
+                  </p>
+                </div>
+                <div class="phase-description p-4" id="desc-discovery">
+                  <h4 class="font-label-caps text-primary mb-1">Discovery</h4>
+                  <p class="font-body-md text-on-surface">
+                    Investigación profunda de necesidades y definición de
+                    objetivos.
+                  </p>
+                </div>
+                <div class="phase-description p-4" id="desc-kickoff">
+                  <h4 class="font-label-caps text-tertiary mb-1">Kick-off</h4>
+                  <p class="font-body-md text-on-surface">
+                    Alineación inicial del equipo y establecimiento de hitos.
+                  </p>
+                </div>
+                <div class="phase-description p-4" id="desc-diseno">
+                  <h4
+                    class="font-label-caps text-on-secondary-fixed-variant mb-1"
+                  >
+                    Diseño UX/UI
+                  </h4>
+                  <p class="font-body-md text-on-surface">
+                    Creación de interfaces intuitivas y flujos centrados en el
+                    usuario.
+                  </p>
+                </div>
+                <div class="phase-description p-4" id="desc-frontend">
+                  <h4 class="font-label-caps text-on-surface mb-1">
+                    Desarrollo Frontend
+                  </h4>
+                  <p class="font-body-md text-on-surface">
+                    Implementación de interfaces móviles y web de alta
+                    fidelidad.
+                  </p>
+                </div>
+                <div class="phase-description p-4" id="desc-backend">
+                  <h4 class="font-label-caps text-on-surface mb-1">
+                    Desarrollo Backend
+                  </h4>
+                  <p class="font-body-md text-on-surface">
+                    Construcción de arquitecturas robustas y escalables.
+                  </p>
+                </div>
+                <div class="phase-description p-4" id="desc-testing">
+                  <h4 class="font-label-caps text-on-surface mb-1">
+                    Testing &amp; QA
+                  </h4>
+                  <p class="font-body-md text-on-surface">
+                    Pruebas exhaustivas para asegurar la máxima calidad.
+                  </p>
+                </div>
+                <div class="phase-description p-4" id="desc-despliegue">
+                  <h4 class="font-label-caps text-primary-container mb-1">
+                    Despliegue
+                  </h4>
+                  <p class="font-body-md text-on-surface">
+                    Lanzamiento controlado a entornos de producción.
+                  </p>
+                </div>
+                <div class="phase-description p-4" id="desc-capacitacion">
+                  <h4 class="font-label-caps text-on-surface-variant mb-1">
+                    Capacitación
+                  </h4>
+                  <p class="font-body-md text-on-surface">
+                    Entrega final y formación para el uso del producto.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <script>
+          document.addEventListener('DOMContentLoaded', function () {
+            gsap.registerPlugin(ScrollTrigger);
+
+            const ganttWrapper = document.getElementById('gantt-wrapper');
+            const ganttContainer = document.getElementById('gantt-section');
+            const ganttTrack = document.getElementById('gantt-track');
+            const ganttHeaders = document.getElementById('gantt-headers');
+            const descriptions =
+              document.querySelectorAll('.phase-description');
+            const phaseBubbles = document.querySelectorAll('.phase-bubble');
+
+            // Calculate max translation based on track width and container width
+            const getScrollAmount = () => {
+              let maxTranslate = 1200 - window.innerWidth + 400; // Added buffer
+              return maxTranslate > 0 ? maxTranslate : 0;
+            };
+
+            let scrollTween = gsap.to([ganttTrack, ganttHeaders], {
+              x: () => `-${getScrollAmount()}px`,
+              ease: 'none',
+              scrollTrigger: {
+                trigger: ganttContainer,
+                start: 'top 20%',
+                end: () => `+=${getScrollAmount() * 2}`, // Extend scroll distance for smoother feel
+                pin: true,
+                scrub: 1,
+                invalidateOnRefresh: true,
+                onUpdate: (self) => {
+                  const progress = self.progress;
+                  const maxTranslate = getScrollAmount();
+
+                  // Current timeline position logic
+                  const currentTimelinePos =
+                    progress * maxTranslate + 300 - 192;
+
+                  let activePhase = null;
+                  const phases = [
+                    { id: 'discovery', start: 0, end: 200 },
+                    { id: 'kickoff', start: 150, end: 250 },
+                    { id: 'diseno', start: 200, end: 450 },
+                    { id: 'frontend', start: 400, end: 750 },
+                    { id: 'backend', start: 450, end: 750 },
+                    { id: 'testing', start: 700, end: 900 },
+                    { id: 'despliegue', start: 850, end: 1000 },
+                    { id: 'capacitacion', start: 950, end: 1150 },
+                  ];
+
+                  // Scale bubbles and detect active phase
+                  phaseBubbles.forEach((bubble) => {
+                    const start = parseInt(bubble.getAttribute('data-start'));
+                    const end = parseInt(bubble.getAttribute('data-end'));
+                    const phaseId = bubble.getAttribute('data-phase');
+
+                    if (
+                      currentTimelinePos >= start &&
+                      currentTimelinePos <= end
+                    ) {
+                      bubble.classList.add('scale-[1.2]', 'shadow-md', 'z-20');
+                      activePhase = phaseId;
+                    } else {
+                      bubble.classList.remove(
+                        'scale-[1.2]',
+                        'shadow-md',
+                        'z-20',
+                      );
+                    }
+                  });
+
+                  descriptions.forEach((desc) => {
+                    desc.classList.remove('active');
+                    desc.style.position = 'absolute';
+                  });
+
+                  if (activePhase) {
+                    const targetDesc = document.getElementById(
+                      `desc-${activePhase}`,
+                    );
+                    if (targetDesc) {
+                      targetDesc.classList.add('active');
+                      targetDesc.style.position = 'relative';
+                    }
+                  } else if (progress === 0) {
+                    const defaultDesc = document.getElementById('desc-default');
+                    if (defaultDesc) {
+                      defaultDesc.classList.add('active');
+                      defaultDesc.style.position = 'relative';
+                    }
+                  }
+                },
+              },
+            });
+          });
+        </script>
+      </section>
+      <!-- Stack Section (Moved Below Servicios) -->
+      <section
+        class="px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto mb-16 mt-32"
+        id="stack"
+      >
+        <h2
+          class="font-headline-lg text-headline-lg-mobile md:text-headline-lg text-on-surface mb-12"
+        >
+          Tecnologías y herramientas 
+        </h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <!-- Mobile -->
+          <div
+            class="bg-surface-cream rounded-3xl p-8 hover:-translate-y-1 transition-transform duration-300 scroll-fade-up stagger-1"
+          >
+            <div
+              class="w-12 h-12 rounded-full bg-accent-blue flex items-center justify-center mb-6 text-on-surface"
+            >
+              <span class="material-symbols-outlined">smartphone</span>
+            </div>
+            <h3
+              class="font-headline-md text-[24px] font-semibold text-on-surface mb-4"
+            >
+              Mobile
+            </h3>
+            <div class="flex flex-wrap gap-2">
+              <span
+                class="bg-surface border border-outline-variant/30 text-on-surface px-4 py-2 rounded-full font-label-caps text-label-caps shadow-sm"
+                >Swift</span
+              ><span
+                class="bg-surface border border-outline-variant/30 text-on-surface px-4 py-2 rounded-full font-label-caps text-label-caps shadow-sm"
+                >Kotlin</span
+              ><span
+                class="bg-surface border border-outline-variant/30 text-on-surface px-4 py-2 rounded-full font-label-caps text-label-caps shadow-sm"
+                >Flutter</span
+              >
+            </div>
+          </div>
+          <!-- Frontend -->
+          <div
+            class="bg-surface-cream rounded-3xl p-8 hover:-translate-y-1 transition-transform duration-300 scroll-fade-up stagger-2"
+          >
+            <div
+              class="w-12 h-12 rounded-full bg-accent-coral flex items-center justify-center mb-6 text-on-surface"
+            >
+              <span class="material-symbols-outlined">web</span>
+            </div>
+            <h3
+              class="font-headline-md text-[24px] font-semibold text-on-surface mb-4"
+            >
+              Frontend
+            </h3>
+            <div class="flex flex-wrap gap-2">
+              <span
+                class="bg-surface border border-outline-variant/30 text-on-surface px-4 py-2 rounded-full font-label-caps text-label-caps shadow-sm"
+                >React</span
+              ><span
+                class="bg-surface border border-outline-variant/30 text-on-surface px-4 py-2 rounded-full font-label-caps text-label-caps shadow-sm"
+                >Vue</span
+              ><span
+                class="bg-surface border border-outline-variant/30 text-on-surface px-4 py-2 rounded-full font-label-caps text-label-caps shadow-sm"
+                >Tailwind CSS</span
+              >
+            </div>
+          </div>
+          <!-- Backend -->
+          <div
+            class="bg-surface-cream rounded-3xl p-8 hover:-translate-y-1 transition-transform duration-300 scroll-fade-up stagger-3"
+          >
+            <div
+              class="w-12 h-12 rounded-full bg-accent-green flex items-center justify-center mb-6 text-on-surface"
+            >
+              <span class="material-symbols-outlined">dns</span>
+            </div>
+            <h3
+              class="font-headline-md text-[24px] font-semibold text-on-surface mb-4"
+            >
+              Backend
+            </h3>
+            <div class="flex flex-wrap gap-2">
+              <span
+                class="bg-surface border border-outline-variant/30 text-on-surface px-4 py-2 rounded-full font-label-caps text-label-caps shadow-sm"
+                >Node.js</span
+              ><span
+                class="bg-surface border border-outline-variant/30 text-on-surface px-4 py-2 rounded-full font-label-caps text-label-caps shadow-sm"
+                >Python</span
+              ><span
+                class="bg-surface border border-outline-variant/30 text-on-surface px-4 py-2 rounded-full font-label-caps text-label-caps shadow-sm"
+                >Go</span
+              >
+            </div>
+          </div>
+          <!-- Cloud -->
+          <div
+            class="bg-surface-cream rounded-3xl p-8 hover:-translate-y-1 transition-transform duration-300 scroll-fade-up stagger-4"
+          >
+            <div
+              class="w-12 h-12 rounded-full bg-secondary-fixed flex items-center justify-center mb-6 text-on-surface"
+            >
+              <span class="material-symbols-outlined">cloud</span>
+            </div>
+            <h3
+              class="font-headline-md text-[24px] font-semibold text-on-surface mb-4"
+            >
+              Cloud &amp; DevOps
+            </h3>
+            <div class="flex flex-wrap gap-2">
+              <span
+                class="bg-surface border border-outline-variant/30 text-on-surface px-4 py-2 rounded-full font-label-caps text-label-caps shadow-sm"
+                >AWS</span
+              ><span
+                class="bg-surface border border-outline-variant/30 text-on-surface px-4 py-2 rounded-full font-label-caps text-label-caps shadow-sm"
+                >GCP</span
+              ><span
+                class="bg-surface border border-outline-variant/30 text-on-surface px-4 py-2 rounded-full font-label-caps text-label-caps shadow-sm"
+                >Docker</span
+              >
+            </div>
+          </div>
+          <!-- Product/IA -->
+          <div
+            class="bg-surface-cream rounded-3xl p-8 hover:-translate-y-1 transition-transform duration-300 md:col-span-2 lg:col-span-1 scroll-fade-up stagger-5"
+          >
+            <div
+              class="w-12 h-12 rounded-full bg-tertiary-fixed flex items-center justify-center mb-6 text-on-surface"
+            >
+              <span class="material-symbols-outlined">auto_awesome</span>
+            </div>
+            <h3
+              class="font-headline-md text-[24px] font-semibold text-on-surface mb-4"
+            >
+              Producto &amp; IA
+            </h3>
+            <div class="flex flex-wrap gap-2">
+              <span
+                class="bg-surface border border-outline-variant/30 text-on-surface px-4 py-2 rounded-full font-label-caps text-label-caps shadow-sm"
+                >Figma</span
+              ><span
+                class="bg-surface border border-outline-variant/30 text-on-surface px-4 py-2 rounded-full font-label-caps text-label-caps shadow-sm"
+                >OpenAI</span
+              ><span
+                class="bg-surface border border-outline-variant/30 text-on-surface px-4 py-2 rounded-full font-label-caps text-label-caps shadow-sm"
+                >LangChain</span
+              >
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- Tecnologías Carousel Section -->
+      <section class="mb-32 overflow-hidden" id="tecnologias">
+        <div
+          class="px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto mb-8"
+        ></div>
+        <div class="relative w-full overflow-hidden pb-12 pt-4">
+          <!-- Gradient Masks for smooth edges -->
+          <div
+            class="absolute left-0 top-0 w-32 h-full bg-gradient-to-r from-background to-transparent z-10 pointer-events-none"
+          ></div>
+          <div
+            class="absolute right-0 top-0 w-32 h-full bg-gradient-to-l from-background to-transparent z-10 pointer-events-none"
+          ></div>
+          <!-- Carousel Track -->
+          <div class="flex gap-8 w-max animate-scroll pl-8 scroll-fade-up">
+            <!-- Set 1 -->
+            <div
+              class="group relative flex items-center justify-center w-20 h-20 bg-surface-cream rounded-full hover:bg-surface-container-high transition-colors cursor-pointer shadow-sm hover:shadow-md"
+            >
+              <span
+                class="material-symbols-outlined text-4xl text-on-surface-variant group-hover:text-primary transition-colors"
+                >smartphone</span
+              >
+              <div
+                class="absolute -top-10 opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-surface-cream text-on-surface px-3 py-1.5 rounded-lg font-label-caps text-xs pointer-events-none whitespace-nowrap shadow-lg z-20 border border-outline-variant/30"
+              >
+                Flutter
+                <div
+                  class="absolute -bottom-1 left-1/2 -translate-x-1/2 border-4 border-transparent border-t-surface-cream"
+                ></div>
+              </div>
+            </div>
+            <div
+              class="group relative flex items-center justify-center w-20 h-20 bg-surface-cream rounded-full hover:bg-surface-container-high transition-colors cursor-pointer shadow-sm hover:shadow-md"
+            >
+              <span
+                class="material-symbols-outlined text-4xl text-on-surface-variant group-hover:text-primary transition-colors"
+                >phone_iphone</span
+              >
+              <div
+                class="absolute -top-10 opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-surface-cream text-on-surface px-3 py-1.5 rounded-lg font-label-caps text-xs pointer-events-none whitespace-nowrap shadow-lg z-20 border border-outline-variant/30"
+              >
+                React Native
+                <div
+                  class="absolute -bottom-1 left-1/2 -translate-x-1/2 border-4 border-transparent border-t-surface-cream"
+                ></div>
+              </div>
+            </div>
+            <div
+              class="group relative flex items-center justify-center w-20 h-20 bg-surface-cream rounded-full hover:bg-surface-container-high transition-colors cursor-pointer shadow-sm hover:shadow-md"
+            >
+              <span
+                class="material-symbols-outlined text-4xl text-on-surface-variant group-hover:text-primary transition-colors"
+                >ad_units</span
+              >
+              <div
+                class="absolute -top-10 opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-surface-cream text-on-surface px-3 py-1.5 rounded-lg font-label-caps text-xs pointer-events-none whitespace-nowrap shadow-lg z-20 border border-outline-variant/30"
+              >
+                Expo
+                <div
+                  class="absolute -bottom-1 left-1/2 -translate-x-1/2 border-4 border-transparent border-t-surface-cream"
+                ></div>
+              </div>
+            </div>
+            <div
+              class="group relative flex items-center justify-center w-20 h-20 bg-surface-cream rounded-full hover:bg-surface-container-high transition-colors cursor-pointer shadow-sm hover:shadow-md"
+            >
+              <span
+                class="material-symbols-outlined text-4xl text-on-surface-variant group-hover:text-primary transition-colors"
+                >code</span
+              >
+              <div
+                class="absolute -top-10 opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-surface-cream text-on-surface px-3 py-1.5 rounded-lg font-label-caps text-xs pointer-events-none whitespace-nowrap shadow-lg z-20 border border-outline-variant/30"
+              >
+                Swift
+                <div
+                  class="absolute -bottom-1 left-1/2 -translate-x-1/2 border-4 border-transparent border-t-surface-cream"
+                ></div>
+              </div>
+            </div>
+            <div
+              class="group relative flex items-center justify-center w-20 h-20 bg-surface-cream rounded-full hover:bg-surface-container-high transition-colors cursor-pointer shadow-sm hover:shadow-md"
+            >
+              <span
+                class="material-symbols-outlined text-4xl text-on-surface-variant group-hover:text-primary transition-colors"
+                >draw</span
+              >
+              <div
+                class="absolute -top-10 opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-surface-cream text-on-surface px-3 py-1.5 rounded-lg font-label-caps text-xs pointer-events-none whitespace-nowrap shadow-lg z-20 border border-outline-variant/30"
+              >
+                Figma
+                <div
+                  class="absolute -bottom-1 left-1/2 -translate-x-1/2 border-4 border-transparent border-t-surface-cream"
+                ></div>
+              </div>
+            </div>
+            <div
+              class="group relative flex items-center justify-center w-20 h-20 bg-surface-cream rounded-full hover:bg-surface-container-high transition-colors cursor-pointer shadow-sm hover:shadow-md"
+            >
+              <span
+                class="material-symbols-outlined text-4xl text-on-surface-variant group-hover:text-primary transition-colors"
+                >javascript</span
+              >
+              <div
+                class="absolute -top-10 opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-surface-cream text-on-surface px-3 py-1.5 rounded-lg font-label-caps text-xs pointer-events-none whitespace-nowrap shadow-lg z-20 border border-outline-variant/30"
+              >
+                Node.js
+                <div
+                  class="absolute -bottom-1 left-1/2 -translate-x-1/2 border-4 border-transparent border-t-surface-cream"
+                ></div>
+              </div>
+            </div>
+            <div
+              class="group relative flex items-center justify-center w-20 h-20 bg-surface-cream rounded-full hover:bg-surface-container-high transition-colors cursor-pointer shadow-sm hover:shadow-md"
+            >
+              <span
+                class="material-symbols-outlined text-4xl text-on-surface-variant group-hover:text-primary transition-colors"
+                >terminal</span
+              >
+              <div
+                class="absolute -top-10 opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-surface-cream text-on-surface px-3 py-1.5 rounded-lg font-label-caps text-xs pointer-events-none whitespace-nowrap shadow-lg z-20 border border-outline-variant/30"
+              >
+                Python
+                <div
+                  class="absolute -bottom-1 left-1/2 -translate-x-1/2 border-4 border-transparent border-t-surface-cream"
+                ></div>
+              </div>
+            </div>
+            <div
+              class="group relative flex items-center justify-center w-20 h-20 bg-surface-cream rounded-full hover:bg-surface-container-high transition-colors cursor-pointer shadow-sm hover:shadow-md"
+            >
+              <span
+                class="material-symbols-outlined text-4xl text-on-surface-variant group-hover:text-primary transition-colors"
+                >style</span
+              >
+              <div
+                class="absolute -top-10 opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-surface-cream text-on-surface px-3 py-1.5 rounded-lg font-label-caps text-xs pointer-events-none whitespace-nowrap shadow-lg z-20 border border-outline-variant/30"
+              >
+                Tailwind CSS
+                <div
+                  class="absolute -bottom-1 left-1/2 -translate-x-1/2 border-4 border-transparent border-t-surface-cream"
+                ></div>
+              </div>
+            </div>
+            <div
+              class="group relative flex items-center justify-center w-20 h-20 bg-surface-cream rounded-full hover:bg-surface-container-high transition-colors cursor-pointer shadow-sm hover:shadow-md"
+            >
+              <span
+                class="material-symbols-outlined text-4xl text-on-surface-variant group-hover:text-primary transition-colors"
+                >web</span
+              >
+              <div
+                class="absolute -top-10 opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-surface-cream text-on-surface px-3 py-1.5 rounded-lg font-label-caps text-xs pointer-events-none whitespace-nowrap shadow-lg z-20 border border-outline-variant/30"
+              >
+                React
+                <div
+                  class="absolute -bottom-1 left-1/2 -translate-x-1/2 border-4 border-transparent border-t-surface-cream"
+                ></div>
+              </div>
+            </div>
+            <!-- Set 2 (Duplicate for infinite scroll) -->
+            <div
+              class="group relative flex items-center justify-center w-20 h-20 bg-surface-cream rounded-full hover:bg-surface-container-high transition-colors cursor-pointer shadow-sm hover:shadow-md"
+            >
+              <span
+                class="material-symbols-outlined text-4xl text-on-surface-variant group-hover:text-primary transition-colors"
+                >smartphone</span
+              >
+              <div
+                class="absolute -top-10 opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-surface-cream text-on-surface px-3 py-1.5 rounded-lg font-label-caps text-xs pointer-events-none whitespace-nowrap shadow-lg z-20 border border-outline-variant/30"
+              >
+                Flutter
+                <div
+                  class="absolute -bottom-1 left-1/2 -translate-x-1/2 border-4 border-transparent border-t-surface-cream"
+                ></div>
+              </div>
+            </div>
+            <div
+              class="group relative flex items-center justify-center w-20 h-20 bg-surface-cream rounded-full hover:bg-surface-container-high transition-colors cursor-pointer shadow-sm hover:shadow-md"
+            >
+              <span
+                class="material-symbols-outlined text-4xl text-on-surface-variant group-hover:text-primary transition-colors"
+                >phone_iphone</span
+              >
+              <div
+                class="absolute -top-10 opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-surface-cream text-on-surface px-3 py-1.5 rounded-lg font-label-caps text-xs pointer-events-none whitespace-nowrap shadow-lg z-20 border border-outline-variant/30"
+              >
+                React Native
+                <div
+                  class="absolute -bottom-1 left-1/2 -translate-x-1/2 border-4 border-transparent border-t-surface-cream"
+                ></div>
+              </div>
+            </div>
+            <div
+              class="group relative flex items-center justify-center w-20 h-20 bg-surface-cream rounded-full hover:bg-surface-container-high transition-colors cursor-pointer shadow-sm hover:shadow-md"
+            >
+              <span
+                class="material-symbols-outlined text-4xl text-on-surface-variant group-hover:text-primary transition-colors"
+                >ad_units</span
+              >
+              <div
+                class="absolute -top-10 opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-surface-cream text-on-surface px-3 py-1.5 rounded-lg font-label-caps text-xs pointer-events-none whitespace-nowrap shadow-lg z-20 border border-outline-variant/30"
+              >
+                Expo
+                <div
+                  class="absolute -bottom-1 left-1/2 -translate-x-1/2 border-4 border-transparent border-t-surface-cream"
+                ></div>
+              </div>
+            </div>
+            <div
+              class="group relative flex items-center justify-center w-20 h-20 bg-surface-cream rounded-full hover:bg-surface-container-high transition-colors cursor-pointer shadow-sm hover:shadow-md"
+            >
+              <span
+                class="material-symbols-outlined text-4xl text-on-surface-variant group-hover:text-primary transition-colors"
+                >code</span
+              >
+              <div
+                class="absolute -top-10 opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-surface-cream text-on-surface px-3 py-1.5 rounded-lg font-label-caps text-xs pointer-events-none whitespace-nowrap shadow-lg z-20 border border-outline-variant/30"
+              >
+                Swift
+                <div
+                  class="absolute -bottom-1 left-1/2 -translate-x-1/2 border-4 border-transparent border-t-surface-cream"
+                ></div>
+              </div>
+            </div>
+            <div
+              class="group relative flex items-center justify-center w-20 h-20 bg-surface-cream rounded-full hover:bg-surface-container-high transition-colors cursor-pointer shadow-sm hover:shadow-md"
+            >
+              <span
+                class="material-symbols-outlined text-4xl text-on-surface-variant group-hover:text-primary transition-colors"
+                >draw</span
+              >
+              <div
+                class="absolute -top-10 opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-surface-cream text-on-surface px-3 py-1.5 rounded-lg font-label-caps text-xs pointer-events-none whitespace-nowrap shadow-lg z-20 border border-outline-variant/30"
+              >
+                Figma
+                <div
+                  class="absolute -bottom-1 left-1/2 -translate-x-1/2 border-4 border-transparent border-t-surface-cream"
+                ></div>
+              </div>
+            </div>
+            <div
+              class="group relative flex items-center justify-center w-20 h-20 bg-surface-cream rounded-full hover:bg-surface-container-high transition-colors cursor-pointer shadow-sm hover:shadow-md"
+            >
+              <span
+                class="material-symbols-outlined text-4xl text-on-surface-variant group-hover:text-primary transition-colors"
+                >javascript</span
+              >
+              <div
+                class="absolute -top-10 opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-surface-cream text-on-surface px-3 py-1.5 rounded-lg font-label-caps text-xs pointer-events-none whitespace-nowrap shadow-lg z-20 border border-outline-variant/30"
+              >
+                Node.js
+                <div
+                  class="absolute -bottom-1 left-1/2 -translate-x-1/2 border-4 border-transparent border-t-surface-cream"
+                ></div>
+              </div>
+            </div>
+            <div
+              class="group relative flex items-center justify-center w-20 h-20 bg-surface-cream rounded-full hover:bg-surface-container-high transition-colors cursor-pointer shadow-sm hover:shadow-md"
+            >
+              <span
+                class="material-symbols-outlined text-4xl text-on-surface-variant group-hover:text-primary transition-colors"
+                >terminal</span
+              >
+              <div
+                class="absolute -top-10 opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-surface-cream text-on-surface px-3 py-1.5 rounded-lg font-label-caps text-xs pointer-events-none whitespace-nowrap shadow-lg z-20 border border-outline-variant/30"
+              >
+                Python
+                <div
+                  class="absolute -bottom-1 left-1/2 -translate-x-1/2 border-4 border-transparent border-t-surface-cream"
+                ></div>
+              </div>
+            </div>
+            <div
+              class="group relative flex items-center justify-center w-20 h-20 bg-surface-cream rounded-full hover:bg-surface-container-high transition-colors cursor-pointer shadow-sm hover:shadow-md"
+            >
+              <span
+                class="material-symbols-outlined text-4xl text-on-surface-variant group-hover:text-primary transition-colors"
+                >style</span
+              >
+              <div
+                class="absolute -top-10 opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-surface-cream text-on-surface px-3 py-1.5 rounded-lg font-label-caps text-xs pointer-events-none whitespace-nowrap shadow-lg z-20 border border-outline-variant/30"
+              >
+                Tailwind CSS
+                <div
+                  class="absolute -bottom-1 left-1/2 -translate-x-1/2 border-4 border-transparent border-t-surface-cream"
+                ></div>
+              </div>
+            </div>
+            <div
+              class="group relative flex items-center justify-center w-20 h-20 bg-surface-cream rounded-full hover:bg-surface-container-high transition-colors cursor-pointer shadow-sm hover:shadow-md"
+            >
+              <span
+                class="material-symbols-outlined text-4xl text-on-surface-variant group-hover:text-primary transition-colors"
+                >web</span
+              >
+              <div
+                class="absolute -top-10 opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-surface-cream text-on-surface px-3 py-1.5 rounded-lg font-label-caps text-xs pointer-events-none whitespace-nowrap shadow-lg z-20 border border-outline-variant/30"
+              >
+                React
+                <div
+                  class="absolute -bottom-1 left-1/2 -translate-x-1/2 border-4 border-transparent border-t-surface-cream"
+                ></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <script>
+        document.addEventListener('DOMContentLoaded', function () {
+          const fadeObserverOptions = {
+            root: null,
+            rootMargin: '0px',
+            threshold: 0.1,
+          };
+
+          const fadeObserver = new IntersectionObserver((entries) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting) {
+                entry.target.classList.add('is-visible');
+              } else {
+                entry.target.classList.remove('is-visible');
+              }
+            });
+          }, fadeObserverOptions);
+
+          document.querySelectorAll('.scroll-fade-up').forEach((el) => {
+            fadeObserver.observe(el);
+          });
+        });
+      </script>
+      <!-- Contacto Section -->
+      <section
+        class="px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto mb-32 bg-surface-cream rounded-[2rem] p-8 md:p-16"
+        id="contacto"
+      >
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+          <div>
+            <h2
+              class="font-headline-lg text-headline-lg-mobile md:text-headline-lg text-on-surface mb-6"
+            >
+              Empecemos un proyecto
+            </h2>
+            <p class="font-body-lg text-body-lg text-on-surface-variant mb-8">
+              Cuéntame sobre tu idea o desafío. Siempre estoy abierto a discutir
+              nuevos proyectos y oportunidades.
+            </p>
+            <div class="flex flex-col gap-4">
+              <a
+                class="flex items-center gap-4 text-on-surface hover:text-primary transition-colors font-body-md"
+                href="#"
+              >
+                <span class="material-symbols-outlined">link</span> LinkedIn
               </a>
               <a
-                class="inline-flex items-center justify-center px-8 py-4 bg-transparent text-on-background rounded-full font-label-caps text-label-caps border border-outline-variant/30 hover:bg-surface-cream transition-colors"
-                href="#proyectos"
+                class="flex items-center gap-4 text-on-surface hover:text-primary transition-colors font-body-md"
+                href="#"
               >
-                Ver Trabajo
+                <span class="material-symbols-outlined">code</span> GitHub
+              </a>
+              <a
+                class="flex items-center gap-4 text-on-surface hover:text-primary transition-colors font-body-md"
+                href="#"
+              >
+                <span class="material-symbols-outlined">download</span>
+                Descargar CV
               </a>
             </div>
           </div>
-          <div class="lg:col-span-4 hidden lg:block relative h-[600px] w-full">
-            <div
-              class="absolute inset-0 bg-surface-container-low rounded-t-full rounded-b-[4rem] overflow-hidden border border-outline-variant/10 shadow-sm"
-            >
-              <img
-                class="w-full h-full object-cover mix-blend-luminosity opacity-80 hover:mix-blend-normal transition-all duration-700"
-                data-alt="A portrait of a creative software engineer working in a bright, modern studio. Soft natural light illuminates their face, casting gentle shadows. The aesthetic is clean, warm, and professional, with a light-mode editorial style, featuring subtle cream and pastel accents in the background."
-                src="https://lh3.googleusercontent.com/aida-public/AB6AXuArLROFkGMmJlzGA6cqbvFAPDfzFVttmZt8dSo0bOJEA_qas4XOUrfi4K0Oz9Bh0-3jE4XMVBiRwBoy_KXRYK80rARqf8vWnojobllWX4qdMDTgr1K9WOC9ZafE6WBKPPr-WzvGK29piaFeBxYcTA1sufJbnPYJJbf28hr_wRqUrpEM_xJb9yq-VpuVEIDombfLdvaebueO07jn-Ydomak46YcnGnNghgwfhddNxvWJnek-Xqz433c2"
-              />
-            </div>
+          <div>
+            <form class="space-y-8">
+              <!-- Step 1: Project Type -->
+              <div>
+                <label
+                  class="block font-label-caps text-label-caps text-on-surface-variant mb-4 uppercase"
+                  >Tipo de Proyecto</label
+                >
+                <div class="flex flex-wrap gap-3">
+                  <label class="cursor-pointer">
+                    <input
+                      checked=""
+                      class="peer sr-only"
+                      name="project_type"
+                      type="radio"
+                      value="mobile"
+                    />
+                    <span
+                      class="inline-block px-6 py-3 rounded-full border border-outline-variant text-on-surface peer-checked:bg-primary peer-checked:text-on-primary peer-checked:border-primary transition-colors font-body-md"
+                      >Mobile App</span
+                    >
+                  </label>
+                  <label class="cursor-pointer">
+                    <input
+                      class="peer sr-only"
+                      name="project_type"
+                      type="radio"
+                      value="web"
+                    />
+                    <span
+                      class="inline-block px-6 py-3 rounded-full border border-outline-variant text-on-surface peer-checked:bg-primary peer-checked:text-on-primary peer-checked:border-primary transition-colors font-body-md"
+                      >Web App</span
+                    >
+                  </label>
+                  <label class="cursor-pointer">
+                    <input
+                      class="peer sr-only"
+                      name="project_type"
+                      type="radio"
+                      value="automation"
+                    />
+                    <span
+                      class="inline-block px-6 py-3 rounded-full border border-outline-variant text-on-surface peer-checked:bg-primary peer-checked:text-on-primary peer-checked:border-primary transition-colors font-body-md"
+                      >Automatización</span
+                    >
+                  </label>
+                  <label class="cursor-pointer">
+                    <input
+                      class="peer sr-only"
+                      name="project_type"
+                      type="radio"
+                      value="other"
+                    />
+                    <span
+                      class="inline-block px-6 py-3 rounded-full border border-outline-variant text-on-surface peer-checked:bg-primary peer-checked:text-on-primary peer-checked:border-primary transition-colors font-body-md"
+                      >Otro</span
+                    >
+                  </label>
+                </div>
+              </div>
+              <!-- Input Fields -->
+              <div class="space-y-4">
+                <div>
+                  <label class="sr-only" for="name">Nombre</label>
+                  <input
+                    class="w-full bg-surface rounded-xl border-none px-6 py-4 text-on-surface placeholder:text-outline-variant focus:ring-2 focus:ring-primary font-body-md"
+                    id="name"
+                    placeholder="Tu Nombre"
+                    type="text"
+                  />
+                </div>
+                <div>
+                  <label class="sr-only" for="email">Email</label>
+                  <input
+                    class="w-full bg-surface rounded-xl border-none px-6 py-4 text-on-surface placeholder:text-outline-variant focus:ring-2 focus:ring-primary font-body-md"
+                    id="email"
+                    placeholder="Tu Email"
+                    type="email"
+                  />
+                </div>
+                <div>
+                  <label class="sr-only" for="message">Mensaje</label>
+                  <textarea
+                    class="w-full bg-surface rounded-xl border-none px-6 py-4 text-on-surface placeholder:text-outline-variant focus:ring-2 focus:ring-primary font-body-md resize-none"
+                    id="message"
+                    placeholder="Cuéntame un poco más sobre el contexto..."
+                    rows="4"
+                  ></textarea>
+                </div>
+              </div>
+              <button
+                class="w-full bg-primary text-on-primary px-8 py-4 rounded-full font-label-caps text-label-caps hover:bg-on-primary-fixed transition-colors"
+                type="button"
+              >
+                Enviar Mensaje
+              </button>
+            </form>
           </div>
         </div>
       </section>
     </main>
     <!-- Footer -->
     <footer
-      class="bg-surface-container-low dark:bg-surface-container-lowest border-t border-outline-variant/10"
+      class="bg-surface-container-low dark:bg-surface-container-lowest border-t border-outline-variant/10 w-full py-12 px-margin-mobile md:px-margin-desktop relative z-10"
     >
       <div
-        class="w-full py-12 px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto flex flex-col md:flex-row justify-between items-center gap-gutter"
+        class="flex flex-col md:flex-row justify-between items-center gap-gutter max-w-container-max mx-auto"
       >
-        <p
-          class="font-body-md text-body-md text-on-surface-variant dark:text-outline-variant"
+        <div
+          class="text-headline-md font-headline-md text-on-surface mb-6 md:mb-0"
         >
-          © 2024 Software Developer Portfolio. Product Thinking &amp; Mobile
-          Expert.
-        </p>
-        <div class="flex gap-6">
+          DevPortfolio
+        </div>
+        <div class="flex flex-wrap justify-center gap-6 mb-6 md:mb-0">
           <a
-            class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors"
+            class="text-on-surface-variant font-body-md text-body-md hover:text-primary transition-colors"
             href="#"
             >LinkedIn</a
           >
           <a
-            class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors"
+            class="text-on-surface-variant font-body-md text-body-md hover:text-primary transition-colors"
             href="#"
             >GitHub</a
           >
           <a
-            class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors"
+            class="text-on-surface-variant font-body-md text-body-md hover:text-primary transition-colors"
             href="#"
             >Medium</a
           >
           <a
-            class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors"
+            class="text-on-surface-variant font-body-md text-body-md hover:text-primary transition-colors"
             href="#"
             >Dribbble</a
           >
+        </div>
+        <div
+          class="font-body-md text-body-md text-on-surface-variant text-center md:text-right"
+        >
+          © 2024 Software Developer Portfolio. Product Thinking &amp; Mobile
+          Expert.
         </div>
       </div>
     </footer>

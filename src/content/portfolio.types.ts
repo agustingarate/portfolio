@@ -2,40 +2,71 @@ export type IconName =
   | 'arrow-right'
   | 'automation'
   | 'backend'
+  | 'check'
   | 'cloud'
   | 'code'
+  | 'copy'
   | 'download'
+  | 'external-link'
   | 'frontend'
+  | 'figma'
+  | 'flutter'
   | 'github'
   | 'home'
   | 'layers'
   | 'linkedin'
+  | 'location'
   | 'mail'
   | 'mobile'
+  | 'nodejs'
+  | 'python'
+  | 'react'
+  | 'react-native'
+  | 'expo'
   | 'person'
   | 'rocket'
   | 'services'
+  | 'school'
   | 'sparkles'
+  | 'swift'
+  | 'tailwind'
+  | 'twitter'
+  | 'utn'
   | 'web'
   | 'work';
 
 export type NavigationItem = {
   label: string;
-  href: `#${string}`;
+  href: string;
   icon: IconName;
 };
 export type Experience = {
   period: string;
   role: string;
   company: string;
+  companyUrl: string;
   summary: string;
   highlights: readonly string[];
   technologies: readonly string[];
+};
+export type EducationMilestone = {
+  year: string;
+  label: string;
+};
+export type Education = {
+  title: string;
+  degree: string;
+  institution: string;
+  institutionLogo: IconName;
+  description: string;
+  topics: readonly string[];
+  milestones: readonly EducationMilestone[];
 };
 export type Service = {
   title: string;
   description: string;
   detail?: string;
+  signals: readonly [string, string];
   icon: IconName;
   featured?: boolean;
 };

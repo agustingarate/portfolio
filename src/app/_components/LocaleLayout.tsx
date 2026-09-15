@@ -1,8 +1,5 @@
-import type { Metadata } from 'next';
-import type { Viewport } from 'next';
 import { Geist, Hanken_Grotesk, Inter } from 'next/font/google';
-import { portfolioContent } from '@/content/portfolio';
-import './globals.css';
+import type { Locale } from '@/lib/i18n';
 
 const hanken = Hanken_Grotesk({
   subsets: ['latin'],
@@ -20,23 +17,16 @@ const geist = Geist({
   display: 'swap',
 });
 
-export const metadata: Metadata = {
-  title: portfolioContent.metadata.title,
-  description: portfolioContent.metadata.description,
-};
-
-export const viewport: Viewport = {
-  width: 'device-width',
-  initialScale: 1,
-  themeColor: '#fbfaee',
-};
-
-export default function RootLayout({
+export function LocaleLayout({
   children,
-}: Readonly<{ children: React.ReactNode }>) {
+  locale,
+}: {
+  children: React.ReactNode;
+  locale: Locale;
+}) {
   return (
     <html
-      lang="es"
+      lang={locale}
       className={`${hanken.variable} ${inter.variable} ${geist.variable}`}
     >
       <body>{children}</body>

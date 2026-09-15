@@ -2,11 +2,11 @@
 import { useEffect, useState } from 'react';
 import { usePrefersReducedMotion } from './use-prefers-reduced-motion';
 
-export function useTypewriter(phrases: readonly string[]) {
+export function useTypewriter(phrases: readonly string[], paused = false) {
   const reduced = usePrefersReducedMotion();
   const [text, setText] = useState(phrases[0] ?? '');
   useEffect(() => {
-    if (!phrases.length) return;
+    if (!phrases.length || paused) return;
     if (reduced) {
       const staticTimer = setTimeout(() => setText(phrases[0]), 0);
       return () => clearTimeout(staticTimer);
@@ -34,6 +34,6 @@ export function useTypewriter(phrases: readonly string[]) {
     };
     timer = setTimeout(tick, 1000);
     return () => clearTimeout(timer);
-  }, [phrases, reduced]);
+  }, [phrases, paused, reduced]);
   return text;
 }

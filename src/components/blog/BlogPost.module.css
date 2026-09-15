@@ -1,0 +1,145 @@
+.article {
+  width: min(100%, 1120px);
+  margin: 0 auto;
+}
+
+.back {
+  color: var(--primary);
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+}
+
+.header {
+  max-width: 900px;
+  margin: 32px 0 44px;
+  text-align: left;
+}
+
+.meta {
+  margin: 0;
+  color: var(--primary);
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.header h1 {
+  margin: 12px 0 18px;
+  font-family: var(--font-hanken);
+  font-size: clamp(2.4rem, 5vw, 4.5rem);
+  letter-spacing: -0.055em;
+  line-height: 0.96;
+  overflow-wrap: anywhere;
+  text-wrap: balance;
+}
+
+.excerpt {
+  margin: 0;
+  color: var(--on-surface-variant);
+  font-size: clamp(1.1rem, 2vw, 1.4rem);
+}
+
+.share {
+  margin-top: 28px;
+}
+
+.image {
+  display: block;
+  width: min(100%, 860px);
+  height: min(52vw, 470px);
+  margin: 0 auto;
+  border-radius: var(--radius-lg);
+  object-fit: cover;
+}
+
+.body {
+  width: min(100%, 720px);
+  margin: 56px auto 0;
+  font-size: 1.12rem;
+  overflow-wrap: anywhere;
+}
+
+.body > * {
+  margin: 0 0 1.5em;
+}
+
+.body h2,
+.body h3 {
+  margin-top: 2em;
+  font-family: var(--font-hanken);
+  letter-spacing: -0.04em;
+  line-height: 1;
+}
+
+.body h2 {
+  font-size: 2.2rem;
+}
+
+.body h3 {
+  font-size: 1.65rem;
+}
+
+.body a {
+  color: var(--primary);
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+}
+
+.body ul,
+.body ol {
+  padding-left: 1.3em;
+}
+
+.body blockquote {
+  margin: 2em 0;
+  padding: 0.15em 0 0.15em 1.1em;
+  border-left: 1px solid var(--primary);
+  color: var(--on-surface);
+  font-family: var(--font-hanken);
+  font-size: clamp(1rem, 1.6vw, 1.16rem);
+  font-style: italic;
+  font-weight: 500;
+  letter-spacing: -0.02em;
+  line-height: 1.4;
+}
+
+.body figure {
+  margin: 2.5em 0;
+}
+
+.body figure img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: var(--radius-md);
+}
+
+.body code {
+  padding: 0.14em 0.35em;
+  border-radius: var(--radius-sm);
+  background: var(--surface-container);
+  color: var(--on-surface);
+  font-family: var(--font-mono);
+  font-size: 0.88em;
+}
+
+@media (max-width: 767px) {
+  .header {
+    margin: 28px 0 36px;
+  }
+
+  .body {
+    margin-top: 40px;
+    font-size: 1rem;
+  }
+
+  .image {
+    height: min(58vw, 360px);
+  }
+}

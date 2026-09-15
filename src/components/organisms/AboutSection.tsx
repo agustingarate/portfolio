@@ -1,19 +1,32 @@
 import { Container } from '@/components/atoms/Container';
+import { Chip } from '@/components/atoms/Chip';
+import { Icon } from '@/components/atoms/Icon';
 import { SectionHeading } from '@/components/molecules/SectionHeading';
 import { Reveal } from '@/components/molecules/Reveal';
 import styles from './Sections.module.css';
 export function AboutSection({
   title,
   description,
+  location,
 }: {
   title: string;
   description: string;
+  location: string;
 }) {
   return (
     <section id="sobre-mi" className={styles.section}>
       <Container>
         <Reveal>
-          <SectionHeading title={title} description={description} />
+          <div className={styles.location}>
+            <Chip variant="outline">
+              <Icon name="location" size={15} />
+              {location}
+            </Chip>
+          </div>
+          <div className={styles.about}>
+            <SectionHeading title={title} index="01" />
+            <p>{description}</p>
+          </div>
         </Reveal>
       </Container>
     </section>

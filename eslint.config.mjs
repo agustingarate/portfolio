@@ -7,6 +7,8 @@ export default defineConfig([
     '.next/**',
     'out/**',
     '.open-next/**',
+    'studio/.sanity/**',
+    'studio/dist/**',
     '.wrangler/**',
     'cloudflare-env.d.ts',
   ]),
