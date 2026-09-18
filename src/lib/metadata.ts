@@ -5,6 +5,7 @@ export function createLocaleMetadata(locale: Locale): Metadata {
   const content = getLocaleContent(locale);
   const path = localePath(locale);
   const url = `${content.metadata.siteUrl}${path}`;
+  const socialImage = `${content.metadata.siteUrl}${path === '/' ? '' : path}/opengraph-image`;
 
   return {
     metadataBase: new URL(content.metadata.siteUrl),
@@ -48,11 +49,22 @@ export function createLocaleMetadata(locale: Locale): Metadata {
       siteName: content.identity.name,
       title: content.metadata.title,
       description: content.metadata.description,
+      images: [
+        {
+          url: socialImage,
+          width: 1200,
+          height: 630,
+          alt: content.metadata.title,
+        },
+      ],
     },
     twitter: {
       card: 'summary_large_image',
       title: content.metadata.title,
       description: content.metadata.description,
+      site: '@garate__',
+      creator: '@garate__',
+      images: [socialImage],
     },
     robots: {
       index: true,
