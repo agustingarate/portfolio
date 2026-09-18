@@ -1,4 +1,3 @@
-import Script from 'next/script';
 import { Suspense } from 'react';
 import { PointerGlow } from '@/components/organisms/PointerGlow';
 import { SiteNavigation } from '@/components/organisms/SiteNavigation';
@@ -67,9 +66,12 @@ export function PortfolioPage({ locale }: { locale: Locale }) {
 
   return (
     <>
-      <Script id={`structured-data-${locale}`} type="application/ld+json">
-        {JSON.stringify(structuredData).replace(/</g, '\\u003c')}
-      </Script>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(structuredData).replace(/</g, '\\u003c'),
+        }}
+      />
       <PointerGlow />
       <Suspense fallback={null}>
         <SiteNavigation

@@ -14,44 +14,24 @@ export default function OpenGraphImage() {
         display: 'flex',
         flexDirection: 'column',
         height: '100%',
-        justifyContent: 'space-between',
-        padding: '76px',
+        justifyContent: 'center',
+        overflow: 'hidden',
+        padding: '72px 84px',
         position: 'relative',
         width: '100%',
       }}
     >
       <div
-        style={{
-          background: '#e4f1d4',
-          borderRadius: '999px',
-          height: '440px',
-          position: 'absolute',
-          right: '-120px',
-          top: '-145px',
-          width: '440px',
-        }}
-      />
-      <div
-        style={{
-          color: '#4a5c34',
-          display: 'flex',
-          fontSize: 28,
-          fontWeight: 700,
-          letterSpacing: 2,
-          textTransform: 'uppercase',
-        }}
-      >
-        {portfolioContent.identity.role}
-      </div>
-      <div
-        style={{ display: 'flex', flexDirection: 'column', maxWidth: '850px' }}
+        style={{ display: 'flex', flexDirection: 'column', maxWidth: '920px' }}
       >
         <div
           style={{
+            color: '#3300e0',
             display: 'flex',
-            fontSize: 82,
-            fontWeight: 800,
-            lineHeight: 1,
+            fontSize: 25,
+            fontWeight: 700,
+            letterSpacing: '-0.3px',
+            marginBottom: '30px',
           }}
         >
           {portfolioContent.identity.name}
@@ -59,23 +39,34 @@ export default function OpenGraphImage() {
         <div
           style={{
             display: 'flex',
-            fontSize: 37,
-            lineHeight: 1.25,
-            marginTop: 28,
+            fontSize: 78,
+            fontWeight: 600,
+            letterSpacing: '-3.1px',
+            lineHeight: 0.98,
           }}
         >
-          Productos digitales modernos, escalables y centrados en las personas.
+          Hola, soy Agus.
         </div>
-      </div>
-      <div
-        style={{
-          color: '#4a5c34',
-          display: 'flex',
-          fontSize: 28,
-          fontWeight: 600,
-        }}
-      >
-        Mobile · Web · IA · Automatización
+        <div
+          style={{
+            display: 'flex',
+            fontSize: 32,
+            lineHeight: 1.24,
+            marginTop: '28px',
+          }}
+        >
+          Construyo productos digitales modernos y escalables para las personas.
+        </div>
+        <div
+          style={{
+            color: '#464557',
+            display: 'flex',
+            fontSize: 23,
+            marginTop: '38px',
+          }}
+        >
+          Ingeniero de software · Mobile, web e IA
+        </div>
       </div>
     </div>,
     size,
