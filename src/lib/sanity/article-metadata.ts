@@ -18,7 +18,7 @@ export async function getArticleMetadata(
     (locale === 'es'
       ? 'Artículo de Agustín Garate sobre productos digitales y desarrollo de software.'
       : 'An article by Agustín Garate on digital products and software development.');
-  const openGraphImage = `${basePath}/${slug}/opengraph-image`;
+  const openGraphImage = `${portfolioContent.metadata.siteUrl}/api/og/${locale}/${slug}`;
   const canonical = `${basePath}/${slug}`;
   const author = post.author?.name ?? portfolioContent.identity.name;
 
@@ -48,6 +48,8 @@ export async function getArticleMetadata(
     },
     twitter: {
       card: 'summary_large_image',
+      site: '@garate__',
+      creator: '@garate__',
       title,
       description,
       images: [openGraphImage],

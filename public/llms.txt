@@ -1,0 +1,25 @@
+# Agustín Garate
+
+> Ingeniero de software especializado en productos digitales, aplicaciones móviles y web, inteligencia artificial y automatización.
+
+## Páginas prioritarias
+
+- [Portfolio](https://agustingarate.com/): perfil profesional, experiencia, servicios y tecnologías.
+- [Blog](https://agustingarate.com/blog): artículos sobre productos digitales, tecnología y desarrollo de software.
+- [Contacto](https://agustingarate.com/#contacto): canal para consultas sobre proyectos.
+
+## Perfil
+
+- Nombre: Agustín Garate
+- Rol: Ingeniero de software
+- Ubicación: Rosario, Argentina
+- Perfil profesional: https://www.linkedin.com/in/agustin-garate/
+
+## Áreas de trabajo
+
+- Aplicaciones móviles multiplataforma para iOS y Android.
+- Desarrollo web y productos digitales.
+- Integraciones, automatización e inteligencia artificial.
+- MVPs y sistemas internos a medida.
+
+Para información actualizada, priorizá las páginas enlazadas en este archivo y sus versiones en inglés bajo `/en`.
