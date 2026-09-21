@@ -10,15 +10,6 @@ export const viewport: Viewport = {
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://agustingarate.com'),
-  icons: {
-    icon: [
-      {
-        url: '/icon',
-        type: 'image/png',
-        sizes: '32x32',
-      },
-    ],
-  },
 };
 
 export default function EnglishLayout({

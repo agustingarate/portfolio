@@ -26,6 +26,7 @@ export function createLocaleMetadata(locale: Locale): Metadata {
             'artificial intelligence',
             'automation',
             'MVP',
+            'E-Commerce',
           ]
         : [
             'desarrollador de software',
@@ -36,6 +37,7 @@ export function createLocaleMetadata(locale: Locale): Metadata {
             'inteligencia artificial',
             'automatización',
             'MVP',
+            'E-Commerce',
           ],
     alternates: {
       canonical: path,

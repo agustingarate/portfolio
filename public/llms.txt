@@ -21,5 +21,6 @@
 - Desarrollo web y productos digitales.
 - Integraciones, automatización e inteligencia artificial.
 - MVPs y sistemas internos a medida.
+- E-commerce
 
 Para información actualizada, priorizá las páginas enlazadas en este archivo y sus versiones en inglés bajo `/en`.
