@@ -35,6 +35,7 @@ export function BlogShell({
         copyright={content.footer.copyright}
         shareLabels={content.ui.share}
         homeHref={locale === 'es' ? '/' : '/en'}
+        locale={locale}
       />
     </div>
   );

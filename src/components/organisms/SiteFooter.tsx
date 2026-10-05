@@ -3,12 +3,19 @@ import { Container } from '@/components/atoms/Container';
 import { Icon } from '@/components/atoms/Icon';
 import { ShareButton } from '@/components/molecules/ShareButton';
 import styles from './SiteFooter.module.css';
+import {
+  servicePages,
+  servicePath,
+  serviceSlugs,
+} from '@/content/service-pages';
+import type { Locale } from '@/lib/i18n';
 export function SiteFooter({
   name,
   socials,
   copyright,
   shareLabels,
   homeHref = '#inicio',
+  locale = 'es',
 }: {
   name: string;
   socials: readonly SocialLink[];
@@ -21,6 +28,7 @@ export function SiteFooter({
     unableToCopy: string;
   };
   homeHref?: string;
+  locale?: Locale;
 }) {
   return (
     <footer className={styles.footer}>
@@ -28,6 +36,17 @@ export function SiteFooter({
         <a href={homeHref} className={styles.name}>
           {name}
         </a>
+        <nav
+          className={styles.serviceLinks}
+          aria-label={locale === 'en' ? 'Services' : 'Servicios'}
+        >
+          <span>{locale === 'en' ? 'Services' : 'Servicios'}</span>
+          {serviceSlugs.map((slug) => (
+            <a key={slug} href={servicePath(locale, slug)}>
+              {servicePages[locale][slug].title}
+            </a>
+          ))}
+        </nav>
         <nav className={styles.links} aria-label="Redes sociales">
           {socials.map((social) => (
             <a

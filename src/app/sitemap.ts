@@ -1,6 +1,7 @@
 import type { MetadataRoute } from 'next';
 import { portfolioContent } from '@/content/portfolio';
 import { getPosts } from '@/lib/sanity/posts';
+import { servicePath, serviceSlugs } from '@/content/service-pages';
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const posts = await getPosts('es');
@@ -32,6 +33,20 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
         },
       },
     },
+    ...serviceSlugs.flatMap((slug) =>
+      (['es', 'en'] as const).map((locale) => ({
+        url: `${portfolioContent.metadata.siteUrl}${servicePath(locale, slug)}`,
+        changeFrequency: 'monthly' as const,
+        priority: 0.8,
+        alternates: {
+          languages: {
+            es: `${portfolioContent.metadata.siteUrl}${servicePath('es', slug)}`,
+            en: `${portfolioContent.metadata.siteUrl}${servicePath('en', slug)}`,
+            'x-default': `${portfolioContent.metadata.siteUrl}${servicePath('es', slug)}`,
+          },
+        },
+      })),
+    ),
     ...posts.flatMap((post) => [
       {
         url: `${portfolioContent.metadata.siteUrl}/blog/${post.slug}`,

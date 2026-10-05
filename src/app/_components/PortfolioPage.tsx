@@ -12,13 +12,27 @@ import { StackSection } from '@/components/organisms/StackSection';
 import { ContactSection } from '@/components/organisms/ContactSection';
 import { SiteFooter } from '@/components/organisms/SiteFooter';
 import { getLocaleContent, localePath, type Locale } from '@/lib/i18n';
+import { servicePath, serviceSlugs } from '@/content/service-pages';
 
 export function PortfolioPage({ locale }: { locale: Locale }) {
   const content = getLocaleContent(locale);
   const siteUrl = content.metadata.siteUrl;
   const pageUrl = `${siteUrl}${localePath(locale)}`;
   const personId = `${siteUrl}/#person`;
+  const webpageId = `${pageUrl}#webpage`;
+  const offerCatalogId = `${pageUrl}#services`;
   const linkedIn = content.socials.find((social) => social.icon === 'linkedin');
+  const serviceNodes = content.services.items.map((service, index) => ({
+    '@type': 'Service',
+    '@id': `${pageUrl}#service-${index + 1}`,
+    name: service.title,
+    serviceType: service.title,
+    description: service.description,
+    url: `${siteUrl}${servicePath(locale, serviceSlugs[index])}`,
+    provider: { '@id': personId },
+    availableLanguage: locale,
+    mainEntityOfPage: { '@id': webpageId },
+  }));
   const structuredData = {
     '@context': 'https://schema.org',
     '@graph': [
@@ -31,6 +45,8 @@ export function PortfolioPage({ locale }: { locale: Locale }) {
         jobTitle:
           locale === 'en' ? 'Software Engineer' : 'Ingeniero de software',
         description: content.metadata.description,
+        knowsAbout: content.services.items.map((service) => service.title),
+        hasOfferCatalog: { '@id': offerCatalogId },
         sameAs: content.socials
           .filter((social) => social.href.startsWith('https://'))
           .map((social) => social.href),
@@ -45,22 +61,31 @@ export function PortfolioPage({ locale }: { locale: Locale }) {
       },
       {
         '@type': 'WebPage',
-        '@id': `${pageUrl}#webpage`,
+        '@id': webpageId,
         url: pageUrl,
         name: content.metadata.title,
         description: content.metadata.description,
         inLanguage: locale,
         mainEntity: { '@id': personId },
+        about: [{ '@id': personId }, { '@id': offerCatalogId }],
         isPartOf: { '@id': `${siteUrl}/#website` },
       },
-      ...content.services.items.map((service, index) => ({
-        '@type': 'Service',
-        '@id': `${pageUrl}#service-${index + 1}`,
-        name: service.title,
-        description: service.description,
-        provider: { '@id': personId },
-        availableLanguage: locale,
-      })),
+      {
+        '@type': 'OfferCatalog',
+        '@id': offerCatalogId,
+        name:
+          locale === 'en'
+            ? 'Software development services'
+            : 'Servicios de desarrollo de software',
+        description: content.services.description,
+        url: `${pageUrl}#servicios`,
+        numberOfItems: serviceNodes.length,
+        itemListElement: serviceNodes.map((service) => ({
+          '@type': 'Offer',
+          itemOffered: { '@id': service['@id'] },
+        })),
+      },
+      ...serviceNodes,
     ],
   };
 
@@ -102,17 +127,17 @@ export function PortfolioPage({ locale }: { locale: Locale }) {
           labels={content.ui.contactChips}
         />
         <AboutSection {...content.about} />
-        <ExperienceSection
-          {...content.experience}
-          newTabLabel={content.ui.experience.newTab}
-        />
-        <EducationTimeline {...content.education} />
-        <ServicesSection {...content.services}>
+        <ServicesSection {...content.services} locale={locale}>
           <ProjectLifecycle
             {...content.lifecycle}
             todayLabel={content.ui.lifecycle.today}
           />
         </ServicesSection>
+        <ExperienceSection
+          {...content.experience}
+          newTabLabel={content.ui.experience.newTab}
+        />
+        <EducationTimeline {...content.education} />
         <StackSection
           {...content.stack}
           ariaLabel={content.ui.stack.featuredTechnologies}
@@ -129,6 +154,7 @@ export function PortfolioPage({ locale }: { locale: Locale }) {
         socials={content.socials}
         copyright={content.footer.copyright}
         shareLabels={content.ui.share}
+        locale={locale}
       />
     </>
   );

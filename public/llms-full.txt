@@ -1,0 +1,41 @@
+# Agustín Garate — servicios de desarrollo de software
+
+Sitio oficial: https://agustingarate.com/
+Idiomas: español e inglés. Las páginas en inglés están bajo /en.
+Contacto: https://agustingarate.com/#contacto
+
+Agustín Garate es ingeniero de software. Ofrece desarrollo de aplicaciones móviles, sitios web, tiendas online, sistemas internos, automatizaciones y productos mínimos viables. El alcance, las tecnologías y las integraciones se definen según cada proyecto; este archivo no indica precios ni plazos fijos.
+
+## Servicios
+
+### Aplicaciones móviles
+Diseño y desarrollo de apps para iOS y Android. El trabajo puede incluir recorridos de usuario, implementación multiplataforma, APIs, autenticación y notificaciones. Se puede empezar con un alcance inicial y ampliar el producto según su uso.
+Página: https://agustingarate.com/servicios/aplicaciones-moviles
+English: https://agustingarate.com/en/services/aplicaciones-moviles
+
+### Páginas web
+Sitios y landing pages con foco en mensaje, jerarquía visual, accesibilidad, rendimiento y estructura semántica. Pueden incorporar contenido editable según la necesidad del proyecto.
+Página: https://agustingarate.com/servicios/paginas-web
+English: https://agustingarate.com/en/services/paginas-web
+
+### E-commerce
+Tiendas online con catálogo, carrito, checkout, pagos y gestión de pedidos, adaptadas al contexto del negocio. Se revisa el circuito completo de compra y operación antes del lanzamiento.
+Página: https://agustingarate.com/servicios/ecommerce
+English: https://agustingarate.com/en/services/ecommerce
+
+### Sistemas internos y back office
+Herramientas para centralizar información, ordenar tareas y conectar sistemas existentes. El desarrollo puede comenzar por el flujo más valioso para el equipo.
+Página: https://agustingarate.com/servicios/sistemas-internos
+English: https://agustingarate.com/en/services/sistemas-internos
+
+### Automatizaciones
+Integraciones y flujos programados para reducir tareas repetitivas. La inteligencia artificial se incorpora solo cuando el caso de uso lo justifica; se definen excepciones y revisión humana cuando corresponde.
+Página: https://agustingarate.com/servicios/automatizaciones
+English: https://agustingarate.com/en/services/automatizaciones
+
+### Desarrollo de MVP
+Versiones funcionales con alcance acotado para probar una hipótesis con usuarios reales, observar el uso y decidir qué construir después.
+Página: https://agustingarate.com/servicios/desarrollo-mvp
+English: https://agustingarate.com/en/services/desarrollo-mvp
+
+Fuente principal para detalles y preguntas frecuentes: las páginas individuales enlazadas arriba. El blog está en https://agustingarate.com/blog.
