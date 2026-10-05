@@ -11,6 +11,7 @@ import {
 } from '@/lib/immersive-scroll';
 import styles from './SiteNavigation.module.css';
 import { localePath, type Locale } from '@/lib/i18n';
+import { isServiceSlug, servicePath } from '@/content/service-pages';
 
 export function SiteNavigation({
   name,
@@ -95,17 +96,25 @@ export function SiteNavigation({
 
   const [first, ...rest] = name.split(' ');
   const last = rest.join(' ');
-  const isBlog = pathname.includes('/blog');
+  const isSubpage = pathname !== '/' && pathname !== '/en';
   const navigationItems = items.map((item) => ({
     ...item,
     href:
-      isBlog && item.href.startsWith('#')
+      isSubpage && item.href.startsWith('#')
         ? `${localePath(locale)}${item.href}`
         : item.href,
   }));
-  const homeHref = isBlog ? localePath(locale) : '#inicio';
-  const contactHref = isBlog ? `${localePath(locale)}#contacto` : '#contacto';
+  const homeHref = isSubpage ? localePath(locale) : '#inicio';
+  const contactHref = isSubpage
+    ? `${localePath(locale)}#contacto`
+    : '#contacto';
   const localizedHref = (targetLocale: Locale) => {
+    const serviceMatch = pathname.match(
+      /^\/(?:en\/services|servicios)\/([^/]+)$/,
+    );
+    if (serviceMatch && isServiceSlug(serviceMatch[1])) {
+      return servicePath(targetLocale, serviceMatch[1]);
+    }
     const canonicalPath =
       pathname === '/en' ? '/' : pathname.replace(/^\/en(?=\/)/, '');
     const targetPath =

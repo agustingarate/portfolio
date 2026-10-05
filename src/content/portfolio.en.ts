@@ -7,7 +7,7 @@ export const portfolioContentEn = {
     ...spanishContent.metadata,
     title: 'Agustin Garate — Software Developer',
     description:
-      'Software developer portfolio for digital products, mobile and web applications, and artificial intelligence solutions.',
+      'Software development for mobile apps, websites, e-commerce stores, automation, and artificial intelligence solutions.',
   },
   ui: {
     navigation: {
@@ -164,13 +164,13 @@ export const portfolioContentEn = {
   services: {
     title: 'Services',
     description:
-      'I design and build tailored solutions that solve real problems, streamline operations, and help your project grow.',
+      'I design and build mobile apps, websites, e-commerce stores, and tailored automations that solve real problems and help your project grow.',
     items: [
       {
         ...spanishContent.services.items[0],
         title: 'Mobile applications',
         description:
-          'Cross-platform iOS and Android app development, optimized for performance and a fluid experience.',
+          'Design and development of iOS and Android apps, from user experience to the integrations the product needs.',
         signals: ['IOS', 'ANDROID'],
       },
       {
@@ -182,25 +182,32 @@ export const portfolioContentEn = {
       },
       {
         ...spanishContent.services.items[2],
+        title: 'E-commerce',
+        description:
+          'Fast, secure online stores tailored to your business, with catalog, payments, and order management.',
+        signals: ['CATALOG', 'SALES'],
+      },
+      {
+        ...spanishContent.services.items[3],
         title: 'Internal systems and back offices',
         description:
           'Custom internal tools that streamline operations and integrate naturally with your systems and business data.',
         signals: ['SYSTEMS', 'OPERATIONS'],
       },
       {
-        ...spanishContent.services.items[3],
+        ...spanishContent.services.items[4],
         title: 'Automation',
         description:
           'System integrations and process automation through AI and programmed workflows.',
         signals: ['INPUT', 'ACTION'],
       },
       {
-        ...spanishContent.services.items[4],
+        ...spanishContent.services.items[5],
         title: 'MVP development',
         description:
           'Rapid launches of minimum viable products (MVPs) to validate ideas in the market with a solid technical foundation.',
         detail:
-          'What is an MVP? It is a simple, early, fully functional version of your idea. It lets us launch quickly, test the market, and save time and cost before building the complete product.',
+          'What is an MVP? It is a simple, early, functional version of your idea that lets you test it with real users before investing in the full product.',
         signals: ['IDEA', 'MVP'],
       },
     ],
@@ -283,6 +290,7 @@ export const portfolioContentEn = {
     projectTypes: [
       { label: 'Mobile app', value: 'mobile' },
       { label: 'Web app', value: 'web' },
+      { label: 'E-commerce', value: 'ecommerce' },
       { label: 'Automation', value: 'automation' },
       { label: 'Other', value: 'other' },
     ],

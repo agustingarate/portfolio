@@ -19,9 +19,9 @@ export const portfolioContent = {
     role: 'Software Developer',
   },
   metadata: {
-    title: 'Agustin Garate — Software Developer',
+    title: 'Agustin Garate — Desarrollo de software y e-commerce',
     description:
-      'Portfolio de desarrollo de productos digitales, aplicaciones móviles y web e inteligencia artificial.',
+      'Desarrollo de software, aplicaciones móviles, sitios web, tiendas online e-commerce, automatizaciones y soluciones con inteligencia artificial.',
     siteUrl: 'https://agustingarate.com',
   },
   locale: 'es' as const,
@@ -202,7 +202,7 @@ export const portfolioContent = {
       {
         title: 'Aplicaciones móviles',
         description:
-          'Desarrollo de aplicaciones móviles multiplataforma para iOS y Android optimizadas para rendimiento y fluidez.',
+          'Diseño y desarrollo de apps para iOS y Android, desde la experiencia de usuario hasta las integraciones que necesita el producto.',
         signals: ['IOS', 'ANDROID'],
         icon: 'mobile',
       },
@@ -211,6 +211,13 @@ export const portfolioContent = {
         description:
           'Creación de plataformas web interactivas y landing pages enfocadas en la captación y conversión de nuevos usuarios o clientes.',
         signals: ['WEB', 'INTERFAZ'],
+        icon: 'web',
+      },
+      {
+        title: 'E-commerce',
+        description:
+          'Desarrollo de tiendas online rápidas, seguras y adaptadas a tu negocio, con catálogo, pagos y gestión de pedidos.',
+        signals: ['CATÁLOGO', 'VENTAS'],
         icon: 'web',
       },
       {
@@ -232,7 +239,7 @@ export const portfolioContent = {
         description:
           'Lanzamiento ágil de productos mínimos viables (MVPs) para validar ideas en el mercado rápidamente con una base técnica sólida.',
         detail:
-          '¿Qué es un MVP? Es una versión simple, temprana y totalmente funcional de tu idea que nos permite lanzarla rápido al mercado para probar si funciona, ahorrando tiempo y costos antes de construir el producto final completo.',
+          '¿Qué es un MVP? Es una versión simple, temprana y funcional de tu idea que te permite probarla con usuarios reales antes de invertir en el producto completo.',
         signals: ['IDEA', 'MVP'],
         icon: 'rocket',
         featured: true,
@@ -397,6 +404,7 @@ export const portfolioContent = {
     projectTypes: [
       { label: 'Aplicación móvil', value: 'mobile' },
       { label: 'Aplicación web', value: 'web' },
+      { label: 'E-commerce', value: 'ecommerce' },
       { label: 'Automatización', value: 'automation' },
       { label: 'Otro', value: 'other' },
     ] satisfies readonly ProjectType[],
