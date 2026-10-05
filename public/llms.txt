@@ -2,11 +2,19 @@
 
 > Ingeniero de software especializado en productos digitales, aplicaciones móviles y web, inteligencia artificial y automatización.
 
+Resumen ampliado: https://agustingarate.com/llms-full.txt
+
 ## Páginas prioritarias
 
 - [Portfolio](https://agustingarate.com/): perfil profesional, experiencia, servicios y tecnologías.
 - [Blog](https://agustingarate.com/blog): artículos sobre productos digitales, tecnología y desarrollo de software.
 - [Contacto](https://agustingarate.com/#contacto): canal para consultas sobre proyectos.
+- [Aplicaciones móviles](https://agustingarate.com/servicios/aplicaciones-moviles): desarrollo de apps para iOS y Android.
+- [Páginas web](https://agustingarate.com/servicios/paginas-web): sitios y landing pages a medida.
+- [E-commerce](https://agustingarate.com/servicios/ecommerce): tiendas online, catálogo, pagos y pedidos.
+- [Sistemas internos](https://agustingarate.com/servicios/sistemas-internos): herramientas para operaciones y datos.
+- [Automatizaciones](https://agustingarate.com/servicios/automatizaciones): integraciones y flujos programados.
+- [Desarrollo de MVP](https://agustingarate.com/servicios/desarrollo-mvp): primeras versiones funcionales para validar ideas.
 
 ## Perfil
 
@@ -24,3 +32,12 @@
 - E-commerce
 
 Para información actualizada, priorizá las páginas enlazadas en este archivo y sus versiones en inglés bajo `/en`.
+
+## English service pages
+
+- [Mobile applications](https://agustingarate.com/en/services/aplicaciones-moviles)
+- [Websites](https://agustingarate.com/en/services/paginas-web)
+- [E-commerce](https://agustingarate.com/en/services/ecommerce)
+- [Internal systems](https://agustingarate.com/en/services/sistemas-internos)
+- [Automation](https://agustingarate.com/en/services/automatizaciones)
+- [MVP development](https://agustingarate.com/en/services/desarrollo-mvp)
